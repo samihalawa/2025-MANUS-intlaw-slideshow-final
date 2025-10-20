@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Euro, FileText, Check, Clock } from 'lucide-react';
+import { Euro, FileText, Check, Clock, CheckSquare } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
@@ -20,6 +20,29 @@ const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, pr
         </span>
     );
 };
+
+// FIX: Changed component to React.FC with a props interface to correctly handle the 'children' prop.
+interface TimelineItemProps {
+    children: React.ReactNode;
+    isLast?: boolean;
+    delay?: number;
+}
+
+const TimelineItem: React.FC<TimelineItemProps> = ({ children, isLast = false, delay = 0 }) => (
+    <motion.div 
+        className="flex gap-4"
+        variants={{
+            hidden: { opacity: 0, x: -20 },
+            visible: { opacity: 1, x: 0, transition: { delay } }
+        }}
+    >
+        <div className="flex flex-col items-center">
+            <div className="w-5 h-5 bg-cyan-500 rounded-full ring-4 ring-cyan-500/20"></div>
+            {!isLast && <div className="w-0.5 flex-grow bg-slate-300 my-2"></div>}
+        </div>
+        <div className="pb-6 text-lg">{children}</div>
+    </motion.div>
+);
 
 const StatCard: React.FC<{ icon: React.ReactNode; title: string; children: React.ReactNode; className?: string }> = ({ icon, title, children, className }) => (
     <div className={`bg-white rounded-xl shadow-lg border border-slate-200 p-6 h-full flex flex-col ${className}`}>
@@ -47,7 +70,7 @@ export const Slide14_C: React.FC = () => {
                     <div className="flex gap-6 text-xl text-slate-600 mt-2">
                         <span><strong className="font-semibold">Tipo:</strong> Contrato Mercantil</span>
                         <span><strong className="font-semibold">Socio:</strong> Ignacio Jové</span>
-                        <span><strong className="font-semibold">Estado:</strong> <span className="text-green-600 font-bold">Análisis Completado</span></span>
+                        <span className="flex items-center gap-2"><strong className="font-semibold">Estado:</strong> <span className="flex items-center gap-2 text-green-600 font-bold"><div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>Análisis Completado</span></span>
                     </div>
                 </motion.div>
 
@@ -82,12 +105,12 @@ export const Slide14_C: React.FC = () => {
                     {/* Right Column */}
                     <motion.div variants={{hidden: {opacity:0, x:20}, visible: {opacity:1, x:0}}} className="space-y-6">
                         <StatCard icon={<Clock className="text-cyan-500"/>} title="Línea de Tiempo">
-                            <ul className="space-y-2 text-lg">
-                                <li><strong>Hoy:</strong> Chequeo financiero OK</li>
-                                <li><strong>Ayer:</strong> Análisis IA completado</li>
-                                <li><strong>Ayer:</strong> Documento recibido</li>
-                                <li className="text-slate-500"><strong>Hace 2 días:</strong> Lead recibido (WhatsApp)</li>
-                            </ul>
+                            <motion.div variants={{ visible: { transition: { staggerChildren: 0.2 } } }}>
+                                <TimelineItem delay={0.2}><p><strong className="font-semibold">Hoy:</strong> Chequeo financiero OK</p></TimelineItem>
+                                <TimelineItem delay={0.4}><p><strong className="font-semibold">Ayer:</strong> Análisis IA completado</p></TimelineItem>
+                                <TimelineItem delay={0.6}><p><strong className="font-semibold">Ayer:</strong> Documento recibido</p></TimelineItem>
+                                <TimelineItem delay={0.8} isLast><p className="text-slate-500"><strong className="font-semibold">Hace 2 días:</strong> Lead recibido (WhatsApp)</p></TimelineItem>
+                            </motion.div>
                         </StatCard>
                          <StatCard icon={<Check className="text-cyan-500"/>} title="Próximas Tareas IA">
                             <motion.ul variants={{visible: {transition: {staggerChildren: 0.3}}}} className="space-y-2 text-lg">
@@ -101,8 +124,3 @@ export const Slide14_C: React.FC = () => {
         </SlideWrapper>
     );
 };
-const CheckSquare = (props: any) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/>
-    </svg>
-)
