@@ -8,6 +8,10 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        allowedHosts: ['3000-ial842flutlhl84ncawdp-1b05410d.manusvm.computer'],
+        hmr: {
+          clientPort: 443,
+        }
       },
       plugins: [react()],
       define: {
@@ -21,3 +25,4 @@ export default defineConfig(({ mode }) => {
       }
     };
 });
+
