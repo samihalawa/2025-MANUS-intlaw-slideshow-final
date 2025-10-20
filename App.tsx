@@ -106,8 +106,8 @@ const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
 
 export default function App() {
   return (
-    <div className="w-full bg-slate-900 font-sans text-base flex flex-col items-center py-24 px-16">
-      <main className="w-full max-w-6xl space-y-16">
+    <div className="w-full bg-slate-900 font-sans text-base flex flex-col items-center py-12 px-8">
+      <main className="w-full max-w-6xl space-y-8">
         {slides.map((SlideComponent, index) => (
           <ScaledSlide key={index}>
             <SlideComponent />
