@@ -25,9 +25,9 @@ const ProcessingBlock = ({ pages, time }: { pages: string, time:string }) => (
 );
 
 const chatSequence = [
-    { from: 'user', text: 'Analizar el expediente e identificar cláusulas de posible incumplimiento.' },
+    { from: 'user', text: 'Analizar el expediente, identificar cláusulas de incumplimiento y buscar contradicciones entre documentos.' },
     { from: 'bot', type: 'processing', pages: '1,653 páginas', time: '2m 15s' },
-    { from: 'bot', type: 'text', text: 'Análisis completado. Se han identificado 8 cláusulas. ¿Se requiere un informe detallado?' },
+    { from: 'bot', type: 'text', text: 'Análisis completado. Se han identificado 8 cláusulas de riesgo (3 de criticidad alta). Destaca una contradicción entre la cláusula 4.B del Contrato Principal y el Anexo II sobre Propiedad Intelectual. ¿Desea que genere un informe detallado de este conflicto específico?' },
 ];
 
 export const Slide11: React.FC = () => {
@@ -35,7 +35,7 @@ export const Slide11: React.FC = () => {
 
     useInterval(() => {
         setMessages(prev => (prev.length < chatSequence.length) ? [...prev, chatSequence[prev.length]] : [chatSequence[0]]);
-    }, 3500);
+    }, 4000);
 
     return (
         <SlideWrapper className="p-8 flex flex-col">

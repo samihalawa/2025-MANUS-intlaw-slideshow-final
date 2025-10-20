@@ -1,5 +1,6 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
+import { motion } from 'framer-motion';
 
 export const Slide17: React.FC = () => {
   return (
@@ -12,7 +13,18 @@ export const Slide17: React.FC = () => {
         <p className="text-4xl text-slate-700 max-w-4xl leading-relaxed">
           Una oportunidad para transformar la práctica legal a través de la inteligencia artificial.
         </p>
-        <div className="mt-20 border-t-2 border-cyan-500/50 pt-10 inline-block">
+
+        <motion.div 
+          className="mt-16"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <button className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-2xl px-12 py-5 rounded-lg shadow-lg hover:shadow-cyan-500/50 transition-shadow">
+              Agendemos una demostración en vivo
+          </button>
+        </motion.div>
+
+        <div className="mt-16 border-t-2 border-cyan-500/50 pt-10 inline-block">
             <p className="text-2xl font-semibold text-slate-800">Ignacio Jové</p>
             <p className="text-xl text-slate-600 mb-4">Project Lead</p>
             <p className="text-6xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>

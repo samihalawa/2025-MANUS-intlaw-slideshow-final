@@ -3,10 +3,10 @@ import { SlideWrapper } from '../components/SlideWrapper';
 import { Zap, TrendingUp, ShieldCheck, Award } from 'lucide-react';
 
 const benefits = [
-    { icon: <Zap size={40} />, title: 'Aumento de Eficiencia (+60%)', desc: 'Automatización de procesos y reducción de tareas manuales.' },
-    { icon: <TrendingUp size={40}/>, title: 'Capacidad de Crecimiento', desc: 'Gestión de un mayor volumen de casos sin incrementar costes operativos.' },
-    { icon: <ShieldCheck size={40}/>, title: 'Reducción de Errores', desc: 'Aumento de la precisión y consistencia en toda la documentación.' },
-    { icon: <Award size={40}/>, title: 'Liderazgo e Innovación', desc: 'Posicionamiento como referente en la aplicación de tecnología legal.' },
+    { icon: <Zap size={40} />, title: 'Aumento de Eficiencia (+60%)', desc: 'Libere a su equipo de tareas repetitivas para que puedan centrarse en estrategias de alto valor.' },
+    { icon: <TrendingUp size={40}/>, title: 'Capacidad de Crecimiento', desc: 'Escale su firma y acepte más clientes sin aumentar la plantilla ni los costes fijos.' },
+    { icon: <ShieldCheck size={40}/>, title: 'Reducción de Errores', desc: 'Minimice el riesgo humano, asegurando una precisión y consistencia documental sin precedentes.' },
+    { icon: <Award size={40}/>, title: 'Liderazgo e Innovación', desc: 'Adopte la tecnología que define el futuro de la práctica legal y diferénciese de la competencia.' },
 ];
 
 export const Slide14: React.FC = () => {

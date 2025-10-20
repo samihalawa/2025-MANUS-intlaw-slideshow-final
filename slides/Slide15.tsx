@@ -11,7 +11,8 @@ export const Slide15: React.FC = () => {
             <div className="grid grid-cols-2 gap-8 mb-8">
                 {/* Plan 1 */}
                 <div className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 flex flex-col hover:bg-white transition-colors duration-300">
-                    <h3 className="text-4xl font-bold text-slate-900 mb-6">Plan Financiado</h3>
+                    <h3 className="text-4xl font-bold text-slate-900 text-center">Plan Financiado</h3>
+                    <p className="text-xl text-slate-600 mb-6 text-center">Ideal para un flujo de caja predecible y una inversión distribuida.</p>
                     <div className="bg-white p-6 rounded-lg text-xl space-y-4 mb-6 flex-grow border border-slate-200">
                         <div className="text-center"><span className="text-slate-500">Inicial</span> <br/><span className="font-semibold text-slate-900 text-6xl">€9,000</span></div>
                         <hr/>
@@ -29,7 +30,8 @@ export const Slide15: React.FC = () => {
                     >
                         Recomendado
                     </motion.div>
-                    <h3 className="text-4xl font-bold text-slate-900 mb-6">Plan por Hitos</h3>
+                    <h3 className="text-4xl font-bold text-slate-900 text-center">Plan por Hitos</h3>
+                     <p className="text-xl text-slate-600 mb-6 text-center">Alinea la inversión con el progreso y ofrece un ahorro del 21%.</p>
                     <div className="bg-white p-6 rounded-lg text-xl space-y-4 mb-6 flex-grow border border-cyan-500/50">
                         <div className="text-center"><span className="text-slate-500">Hito 1 (Inicio)</span> <br/><span className="font-semibold text-slate-900 text-6xl">€15,000</span></div>
                         <hr/>

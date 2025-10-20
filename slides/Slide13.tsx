@@ -18,16 +18,18 @@ const DocumentPreview = () => (
             transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
         >
             <h3 className="text-center font-bold text-3xl mb-4">CONTRATO DE COMPRAVENTA MERCANTIL</h3>
-            <p className="text-center text-gray-500 mb-8 text-lg">Entre Empresa Compradora y Empresa Vendedora</p>
-            <p className="font-bold mb-3 text-2xl">I. PARTES</p>
-            <p className="mb-4 text-2xl">De una parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">Empresa Compradora S.L.</span>, con NIF [NIF de la empresa] y domicilio social en [Dirección completa], en adelante "la Compradora".</p>
-            <p className="mb-8 text-2xl">De otra parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">Empresa Vendedora S.A.</span>, con NIF [NIF de la empresa] y domicilio social en [Dirección completa], en adelante "la Vendedora".</p>
-            <p className="font-bold mb-3 text-2xl">II. OBJETO</p>
-            <p className="pl-4 text-2xl">1. El objeto del presente contrato es la compraventa de <span className="bg-yellow-100/80 px-1 rounded font-semibold">los activos tecnológicos</span> que se detallan en el Anexo I del presente documento.</p>
-            <p className="font-bold mb-3 text-2xl mt-8">III. PRECIO Y FORMA DE PAGO</p>
-            <p className="pl-4 text-2xl">2. El precio total de la transacción asciende a la cantidad de [Importe en euros], que será abonado mediante transferencia bancaria en la cuenta designada por la Vendedora.</p>
-            <p className="font-bold mb-3 text-2xl mt-8">IV. LEY APLICABLE Y JURISDICCIÓN</p>
-            <p className="pl-4 text-2xl">3. El presente contrato se regirá e interpretará de acuerdo con la legislación española. Para cualquier controversia, las partes se someten a la jurisdicción de los Tribunales de [Ciudad].</p>
+            <p className="text-center text-gray-500 mb-8 text-lg">Entre TechCorp S.L. y InnoSolutions S.A.</p>
+            <p className="font-bold mb-3 text-2xl">I. COMPARECEN</p>
+            <p className="mb-4 text-2xl">De una parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">TechCorp S.L.</span>, con NIF B-12345678 y domicilio social en C/ Innovación, 1, 28080 Madrid, en adelante "la Compradora".</p>
+            <p className="mb-8 text-2xl">De otra parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">InnoSolutions S.A.</span>, con NIF A-87654321 y domicilio social en Av. del Progreso, 2, 08080 Barcelona, en adelante "la Vendedora".</p>
+            <p className="font-bold mb-3 text-2xl">II. OBJETO DEL CONTRATO</p>
+            <p className="pl-4 text-2xl">1. El objeto del presente contrato es la compraventa de <span className="bg-yellow-100/80 px-1 rounded font-semibold">los activos tecnológicos</span> que se detallan en el Anexo I, incluyendo software, patentes y equipos asociados.</p>
+            <p className="font-bold mb-3 text-2xl mt-8">III. PRECIO Y CONDICIONES DE PAGO</p>
+            <p className="pl-4 text-2xl">2. El precio total asciende a Doscientos Cincuenta Mil Euros (€250,000.00). El pago se realizará <span className="bg-yellow-100/80 px-1 rounded font-semibold">a los 60 días de la firma</span> del presente contrato mediante transferencia bancaria.</p>
+            <p className="font-bold mb-3 text-2xl mt-8">IV. CONFIDENCIALIDAD</p>
+            <p className="pl-4 text-2xl">3. Ambas partes se comprometen a mantener la más estricta confidencialidad sobre la información intercambiada durante un período de <span className="bg-yellow-100/80 px-1 rounded font-semibold">cinco (5) años</span> desde la firma de este contrato.</p>
+             <p className="font-bold mb-3 text-2xl mt-8">V. LEY APLICABLE Y JURISDICCIÓN</p>
+            <p className="pl-4 text-2xl">4. El presente contrato se regirá por la ley española. Para cualquier controversia, las partes se someten a los tribunales de <span className="bg-yellow-100/80 px-1 rounded font-semibold">Madrid Capital</span>, renunciando a su fuero propio.</p>
         </motion.div>
         <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-white to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white to-transparent"></div>
@@ -46,8 +48,8 @@ export const Slide13: React.FC = () => {
                     <h3 className="font-bold text-slate-900 text-2xl mb-2">Nuevo Documento</h3>
                     <p className="text-lg text-slate-500 mb-6">Compraventa Mercantil</p>
                     <div className="flex-grow">
-                        <FormInput label="Compradora" value="Empresa Compradora S.L." />
-                        <FormInput label="Vendedora" value="Empresa Vendedora S.A." />
+                        <FormInput label="Compradora" value="TechCorp S.L." />
+                        <FormInput label="Vendedora" value="InnoSolutions S.A." />
                     </div>
                     <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity text-xl flex items-center justify-center gap-3">
                         <Sparkles /> Generar Documento

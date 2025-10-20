@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { LayoutDashboard, Users, Briefcase, Settings, Bell, ChevronDown } from 'lucide-react';
+import { LayoutDashboard, Users, Briefcase, Settings, Bell, ChevronDown, Sparkles } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const AnimatedStat = ({ value, suffix = '' }: { value: number, suffix?: string }) => {
@@ -79,6 +79,12 @@ const CRMApp = () => {
                                 <AnimatedStat value={s.v} suffix={s.s} />
                             </div>
                         ))}
+                    </div>
+                     <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm mb-6">
+                        <h3 className="font-bold text-slate-900 text-2xl mb-2 flex items-center gap-2"><Sparkles className="text-cyan-500" />Análisis IA del Lead Principal</h3>
+                        <p className="text-slate-600 text-xl">
+                            <strong>Motivo (Score 95):</strong> El sistema identificó palabras clave de alta prioridad ("internacional", "valor > 250k€") y clasificó a la empresa en el sector tecnológico de alto crecimiento. Se recomienda asignación inmediata a un socio senior.
+                        </p>
                     </div>
                     <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
                         <table className="w-full text-left">

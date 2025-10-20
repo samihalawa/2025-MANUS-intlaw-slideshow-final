@@ -21,15 +21,20 @@ const LeadNotification = () => (
         <div className="text-xl space-y-3 bg-slate-100/50 p-4 rounded-md mt-4">
             <p><strong className="text-slate-700 w-24 inline-block">Nombre:</strong> M. González</p>
             <p><strong className="text-slate-700 w-24 inline-block">Prioridad:</strong> <span className="font-bold text-red-500 text-2xl bg-red-500/10 px-2 py-1 rounded">ALTA (95)</span></p>
+            <div className="pt-2 mt-2 border-t border-slate-300/50">
+                <p className="text-slate-500 font-bold text-lg">Análisis IA:</p>
+                <p className="text-slate-700">Menciona 'contrato internacional' y valor alto. Recomendar contacto por socio.</p>
+            </div>
         </div>
     </motion.div>
 );
 
 const ChatWidgetConversation = () => {
     const messages = [
-        {from: 'bot', text: 'Para continuar, se necesita una dirección de correo.'},
         {from: 'user', text: 'empresa@mail.com'},
-        {from: 'bot', text: 'Recibido. Un especialista contactará en breve.'},
+        {from: 'bot', text: 'Recibido. Un socio de nuestro equipo de mercantil internacional contactará con usted en breve.'},
+        {from: 'user', text: 'Gracias.'},
+        {from: 'bot', text: 'Ha sido un placer ayudarle.'},
     ];
     const [visibleMessages, setVisibleMessages] = useState([messages[0]]);
     const chatContainerRef = useRef<HTMLDivElement>(null);

@@ -5,9 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInterval } from '../hooks/useInterval';
 
 const conversation = [
-  { from: 'bot', text: 'Bienvenido al asistente de INTLAW. ¿En qué se puede ayudar?' },
-  { from: 'user', text: 'Se requiere asesoramiento para un contrato mercantil.' },
-  { from: 'bot', text: 'Entendido. Para proceder, se solicita un correo electrónico de contacto.' },
+  { from: 'bot', text: 'Bienvenido al asistente de INTLAW. ¿En qué podemos ayudarle hoy?' },
+  { from: 'user', text: 'Necesito asesoramiento para un contrato mercantil internacional.' },
+  { from: 'bot', text: 'Entendido. Para dirigirle al especialista adecuado, ¿podría indicar el valor estimado del contrato?' },
+  { from: 'user', text: 'Aproximadamente 250.000€.' },
+  { from: 'bot', text: 'Perfecto. Este es un caso de alta prioridad. He alertado a nuestro equipo de derecho mercantil. Por favor, facilite un correo para que un socio le contacte en menos de 30 minutos.' },
 ];
 
 const ChatbotMockup = () => {
@@ -21,7 +23,7 @@ const ChatbotMockup = () => {
       // Loop conversation
       return [conversation[0]];
     });
-  }, 2500);
+  }, 2800);
 
   return (
     <div className="w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
@@ -37,7 +39,7 @@ const ChatbotMockup = () => {
           </div>
         </div>
       </div>
-      <div className="p-6 space-y-4 h-96 bg-white/50">
+      <div className="p-6 space-y-4 h-96 bg-white/50 overflow-y-auto">
         <AnimatePresence>
           {messages.map((msg, i) => (
             <motion.div
@@ -80,15 +82,15 @@ export const Slide05: React.FC = () => {
           <div className="space-y-8">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-4xl text-slate-700">Chatbot 24/7</span>
+              <span className="text-4xl text-slate-700">Atención Inmediata 24/7</span>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-4xl text-slate-700">Lead Gathering</span>
+              <span className="text-4xl text-slate-700">Cualificación Inteligente</span>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-4xl text-slate-700">Respuestas Instantáneas</span>
+              <span className="text-4xl text-slate-700">Captura de Leads Priorizados</span>
             </div>
           </div>
         </div>

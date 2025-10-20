@@ -27,7 +27,7 @@ const CopilotMockup = () => {
             </header>
             <div className="p-6 space-y-4 h-80 flex flex-col justify-center">
                  <div className="bg-cyan-500/10 border border-cyan-500/20 p-4 rounded-lg">
-                    <p className="text-cyan-800 text-2xl">Generar borrador de contrato de compraventa mercantil entre TechCorp SL y InnoSolutions SA.</p>
+                    <p className="text-cyan-800 text-2xl">Generar borrador de contrato de compraventa mercantil entre TechCorp SL y InnoSolutions SA, incluyendo una cláusula de confidencialidad de 5 años, arbitraje en Madrid y condiciones de pago a 60 días.</p>
                 </div>
                 <AnimatePresence>
                     {status === 'processing' && (
@@ -72,9 +72,9 @@ export const Slide12: React.FC = () => {
                     <div className="inline-block bg-cyan-500/10 text-cyan-600 text-lg font-bold px-4 py-2 rounded-full mb-4">Módulo 4 · SOLUCIÓN</div>
                     <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Generación Documentos</h2>
                     <div className="space-y-8">
-                        <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-4xl text-slate-700">20+ Plantillas</span></div>
+                        <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-4xl text-slate-700">Basado en Plantillas</span></div>
                         <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-4xl text-slate-700">Personalización IA</span></div>
-                        <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-4xl text-slate-700">Adaptable</span></div>
+                        <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-4xl text-slate-700">Adaptable a Normativa</span></div>
                     </div>
                 </div>
                 <div>

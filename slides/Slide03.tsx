@@ -1,12 +1,12 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Clock, MousePointerClick, FileText, Database } from 'lucide-react';
+import { Clock, Workflow, FileText, Database } from 'lucide-react';
 
 const challenges = [
-  { title: "Ineficiencia", desc: "Procesos lentos y costosos.", icon: <Clock size={32} /> },
-  { title: "Procesos Manuales", desc: "Alto índice de error y consumo de tiempo.", icon: <MousePointerClick size={32} /> },
-  { title: "Documentos Lentos", desc: "Generación manual consume tiempo.", icon: <FileText size={32} /> },
-  { title: "Análisis Masivo", desc: "Inviabilidad de revisar todo.", icon: <Database size={32} /> },
+  { title: "Ineficiencia", desc: "Consumen hasta un 40% del tiempo de los asociados.", icon: <Clock size={32} /> },
+  { title: "Procesos Manuales", desc: "Generan un 15% más de errores que los procesos automatizados.", icon: <Workflow size={32} /> },
+  { title: "Documentos Lentos", desc: "La redacción de un solo contrato puede tardar hasta 5 horas.", icon: <FileText size={32} /> },
+  { title: "Análisis Masivo", desc: "Imposibilidad de analizar el 90% de los documentos de un caso.", icon: <Database size={32} /> },
 ];
 
 export const Slide03: React.FC = () => {

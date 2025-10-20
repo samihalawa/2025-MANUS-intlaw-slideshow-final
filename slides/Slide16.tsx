@@ -20,12 +20,12 @@ export const Slide16: React.FC = () => {
                     <div className="bg-white rounded-lg p-8 border-2 border-cyan-500 text-center shadow-lg">
                          <div className="bg-cyan-500 text-white text-base font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Recomendado</div>
                          <p className="text-8xl font-bold text-slate-900">80 días</p>
-                         <p className="text-slate-600 mt-2 text-xl">Implementación completa y personalizada de los 4 módulos.</p>
+                         <p className="text-slate-600 mt-2 text-xl">Implementación completa, incluyendo talleres de personalización y fases de prueba exhaustivas.</p>
                     </div>
                      <div className="bg-white rounded-lg p-8 border border-slate-200 text-center">
                          <p className="text-base text-slate-500 uppercase mb-4">Pack Express</p>
                          <p className="text-8xl font-bold text-slate-900">40 días</p>
-                         <p className="text-slate-600 mt-2 text-xl">Implementación acelerada con un equipo de proyecto dedicado.</p>
+                         <p className="text-slate-600 mt-2 text-xl">Despliegue rápido enfocado en los módulos de mayor impacto para un ROI acelerado.</p>
                     </div>
                 </div>
             </div>

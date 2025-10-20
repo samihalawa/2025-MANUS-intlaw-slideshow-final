@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInterval } from '../hooks/useInterval';
 
 const chatConversation = [
-  { from: 'bot', text: '¿Cómo se puede asistir?' },
+  { from: 'bot', text: 'Bienvenido. ¿Cómo podemos asistirle?' },
   { from: 'user', text: 'Solicito información sobre derecho mercantil.' },
+  { from: 'bot', text: 'Por supuesto. Nuestro equipo está especializado en contratos, fusiones y litigios. ¿Tiene un área de interés específica?' },
 ];
 
 const ChatbotWidget = () => {
@@ -91,8 +92,8 @@ export const Slide06: React.FC = () => {
 
                     <ChatbotWidget />
 
-                    <FeatureAnnotation text="Integración Transparente" position="top-1/3 right-[380px]" />
-                    <FeatureAnnotation text="Captura de Datos Automatizada" position="top-1/2 right-[420px]" />
+                    <FeatureAnnotation text="Experiencia de Usuario Fluida" position="top-1/3 right-[380px]" />
+                    <FeatureAnnotation text="Cualificación Inteligente 24/7" position="top-1/2 right-[420px]" />
                 </div>
             </div>
         </SlideWrapper>

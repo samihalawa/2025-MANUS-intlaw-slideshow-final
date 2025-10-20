@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Bot, Users, MessageSquare } from 'lucide-react';
+import { Bot, Users, Clock } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const AnimatedNumber = ({ value }: { value: number }) => {
@@ -23,7 +23,7 @@ const AnimatedNumber = ({ value }: { value: number }) => {
 const stats = [
     { value: '>85%', label: 'Potencial Automatización', icon: <Bot size={48} /> },
     { value: '+30%', label: 'Proyección Captación', icon: <Users size={48} /> },
-    { value: '24/7', label: 'Disponibilidad IA', icon: <MessageSquare size={48} /> },
+    { value: '<60s', label: 'Tiempo de Respuesta', icon: <Clock size={48} /> },
 ]
 
 export const Slide04: React.FC = () => {
@@ -45,8 +45,10 @@ export const Slide04: React.FC = () => {
                         <div className="text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                             {stat.value.startsWith('>') && '>'}
                             {stat.value.startsWith('+') && '+'}
+                             {stat.value.startsWith('<') && '<'}
                             {isAnimatable ? <AnimatedNumber value={numberValue} /> : stat.value}
                             {stat.value.endsWith('%') && '%'}
+                            {stat.value.endsWith('s') && 's'}
                         </div>
                         <div className="mt-4 text-2xl font-semibold text-slate-600 uppercase tracking-widest">{stat.label}</div>
                     </div>
