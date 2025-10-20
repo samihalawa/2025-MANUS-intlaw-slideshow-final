@@ -31,7 +31,7 @@ const BarChart = ({ data }: { data: { label: string; value: number; color: strin
                     transition={{ duration: 1, ease: 'easeOut' }}
                     viewport={{ once: true }}
                 ></motion.div>
-                <p className="mt-2 text-sm font-semibold text-slate-600">{item.label}</p>
+                <p className="mt-2 text-xs font-semibold text-white/60 uppercase tracking-[0.3em]">{item.label}</p>
             </div>
         ))}
     </div>
@@ -39,57 +39,57 @@ const BarChart = ({ data }: { data: { label: string; value: number; color: strin
 
 export const Slide14_Dashboard: React.FC = () => {
     const efficiencyData = [
-        { label: 'Antes', value: 25, color: 'bg-slate-300' },
-        { label: 'Después', value: 85, color: 'bg-cyan-500' },
+        { label: 'Antes', value: 25, color: 'bg-white/30' },
+        { label: 'Después', value: 85, color: 'bg-cyan-300' },
     ];
      const capacityData = [
-        { label: 'Antes', value: 40, color: 'bg-slate-300' },
-        { label: 'Después', value: 90, color: 'bg-cyan-500' },
+        { label: 'Antes', value: 40, color: 'bg-white/30' },
+        { label: 'Después', value: 90, color: 'bg-cyan-300' },
     ];
 
     return (
         <SlideWrapper className="p-12 flex flex-col">
-            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Dashboard de Retorno de Inversión (ROI)</h2>
-            <p className="text-2xl text-slate-600 mb-8 text-center">Visualizando el impacto tangible de INTLAW AI.</p>
+            <h2 className="text-6xl font-bold tracking-tight text-[#071733] text-center mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>Dashboard de Retorno de Inversión (ROI)</h2>
+            <p className="text-[#2C4874] text-center mb-10 text-lg uppercase tracking-[0.35em]">Eficiencia · Crecimiento · Calidad · Liderazgo</p>
             <div className="grid grid-cols-2 grid-rows-2 gap-8 flex-grow">
                 {/* Eficiencia */}
-                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200">
-                    <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><Zap className="text-cyan-500"/> Aumento de Eficiencia</h3>
+                <div className="bg-gradient-to-br from-[#051026] via-[#102148] to-[#1A3665] rounded-3xl p-6 border border-white/12 text-white shadow-[0_22px_60px_rgba(7,15,32,0.4)]">
+                    <h3 className="text-lg font-semibold text-white/80 uppercase tracking-[0.35em] mb-4 flex items-center gap-3"><Zap className="text-cyan-200"/> Aumento de Eficiencia</h3>
                     <div className="text-center mb-4">
-                        <p className="text-6xl font-bold text-cyan-500">
+                        <p className="text-5xl font-bold text-cyan-200">
                            +<AnimatedNumber value={60} suffix="%" />
                         </p>
-                        <p className="text-slate-600 text-lg">En tareas automatizables</p>
+                        <p className="text-white/60 text-sm uppercase tracking-[0.35em] mt-2">En tareas automatizables</p>
                     </div>
                     <BarChart data={efficiencyData} />
                 </div>
                  {/* Crecimiento */}
-                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200">
-                     <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><TrendingUp className="text-cyan-500"/> Capacidad de Crecimiento</h3>
+                <div className="bg-gradient-to-br from-[#051026] via-[#11244E] to-[#1D3B6E] rounded-3xl p-6 border border-white/12 text-white shadow-[0_22px_60px_rgba(7,15,32,0.4)]">
+                     <h3 className="text-lg font-semibold text-white/80 uppercase tracking-[0.35em] mb-4 flex items-center gap-3"><TrendingUp className="text-cyan-200"/> Capacidad de Crecimiento</h3>
                      <div className="text-center mb-4">
-                        <p className="text-6xl font-bold text-cyan-500">
+                        <p className="text-5xl font-bold text-cyan-200">
                            +<AnimatedNumber value={25} suffix="%" />
                         </p>
-                        <p className="text-slate-600 text-lg">Casos gestionados sin ampliar equipo</p>
+                        <p className="text-white/60 text-sm uppercase tracking-[0.35em] mt-2">Casos gestionados sin ampliar equipo</p>
                     </div>
                      <BarChart data={capacityData} />
                 </div>
                  {/* Reducción Errores */}
-                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200 flex flex-col items-center justify-center text-center">
-                     <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><ShieldCheck className="text-cyan-500"/> Reducción de Errores</h3>
-                     <p className="text-xl text-slate-500 line-through">15% Tasa de Error Humano</p>
-                     <p className="text-7xl font-bold text-cyan-500 mt-2">
+                <div className="bg-gradient-to-br from-[#051026] via-[#102349] to-[#1C3768] rounded-3xl p-6 border border-white/12 flex flex-col items-center justify-center text-center text-white shadow-[0_22px_60px_rgba(7,15,32,0.4)]">
+                     <h3 className="text-lg font-semibold text-white/80 uppercase tracking-[0.35em] mb-4 flex items-center gap-3"><ShieldCheck className="text-cyan-200"/> Reducción de Errores</h3>
+                     <p className="text-sm text-white/40 line-through uppercase tracking-[0.35em]">15% tasa de error humano</p>
+                     <p className="text-6xl font-bold text-cyan-200 mt-2">
                         &lt;<AnimatedNumber value={1} suffix="%" />
                      </p>
-                     <p className="text-slate-600 text-lg mt-2">En análisis y redacción documental</p>
+                     <p className="text-white/60 text-sm mt-2 uppercase tracking-[0.35em]">En análisis y redacción documental</p>
                 </div>
                  {/* Liderazgo */}
-                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200 flex flex-col items-center justify-center text-center">
-                     <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><Award className="text-cyan-500"/> Liderazgo e Innovación</h3>
-                     <p className="text-7xl font-bold text-cyan-500">
+                <div className="bg-gradient-to-br from-[#051026] via-[#122650] to-[#1E3C70] rounded-3xl p-6 border border-white/12 flex flex-col items-center justify-center text-center text-white shadow-[0_22px_60px_rgba(7,15,32,0.4)]">
+                     <h3 className="text-lg font-semibold text-white/80 uppercase tracking-[0.35em] mb-4 flex items-center gap-3"><Award className="text-cyan-200"/> Liderazgo e Innovación</h3>
+                     <p className="text-6xl font-bold text-cyan-200">
                         #<AnimatedNumber value={1} />
                      </p>
-                     <p className="text-slate-600 text-lg mt-2">Posicionamiento como firma líder en tecnología legal</p>
+                     <p className="text-white/60 text-sm mt-2 uppercase tracking-[0.35em]">Posicionamiento como firma líder en tecnología legal</p>
                 </div>
             </div>
         </SlideWrapper>

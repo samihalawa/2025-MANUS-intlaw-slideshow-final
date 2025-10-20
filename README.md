@@ -18,3 +18,13 @@ View your app in AI Studio: https://ai.studio/apps/drive/1DklWiIGfisT2jMWXRtweMx
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Export Slides as Images
+
+Generate 1280×720 PNG captures for every slide (requires a local Chromium download on first run):
+
+```bash
+npm run export:slides
+```
+
+Images are written to the `exports/` directory and the folder is regenerated on each run.

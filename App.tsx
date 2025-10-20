@@ -44,6 +44,7 @@ const slides = [
 // with the `key` prop in a list. Defining props with a separate interface resolves this.
 interface ScaledSlideProps {
   children: React.ReactNode;
+  index: number;
 }
 
 /**
@@ -51,7 +52,7 @@ interface ScaledSlideProps {
  * while maintaining a 16:9 aspect ratio.
  */
 // FIX: Changed to React.FC to correctly handle the 'key' prop in lists.
-const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
+const ScaledSlide: React.FC<ScaledSlideProps> = ({ children, index }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
@@ -90,6 +91,7 @@ const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
       }}
     >
       <div
+        data-slide-index={index}
         style={{
           width: SLIDE_WIDTH,
           height: SLIDE_HEIGHT,
@@ -109,7 +111,7 @@ export default function App() {
     <div className="w-full bg-slate-900 font-sans text-base flex flex-col items-center py-12 px-8">
       <main className="w-full max-w-6xl space-y-8">
         {slides.map((SlideComponent, index) => (
-          <ScaledSlide key={index}>
+          <ScaledSlide key={index} index={index}>
             <SlideComponent />
           </ScaledSlide>
         ))}
