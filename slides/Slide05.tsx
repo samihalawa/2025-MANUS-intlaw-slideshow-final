@@ -113,15 +113,15 @@ export const Slide05: React.FC = () => {
           <div className="space-y-8">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-5xl text-slate-700">Cualificación y Cotización</span>
+              <span className="text-4xl text-slate-700">Cualificación y Cotización</span>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-5xl text-slate-700">Captura Segura de Documentos</span>
+              <span className="text-4xl text-slate-700">Captura Segura de Documentos</span>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-5xl text-slate-700">Creación Automática de Caso</span>
+              <span className="text-4xl text-slate-700">Creación Automática de Caso</span>
             </div>
           </div>
         </div>

@@ -31,9 +31,9 @@ const InboxView = () => (
                     <h3 className="font-bold text-slate-900 text-2xl mb-2">TechCorp SL</h3>
                     <div className="bg-slate-100/50 p-3 rounded-md">
                         <p className="font-semibold text-slate-500 text-lg">Análisis IA (API Externa)</p>
-                        <p className="text-slate-700 text-2xl mt-2"><strong className="font-semibold">Fuente:</strong> Registro Mercantil</p>
-                        <p className="text-slate-700 text-2xl"><strong className="font-semibold">Facturación 2024:</strong> €5.2M</p>
-                        <p className="text-slate-700 text-2xl"><strong className="font-semibold">Decisor Clave:</strong> Juan Pérez (CEO)</p>
+                        <p className="text-slate-700 text-xl mt-2"><strong className="font-semibold">Fuente:</strong> Registro Mercantil</p>
+                        <p className="text-slate-700 text-xl"><strong className="font-semibold">Facturación 2024:</strong> €5.2M</p>
+                        <p className="text-slate-700 text-xl"><strong className="font-semibold">Decisor Clave:</strong> Juan Pérez (CEO)</p>
                     </div>
                     <p className="mt-4 text-slate-500 text-lg"><strong className="font-semibold text-slate-800">Estado:</strong> Pendiente de revisión</p>
                 </div>

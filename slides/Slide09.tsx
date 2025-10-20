@@ -8,7 +8,7 @@ const AnimatedStat = ({ value, suffix = '' }: { value: number, suffix?: string }
     const rounded = useTransform(count, latest => Math.round(latest));
 
     useEffect(() => {
-        const controls = animate(count, value, { duration: 1.5 });
+        const controls = animate(count, value, { duration: 1.5, repeat: Infinity, repeatDelay: 4 });
         return controls.stop;
     }, [value]);
 
@@ -43,8 +43,16 @@ const InboxView = () => {
                 ))}
             </div>
              <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm mb-6">
-                <h3 className="font-bold text-slate-900 text-2xl mb-2 flex items-center gap-2"><Sparkles className="text-cyan-500" />Análisis IA del Lead Principal</h3>
-                <p className="text-slate-600 text-2xl">
+                <h3 className="font-bold text-slate-900 text-2xl mb-2 flex items-center gap-2">
+                    <motion.div
+                        animate={{ scale: [1, 1.3, 1], rotate: [0, -10, 10, 0] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                    >
+                        <Sparkles className="text-cyan-500" />
+                    </motion.div>
+                    Análisis IA del Lead Principal
+                </h3>
+                <p className="text-slate-600 text-xl">
                     <strong>Motivo (Score 95):</strong> El sistema identificó palabras clave de alta prioridad ("internacional", "valor > 250k€") y clasificó a la empresa en el sector tecnológico de alto crecimiento. Se recomienda asignación inmediata a un socio senior.
                 </p>
             </div>
@@ -94,7 +102,13 @@ const ProspeccionView = () => {
                                         <p className="font-semibold text-slate-800 text-xl">{p.name}</p>
                                         <p className="text-slate-500 text-lg">{p.location}</p>
                                      </div>
-                                     <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-md text-lg transition-colors">Generar Contacto</button>
+                                     <motion.button 
+                                        className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-md text-lg transition-colors"
+                                        animate={{ scale: [1, 1.05, 1] }}
+                                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                     >
+                                        Generar Contacto
+                                    </motion.button>
                                  </div>
                              ))}
                          </div>

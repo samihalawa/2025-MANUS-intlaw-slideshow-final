@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 export function useInterval(callback: () => void, delay: number | null) {
-  // FIX: The `useRef` hook requires an initial value. Initialize it with the callback.
-  const savedCallback = useRef(callback);
+  const savedCallback = useRef<() => void>();
 
   useEffect(() => {
     savedCallback.current = callback;

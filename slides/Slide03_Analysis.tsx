@@ -4,34 +4,33 @@ import { Target, Webhook, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ignacioPoints = [
-    { text: "Análisis Rentabilidad 'Mutaciones'" },
-    { text: "Extraer leads de Idealista" },
-    { text: "P&L mensual por cliente/socio" },
+    { text: "Análisis de Rentabilidad en 'Mutaciones'" },
+    { text: "Extraer la base de datos de leads de Idealista" },
+    { text: "Establecer P&L mensual por cliente, por socio" },
 ];
 
 const simonePoints = [
-    { text: "Automatizar scoring y compliance" },
-    { text: "Integrar chatbot en WordPress" },
-    { text: "Asistencia IA para contenido" },
+    { text: "Automatizar el 'scoring' de leads y la solicitud de 'compliance'" },
+    { text: "Integrar un chatbot inteligente en el WordPress actual" },
+    { text: "Asistencia IA en la creación y personalización de contenidos" },
 ];
 
 const Card = ({ title, points, icon }: { title: string; points: { text: string }[]; icon: React.ReactNode; }) => (
     <div className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 flex flex-col h-full">
         <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-[#dbeafe] text-[#1e40af] rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-16 h-16 bg-cyan-500/10 text-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
                 {icon}
             </div>
-            <h3 className="text-6xl font-bold text-slate-800">{title}</h3>
+            <h3 className="text-4xl font-bold text-slate-800">{title}</h3>
         </div>
-        <ul className="space-y-4 text-4xl text-slate-700 flex-grow">
+        <ul className="space-y-4 text-2xl text-slate-700 flex-grow">
             {points.map((point, index) => (
                 <motion.li 
                     key={index} 
                     className="flex items-start gap-3"
                     initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 + 0.3 }}
-                    viewport={{ once: true }}
                 >
                     <CheckCircle className="w-8 h-8 text-green-500 mt-1 flex-shrink-0" />
                     <span>{point.text}</span>
@@ -44,8 +43,8 @@ const Card = ({ title, points, icon }: { title: string; points: { text: string }
 export const Slide03_Analysis: React.FC = () => {
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-9xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Solución a Medida</h2>
-            <p className="text-4xl text-slate-600 mb-12 text-center">Respuesta a sus desafíos.</p>
+            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Una Solución a su Medida</h2>
+            <p className="text-3xl text-slate-600 mb-12 text-center">Hemos escuchado sus desafíos y diseñado una respuesta directa.</p>
 
             <div className="grid grid-cols-2 gap-8">
                 <Card title="Para Ignacio: Eficiencia y Crecimiento" points={ignacioPoints} icon={<Target size={32}/>} />

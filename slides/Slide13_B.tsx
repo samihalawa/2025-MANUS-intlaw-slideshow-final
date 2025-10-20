@@ -1,123 +1,105 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { FileText, Sparkles, Loader, CheckCircle } from 'lucide-react';
+import { FileText, Download, Sparkles, Link, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const DocumentPreview = () => (
-    <div className="bg-white rounded-md shadow-lg h-full overflow-y-auto relative border border-slate-200">
-        <div className="p-8 font-serif text-xl text-slate-800 leading-relaxed doc-content">
-            <div className="text-center mb-6 pb-4 border-b-2 border-slate-200">
-                <h3 className="font-bold text-2xl uppercase tracking-wider text-[#1a2947]">Contrato de Compraventa</h3>
-                <p className="text-slate-600 text-lg">TechCorp S.L. y InnoSolutions S.A.</p>
-            </div>
-            
-            <div className="space-y-4 text-xl">
-                <div>
-                    <h4 className="font-bold text-xl mb-2 text-[#1a2947]">REUNIDOS</h4>
-                    <p><strong>COMPRADORA:</strong> <span className="variable">TechCorp S.L.</span></p>
-                    <p><strong>VENDEDORA:</strong> <span className="variable">InnoSolutions S.A.</span></p>
-                </div>
-                
-                <div>
-                    <h4 className="font-bold text-xl mb-2 text-[#1a2947]">CLÁUSULAS</h4>
-                    <p><strong>1. Objeto:</strong> Compraventa de activos tecnológicos.</p>
-                    <p><strong>2. Confidencialidad:</strong> <span className="variable">5 años</span>.</p>
-                    <p><strong>3. Pago:</strong> <span className="variable">60 días</span>.</p>
-                    <p><strong>4. Arbitraje:</strong> <span className="variable">Madrid</span>.</p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-8 pt-8 mt-8 border-t-2 border-slate-200">
-                    <div className="text-center">
-                        <div className="border-b-2 border-slate-800 h-12 mb-2"></div>
-                        <p className="font-bold text-sm text-slate-600">LA COMPRADORA</p>
-                    </div>
-                    <div className="text-center">
-                        <div className="border-b-2 border-slate-800 h-12 mb-2"></div>
-                        <p className="font-bold text-sm text-slate-600">LA VENDEDORA</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <style>{`
-          .doc-content .variable {
-            background: #fef3c7;
-            padding: 1px 4px;
-            border-radius: 3px;
-            font-weight: 600;
-            color: #92400e;
-          }
-        `}</style>
+const FormInput = ({ label, value }: { label: string; value: string; }) => (
+    <div>
+        <label className="text-lg font-semibold text-slate-600 mb-2 block">{label}</label>
+        <input type="text" value={value} readOnly className="w-full bg-slate-100/50 border-2 border-slate-300 rounded-md p-3 text-xl text-slate-800 outline-none transition-all"/>
     </div>
 );
 
+const DocumentPreview = ({ data }: { data: { compradora: string, vendedora: string }}) => (
+    <div className="bg-white rounded-md shadow-lg h-full overflow-hidden relative border border-slate-200">
+        <div className="p-10 text-black leading-relaxed font-serif">
+            <h3 className="text-center font-bold text-3xl mb-4">CONTRATO DE COMPRAVENTA</h3>
+            <p className="text-center text-gray-500 mb-8 text-lg">Entre {data.compradora || '...'} y {data.vendedora || '...'}</p>
+            <p className="mb-4 text-2xl">De una parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">{data.compradora || '[COMPRADORA]'}</span>...</p>
+            <p className="mb-8 text-2xl">De otra parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">{data.vendedora || '[VENDEDORA]'}</span>...</p>
+        </div>
+        <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-white to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white to-transparent"></div>
+    </div>
+);
+
+const CrmModal = ({ onSelect, onClose }: { onSelect: () => void; onClose: () => void; }) => (
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="absolute inset-0 bg-black/40 flex items-center justify-center z-50"
+        onClick={onClose}
+    >
+        <motion.div
+            initial={{ scale: 0.9, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.9, y: 20 }}
+            className="bg-white rounded-xl shadow-2xl w-full max-w-lg overflow-hidden"
+            onClick={e => e.stopPropagation()}
+        >
+            <div className="p-4 border-b border-slate-200">
+                <h3 className="text-2xl font-bold text-slate-800">Buscar Lead en CRM</h3>
+            </div>
+            <div className="p-4">
+                <div className="relative mb-4">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={20}/>
+                    <input type="text" placeholder="Buscar por nombre o empresa..." className="w-full pl-10 p-3 bg-slate-100 rounded-md text-lg"/>
+                </div>
+                <div 
+                    className="p-4 rounded-md hover:bg-cyan-500/10 cursor-pointer border border-transparent hover:border-cyan-500/50"
+                    onClick={onSelect}
+                >
+                    <p className="font-bold text-2xl text-slate-800">TechCorp S.L.</p>
+                    <p className="text-slate-500 text-lg">Lead Activo - Prioridad ALTA</p>
+                </div>
+            </div>
+        </motion.div>
+    </motion.div>
+);
 
 export const Slide13_B: React.FC = () => {
-    const [status, setStatus] = useState<'prompt' | 'processing' | 'done'>('prompt');
+    const [formData, setFormData] = useState({ compradora: '', vendedora: '' });
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    useEffect(() => {
-        const sequence = ['prompt', 'processing', 'done'];
-        let currentIndex = 0;
-        const interval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % sequence.length;
-            setStatus(sequence[currentIndex] as any);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
+    const handleSelect = () => {
+        setFormData({ compradora: 'TechCorp S.L.', vendedora: 'InnoSolutions S.A.' });
+        setIsModalOpen(false);
+    };
 
     return (
-        <SlideWrapper className="p-12 flex flex-col">
-            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generación de Documentos con IA</h2>
-            <p className="text-2xl text-slate-600 text-center mb-6">De texto simple a contrato legal.</p>
+        <SlideWrapper className="p-8 flex flex-col relative">
+            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generación de Documentos Conectada</h2>
+            <p className="text-slate-600 text-center mb-6 text-2xl">De lead a documento en segundos, sin fricción.</p>
 
-            <div className="flex-grow bg-slate-50 rounded-2xl border border-slate-200 flex shadow-xl">
-                {/* Left Panel: Copilot */}
-                <div className="w-2/5 border-r border-slate-200 p-8 flex flex-col bg-white rounded-l-2xl">
-                    <h3 className="font-bold text-xl text-slate-800 mb-2 flex items-center gap-2"><Sparkles className="text-[#4a9eff]" />INTLAW AI Copilot</h3>
-                    <p className="text-base text-slate-500 mb-4">Describe el documento que necesitas.</p>
-                    
-                    <div className="bg-slate-100 border-2 border-slate-200 p-4 rounded-lg flex-grow">
-                        <p className="text-[#1a2947] text-2xl leading-relaxed">
-                            Contrato <strong>TechCorp-InnoSolutions</strong>: confidencialidad <strong>5 años</strong>, arbitraje <strong>Madrid</strong>, pago <strong>60 días</strong>.
-                        </p>
+            <div className="flex-grow bg-slate-50 rounded-xl border border-slate-200 flex min-h-[550px]">
+                {/* Left Panel: Form */}
+                <div className="w-2/5 border-r border-slate-200 p-6 flex flex-col bg-white rounded-l-xl">
+                    <h3 className="font-bold text-slate-900 text-2xl mb-6">Nuevo: Compraventa Mercantil</h3>
+                    <div className="flex-grow space-y-4">
+                        <FormInput label="Compradora" value={formData.compradora} />
+                        <FormInput label="Vendedora" value={formData.vendedora} />
                     </div>
-                    <AnimatePresence>
-                        {status === 'processing' && (
-                            <motion.div key="processing" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="p-4 rounded-lg flex items-center gap-4 mt-4">
-                                <Loader className="w-6 h-6 text-[#4a9eff] animate-spin"/>
-                                <span className="text-base font-semibold text-slate-700">IA Procesando...</span>
-                            </motion.div>
-                        )}
-                        {status === 'done' && (
-                            <motion.div key="done" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg mt-4 flex items-center gap-3">
-                                <CheckCircle className="w-8 h-8 text-green-500" />
-                                <div>
-                                    <h4 className="font-bold text-base text-green-700">Contrato Generado</h4>
-                                    <p className="text-sm text-slate-600">Listo.</p>
-                                </div>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                     <button 
+                        onClick={() => setIsModalOpen(true)}
+                        className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-lg transition-colors text-lg flex items-center justify-center gap-3 mb-3">
+                        <Link /> Importar desde CRM
+                    </button>
+                    <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity text-xl flex items-center justify-center gap-3">
+                        <Sparkles /> Generar Documento
+                    </button>
                 </div>
                 {/* Right Panel: Preview */}
-                <div className="w-3/5 p-8 flex flex-col">
-                    <h4 className="font-bold text-lg text-slate-700 mb-4 flex items-center gap-2 flex-shrink-0"><FileText size={20}/> Vista Previa en Tiempo Real</h4>
-                     <div className="flex-grow min-h-0">
-                        <AnimatePresence>
-                        {status === 'done' && (
-                             <motion.div
-                                key="preview"
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.95 }}
-                                className="h-full"
-                             >
-                                <DocumentPreview />
-                             </motion.div>
-                        )}
-                        </AnimatePresence>
+                <div className="w-3/5 p-6 bg-slate-100/50 rounded-r-xl flex flex-col">
+                     <div className="flex-grow overflow-hidden">
+                        <DocumentPreview data={formData} />
                      </div>
                 </div>
             </div>
+            
+            <AnimatePresence>
+                {isModalOpen && <CrmModal onSelect={handleSelect} onClose={() => setIsModalOpen(false)} />}
+            </AnimatePresence>
         </SlideWrapper>
     );
 };

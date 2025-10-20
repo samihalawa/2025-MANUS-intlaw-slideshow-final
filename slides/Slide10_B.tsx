@@ -23,7 +23,7 @@ export const Slide10_B: React.FC = () => {
     return (
         <SlideWrapper className="p-12 flex flex-col items-center justify-center">
             <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Radar de Oportunidades Proactivas</h2>
-            <p className="text-2xl text-slate-600 mb-8 text-center">Detecte clientes potenciales primero.</p>
+            <p className="text-2xl text-slate-600 mb-8 text-center">Detectando clientes potenciales antes que nadie.</p>
 
             <div className="w-full max-w-6xl bg-slate-50/70 rounded-2xl shadow-xl border border-slate-200 p-6">
                 <header className="flex justify-between items-center mb-4">
@@ -44,8 +44,7 @@ export const Slide10_B: React.FC = () => {
                     className="space-y-4"
                     variants={containerVariants}
                     initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
+                    animate="visible"
                 >
                     {opportunities.map((op, i) => (
                         <motion.div
