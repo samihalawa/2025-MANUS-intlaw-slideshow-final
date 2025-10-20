@@ -6,11 +6,11 @@ import { Slide02 } from './slides/Slide02';
 import { Slide03_Analysis } from './slides/Slide03_Analysis';
 import { Slide04 } from './slides/Slide04';
 import { Slide07_B } from './slides/Slide07_B';
-import { Slide08_B } from './slides/Slide08_B'; // NEW
-import { Slide10_D } from './slides/Slide10_D'; // NEW
+import { Slide08_B } from './slides/Slide08_B'; 
+import { Slide10_D } from './slides/Slide10_D'; 
 import { Slide11_B } from './slides/Slide11_B';
 import { Slide13_B } from './slides/Slide13_B';
-import { Slide14_C } from './slides/Slide14_C'; // NEW
+import { Slide14_C } from './slides/Slide14_C'; 
 import { Slide14_Dashboard } from './slides/Slide14_Dashboard';
 import { Slide15 } from './slides/Slide15';
 import { Slide16 } from './slides/Slide16';
@@ -23,34 +23,27 @@ const SLIDE_HEIGHT = 720;
 
 // Array of slide components from the 'slides' folder
 const slides = [
-  Slide01,            // 1. Título
+  Slide01,            // 1. Title
   Slide02,            // 2. Agenda
-  Slide03_Analysis,   // 3. Análisis de Necesidades
-  Slide04,            // 4. Visión y Dashboard de Impacto
-  Slide07_B,          // 5. Módulo 1: Automatización Web
-  Slide08_B,          // 6. Módulo 1 (Avanzado): Captación Multicanal y Cualificación IA
-  Slide10_D,          // 7. Módulo 2: Campañas de Captación Automatizadas ("Objetivo Bomba")
-  Slide11_B,          // 8. Módulo 3: Agente de Documentos con Citas (0% Alucinaciones)
-  Slide13_B,          // 9. Módulo 4: Generación de Documentos Conectada
-  Slide14_C,          // 10. Plataforma Unificada: Vista del Caso 360°
-  Slide14_Dashboard,  // 11. Dashboard de ROI
-  Slide15,            // 12. Modelo de Inversión
-  Slide16,            // 13. Próximos Pasos
-  Slide17             // 14. Cierre y Agradecimiento
+  Slide03_Analysis,   // 3. Needs Analysis
+  Slide04,            // 4. Vision & Impact Dashboard
+  Slide07_B,          // 5. Module 1: Web Automation (Polished Chatbot UI)
+  Slide08_B,          // 6. Module 1 (Advanced): Multichannel Lead Capture (Enhanced WhatsApp to CRM UI)
+  Slide10_D,          // 7. Module 2: Automated Prospecting Campaigns (New Dashboard UI)
+  Slide11_B,          // 8. Module 3: Document Agent with Citations (New Split-Screen UI)
+  Slide13_B,          // 9. Module 4: AI Document Generation (New Copilot to Preview UI)
+  Slide14_C,          // 10. Unified Platform: 360° Case View (New Case Dashboard UI)
+  Slide14_Dashboard,  // 11. ROI Dashboard (New Impactful Metrics UI)
+  Slide15,            // 12. Investment Model
+  Slide16,            // 13. Next Steps
+  Slide17             // 14. Closing & Thank You
 ];
 
 
-// FIX: The original inline prop type for ScaledSlide was causing a TypeScript error
-// with the `key` prop in a list. Defining props with a separate interface resolves this.
 interface ScaledSlideProps {
   children: React.ReactNode;
 }
 
-/**
- * A component that wraps a slide, scaling it to fit the container's width
- * while maintaining a 16:9 aspect ratio.
- */
-// FIX: Changed to React.FC to correctly handle the 'key' prop in lists.
 const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
@@ -63,14 +56,12 @@ const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
       }
     };
 
-    // Use ResizeObserver for robust resizing detection
     const resizeObserver = new ResizeObserver(updateScale);
     const currentRef = containerRef.current;
     if (currentRef) {
       resizeObserver.observe(currentRef);
     }
 
-    // Initial scale calculation
     updateScale();
 
     return () => {
@@ -85,7 +76,6 @@ const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
       ref={containerRef}
       className="w-full"
       style={{
-        // The container's height is determined by the scaled height of the slide content
         height: SLIDE_HEIGHT * scale,
       }}
     >

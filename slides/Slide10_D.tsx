@@ -1,124 +1,80 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Play, DatabaseZap, Users, Mail, Loader, CheckCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInterval } from '../hooks/useInterval';
+import { Play, Sparkles, CheckCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const resultsData = [
-    { lead: 'Global Estate Corp (CEO: Ana García)', status: 'sending' },
-    { lead: 'Luxury Properties SL (Dir. Legal: Carlos Soler)', status: 'pending' },
-    { lead: 'Finca Urbana SA (CEO: Elena Ruiz)', status: 'pending' },
-];
-
-const CampaignWorkflow = () => {
-    const [start, setStart] = useState(false);
-    const [results, setResults] = useState(resultsData.map(r => ({ ...r, status: 'pending' })));
-
-    useInterval(() => {
-        if (!start) return;
-        
-        const nextPendingIndex = results.findIndex(r => r.status === 'pending');
-        if (nextPendingIndex !== -1) {
-            // Start sending
-            setResults(prev => prev.map((r, i) => i === nextPendingIndex ? { ...r, status: 'sending' } : r));
-            
-            // Finish sending after a delay
-            setTimeout(() => {
-                 setResults(prev => prev.map((r, i) => i === nextPendingIndex ? { ...r, status: 'sent' } : r));
-            }, 1000);
-        } else {
-            // If all are sent, reset after a delay
-            setTimeout(() => {
-                setResults(resultsData.map(r => ({...r, status: 'pending'})));
-                setStart(false);
-            }, 3000)
-        }
-    }, start ? 1500 : null);
-
-    const processVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: (i: number) => ({ opacity: 1, scale: 1, transition: { delay: i * 0.4 + (start ? 0.5 : 0) } })
-    };
-    
-    return (
-    <div className="w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200 p-10">
-        {/* Input */}
-        <div>
-            <label className="text-xl font-semibold text-slate-600 mb-2 block">Describa su cliente ideal (Lenguaje Natural):</label>
-            <div className="flex gap-4">
-                <textarea 
-                    className="w-full bg-slate-100/70 border-2 border-slate-300 rounded-lg p-4 text-2xl text-slate-800 resize-none"
-                    rows={2}
-                    defaultValue="Empresas de Real Estate en Madrid que hayan realizado transacciones > 1M€ en los últimos 6 meses."
-                    readOnly
-                />
-                <motion.button 
-                    onClick={() => setStart(true)}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 px-6 rounded-lg text-xl flex items-center justify-center gap-3 transition-colors disabled:bg-slate-400"
-                    disabled={start}
-                >
-                    <Play /> Iniciar
-                </motion.button>
-            </div>
-        </div>
-
-        {/* Processing */}
-        <div className="flex justify-around items-center my-10 relative">
-             <svg className="absolute w-full h-px top-1/2 -translate-y-1/2 -z-10" >
-                <motion.line x1="15%" y1="0" x2="85%" y2="0" stroke="#94a3b8" strokeWidth="2" strokeDasharray="5 5"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: start ? 1 : 0 }}
-                    transition={{ duration: 1, delay: start ? 0.5 : 0 }}
-                />
-            </svg>
-            {[
-                { icon: <DatabaseZap size={32}/>, text: 'Búsqueda IA' },
-                { icon: <Users size={32}/>, text: 'Identificación Contactos' },
-                { icon: <Mail size={32}/>, text: 'Generación Emails' },
-            ].map((step, i) => (
-                <motion.div key={i} custom={i} variants={processVariants} initial="hidden" animate={start ? "visible" : "hidden"} className="flex flex-col items-center gap-3 text-center bg-white px-4">
-                    <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center border-2 border-slate-200 text-cyan-500">{step.icon}</div>
-                    <p className="font-semibold text-slate-700 text-lg max-w-[150px]">{step.text}</p>
-                </motion.div>
-            ))}
-        </div>
-
-        {/* Output */}
-        <div>
-            <h3 className="text-2xl font-bold text-slate-800 mb-4">Resultados de Campaña Activa:</h3>
-            <div className="bg-slate-50/80 rounded-lg border border-slate-200 p-4 space-y-3 min-h-[200px]">
-                 {results.map((result, i) => (
-                     <AnimatePresence key={i}>
-                     {result.status !== 'pending' &&
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0 }}
-                            className="bg-white p-4 rounded-md flex justify-between items-center border border-slate-200 shadow-sm"
-                        >
-                            <p className="font-semibold text-2xl text-slate-800">{result.lead}</p>
-                            <AnimatePresence mode="wait">
-                                {result.status === 'sent' && <motion.div initial={{opacity:0, scale:0.8}} animate={{opacity:1, scale:1}} exit={{opacity:0, scale:0.8}} key="sent" className="text-lg font-semibold bg-green-500/10 text-green-600 px-3 py-1 rounded-full flex items-center gap-2"><CheckCircle size={16}/>Email Enviado</motion.div>}
-                                {result.status === 'sending' && <motion.div initial={{opacity:0, scale:0.8}} animate={{opacity:1, scale:1}} exit={{opacity:0, scale:0.8}} key="sending" className="text-lg font-semibold bg-blue-500/10 text-blue-600 px-3 py-1 rounded-full flex items-center gap-2"><Loader size={16} className="animate-spin"/> Enviando...</motion.div>}
-                            </AnimatePresence>
-                        </motion.div>
-                     }
-                     </AnimatePresence>
-                 ))}
-            </div>
-        </div>
+const MetricCard = ({ label, value, change }: { label: string; value: string; change: string; }) => (
+    <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
+        <p className="text-sm font-semibold text-slate-500">{label}</p>
+        <p className="text-4xl font-bold text-[#1a2947]">{value}</p>
+        <p className="text-sm font-semibold text-[#4ade80]">{change}</p>
     </div>
-    )
-};
+);
 
+const ContactRow = ({ logo, name, details, status, color }: { logo: string; name: string; details: string; status: string; color: string; }) => (
+     <div className="bg-white p-3 rounded-lg flex items-center gap-4 border border-slate-200">
+        <div className="w-12 h-12 bg-gradient-to-br from-[#4a9eff] to-[#3b7dd6] rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-white text-lg">{logo}</div>
+        <div className="flex-grow">
+            <p className="font-semibold text-slate-800 text-base">{name}</p>
+            <p className="text-xs text-slate-500">{details}</p>
+        </div>
+        <span className={`text-xs font-bold px-2 py-1 rounded-full ${color}`}>{status}</span>
+    </div>
+);
 
 export const Slide10_D: React.FC = () => {
     return (
-        <SlideWrapper className="p-12 flex flex-col items-center justify-center">
-            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 2: Campañas de Captación Automatizadas ("Objetivo Bomba")</h2>
-            <p className="text-3xl text-slate-600 mb-8 text-center">De una idea a una campaña de prospección en un clic.</p>
-            <CampaignWorkflow />
+        <SlideWrapper className="p-12 flex flex-col">
+            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 2: Campañas de Captación Automatizadas</h2>
+            <p className="text-xl text-slate-600 mb-6 text-center">De una idea en lenguaje natural a una campaña de prospección activa en un clic.</p>
+            
+            <motion.div 
+                className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-8 flex-grow grid grid-cols-2 gap-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+            >
+                {/* Left Panel: Campaign Setup & Metrics */}
+                <div className="flex flex-col gap-6">
+                    <div>
+                        <label className="text-base font-semibold text-slate-600 mb-2 block">1. Describa su Cliente Ideal:</label>
+                        <div className="bg-slate-100 border-2 border-slate-200 rounded-lg p-3 text-base text-[#1a2947]">
+                            Empresas de Real Estate en Madrid con transacciones &gt; 1M€ en los últimos 6 meses.
+                        </div>
+                    </div>
+                     <motion.button 
+                        whileTap={{ scale: 0.95 }}
+                        className="bg-gradient-to-r from-[#4a9eff] to-[#3b7dd6] text-white font-bold py-3 px-6 rounded-lg text-lg flex items-center justify-center gap-3 transition-colors w-full"
+                    >
+                        <Sparkles /> Iniciar Campaña IA
+                    </motion.button>
+
+                    <div className="pt-6 border-t border-slate-200">
+                         <label className="text-base font-semibold text-slate-600 mb-2 block">2. Métricas en Tiempo Real:</label>
+                         <div className="grid grid-cols-2 gap-4">
+                            <MetricCard label="Empresas Identificadas" value="47" change="↑ 12 hoy" />
+                            <MetricCard label="Emails Enviados" value="47" change="100% entregados" />
+                            <MetricCard label="Tasa de Apertura" value="68%" change="↑ +12%" />
+                            <MetricCard label="Respuestas" value="9" change="19% tasa" />
+                         </div>
+                    </div>
+                </div>
+
+                {/* Right Panel: Results */}
+                <div className="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                    <div className="flex justify-between items-center mb-4">
+                        <label className="text-base font-semibold text-slate-600">3. Contactos Recientes:</label>
+                        <span className="text-sm font-bold px-3 py-1 rounded-full bg-[#4ade80] text-white flex items-center gap-2"><div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>ACTIVA</span>
+                    </div>
+                    <div className="space-y-3">
+                        <ContactRow logo="IP" name="Inmobiliaria Premium S.L." details="Madrid · €2.3M transacción" status="✓ Respondió" color="bg-[#d1fae5] text-[#065f46]" />
+                        <ContactRow logo="RG" name="Real Group Investments" details="Madrid · €1.8M transacción" status="👁 Abierto" color="bg-[#fef3c7] text-[#92400e]" />
+                        <ContactRow logo="CV" name="Capital Ventures Madrid" details="Madrid · €3.1M transacción" status="✓ Respondió" color="bg-[#d1fae5] text-[#065f46]" />
+                        <ContactRow logo="HE" name="Heritage Estate Partners" details="Madrid · €1.5M transacción" status="📤 Enviado" color="bg-[#dbeafe] text-[#1e40af]" />
+                    </div>
+                </div>
+            </motion.div>
         </SlideWrapper>
     );
 };

@@ -25,7 +25,7 @@ export const Slide01: React.FC = () => {
         <div className="mt-16 inline-block bg-slate-100/50 border border-slate-200 rounded-lg px-12 py-5">
           <p className="text-lg font-semibold tracking-widest uppercase text-cyan-500">Propuesta de Colaboración</p>
         </div>
-        <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 text-xs text-slate-500">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-xs text-slate-500">
           AGENTS AI Limited · 2025
         </div>
       </div>
