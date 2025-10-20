@@ -71,7 +71,7 @@ const NewLeadCard = () => (
 export const Slide08_B: React.FC = () => {
     return (
         <SlideWrapper className="p-12">
-            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 1 (Avanzado): Captación Multicanal y Cualificación IA</h2>
+            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 1: Ejemplo Práctico (WhatsApp)</h2>
             <p className="text-2xl text-slate-600 mb-6">De WhatsApp a un caso cualificado en segundos, sin intervención humana.</p>
             <div className="grid grid-cols-2 gap-8 items-center">
                 <div className="flex justify-center">

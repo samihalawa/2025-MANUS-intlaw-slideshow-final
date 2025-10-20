@@ -28,7 +28,7 @@ const steps = [
 export const Slide10_A: React.FC = () => {
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>"Objetivo Bomba" Realizado</h2>
+            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 2: Prospección Proactiva IA</h2>
             <p className="text-3xl text-slate-600 mb-12 text-center">Un módulo para la captación proactiva de clientes por nicho.</p>
             <div className="grid grid-cols-4 gap-8">
                 {steps.map((step, i) => (

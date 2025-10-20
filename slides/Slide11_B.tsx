@@ -9,7 +9,7 @@ export const Slide11_B: React.FC = () => {
     return (
         <SlideWrapper className="p-12 flex flex-col">
             <div className="text-center mb-6">
-                <h2 className="text-5xl font-bold tracking-tighter text-slate-900" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Agente de Documentos Masivos</h2>
+                <h2 className="text-5xl font-bold tracking-tighter text-slate-900" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Análisis de Documentos con Citas</h2>
                 <p className="text-xl text-slate-600 mt-2">La IA analiza miles de páginas y cita cada una de sus fuentes.</p>
                 <div className="inline-block mt-4 bg-[#4ade80] text-white px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2">
                     <ShieldCheck size={16}/> 0% Alucinaciones - Garantizado

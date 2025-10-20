@@ -38,8 +38,8 @@ const AnimatedStat = ({ value, suffix = '' }) => {
 
 export const Slide10: React.FC = () => {
     const benefits = [
-        {l:'Análisis Acelerado',v:100, s:'x'},
-        {l:'Ahorro de Tiempo',v:80, s:'%'}
+        {l:'Análisis Acelerado',v:97, s:'x'},
+        {l:'Ahorro de Tiempo',v:77, s:'%'}
     ];
 
     return (
