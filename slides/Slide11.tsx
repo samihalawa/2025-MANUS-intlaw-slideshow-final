@@ -7,7 +7,7 @@ import { useInterval } from '../hooks/useInterval';
 const DocumentViewer = ({ showHighlight }: { showHighlight: boolean }) => (
     <div className="bg-white h-full rounded-lg shadow-inner border border-slate-200 p-6 relative overflow-hidden">
         <p className="font-bold text-xl mb-2">Contrato_Principal.pdf</p>
-        <div className="text-slate-500 text-lg space-y-3 font-mono leading-relaxed">
+        <div className="text-slate-500 text-xl space-y-3 font-mono leading-relaxed">
             <p>...sección 4. PROPIEDAD INTELECTUAL...</p>
             <p>4.A. La Vendedora garantiza que posee todos los derechos sobre los activos.</p>
             <p className="relative">

@@ -12,7 +12,7 @@ import { Slide08_B } from './slides/Slide08_B';
 import { Slide09_B } from './slides/Slide09_B';
 import { Slide10 } from './slides/Slide10';
 import { Slide10_A } from './slides/Slide10_A';
-import { Slide10_B } from './slides/Slide10_B';
+import { Slide10_D } from './slides/Slide10_D';
 import { Slide10_C } from './slides/Slide10_C';
 import { Slide11_B } from './slides/Slide11_B';
 import { Slide12 } from './slides/Slide12';
@@ -41,7 +41,7 @@ const slides = [
   Slide08_B, // M1: WhatsApp Example
   Slide08, // M2: CRM Intro
   Slide10_A, // M2: Proactive Prospecting
-  Slide10_B, // M2: Opportunities Radar
+  Slide10_D, // M2: Campaign Automation UI
   Slide09_B, // M2: Summary Dashboard
   Slide10, // M3: Document Agent Intro
   Slide11_B, // M3: Analysis with Citations

@@ -5,37 +5,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const DocumentPreview = () => (
     <div className="bg-white rounded-md shadow-lg h-full overflow-y-auto relative border border-slate-200">
-        <div className="p-8 font-serif text-sm text-slate-800 leading-relaxed doc-content">
+        <div className="p-8 font-serif text-xl text-slate-800 leading-relaxed doc-content">
             <div className="text-center mb-6 pb-4 border-b-2 border-slate-200">
-                <h3 className="font-bold text-xl uppercase tracking-wider text-[#1a2947]">Contrato de Compraventa Mercantil</h3>
-                <p className="text-slate-600">Entre <span className="variable">TechCorp S.L.</span> y <span className="variable">InnoSolutions S.A.</span></p>
+                <h3 className="font-bold text-2xl uppercase tracking-wider text-[#1a2947]">Contrato de Compraventa</h3>
+                <p className="text-slate-600 text-lg">TechCorp S.L. y InnoSolutions S.A.</p>
             </div>
             
-            <div className="space-y-4 text-base">
+            <div className="space-y-4 text-xl">
                 <div>
-                    <h4 className="font-bold text-base mb-2 text-[#1a2947]">REUNIDOS</h4>
-                    <p><strong>De una parte,</strong> <span className="variable">TechCorp S.L.</span> (en adelante, "la COMPRADORA").</p>
-                    <p><strong>De otra parte,</strong> <span className="variable">InnoSolutions S.A.</span> (en adelante, "la VENDEDORA").</p>
+                    <h4 className="font-bold text-xl mb-2 text-[#1a2947]">REUNIDOS</h4>
+                    <p><strong>COMPRADORA:</strong> <span className="variable">TechCorp S.L.</span></p>
+                    <p><strong>VENDEDORA:</strong> <span className="variable">InnoSolutions S.A.</span></p>
                 </div>
                 
                 <div>
-                    <h4 className="font-bold text-base mb-2 text-[#1a2947]">CLÁUSULAS</h4>
-                    <p><strong>Primera. Objeto del Contrato.</strong> El objeto del presente contrato es la compraventa de activos tecnológicos.</p>
-                    <p><strong>Segunda. Confidencialidad.</strong> Las partes se comprometen a mantener confidencialidad absoluta sobre los términos durante un período de <span className="variable">cinco (5) años</span>.</p>
-                    <p><strong>Tercera. Forma de Pago.</strong> El pago se realizará a los <span className="variable">sesenta (60) días</span> posteriores a la fecha de firma del presente contrato.</p>
-                    <p><strong>Cuarta. Arbitraje y Jurisdicción.</strong> Para cualquier controversia, las partes se someten al arbitraje de la Corte de <span className="variable">Madrid</span>.</p>
+                    <h4 className="font-bold text-xl mb-2 text-[#1a2947]">CLÁUSULAS</h4>
+                    <p><strong>1. Objeto:</strong> Compraventa de activos tecnológicos.</p>
+                    <p><strong>2. Confidencialidad:</strong> <span className="variable">5 años</span>.</p>
+                    <p><strong>3. Pago:</strong> <span className="variable">60 días</span>.</p>
+                    <p><strong>4. Arbitraje:</strong> <span className="variable">Madrid</span>.</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-8 pt-8 mt-8 border-t-2 border-slate-200">
                     <div className="text-center">
                         <div className="border-b-2 border-slate-800 h-12 mb-2"></div>
                         <p className="font-bold text-sm text-slate-600">LA COMPRADORA</p>
-                        <p className="font-semibold text-base text-[#1a2947]">TechCorp S.L.</p>
                     </div>
                     <div className="text-center">
                         <div className="border-b-2 border-slate-800 h-12 mb-2"></div>
                         <p className="font-bold text-sm text-slate-600">LA VENDEDORA</p>
-                        <p className="font-semibold text-base text-[#1a2947]">InnoSolutions S.A.</p>
                     </div>
                 </div>
             </div>
@@ -68,8 +66,8 @@ export const Slide13_B: React.FC = () => {
 
     return (
         <SlideWrapper className="p-12 flex flex-col">
-            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 4: Generación de Documentos con IA</h2>
-            <p className="text-xl text-slate-600 text-center mb-6">De una instrucción en lenguaje natural a un contrato completo y preciso.</p>
+            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generación de Documentos con IA</h2>
+            <p className="text-2xl text-slate-600 text-center mb-6">De texto simple a contrato legal.</p>
 
             <div className="flex-grow bg-slate-50 rounded-2xl border border-slate-200 flex shadow-xl">
                 {/* Left Panel: Copilot */}
@@ -78,8 +76,8 @@ export const Slide13_B: React.FC = () => {
                     <p className="text-base text-slate-500 mb-4">Describe el documento que necesitas.</p>
                     
                     <div className="bg-slate-100 border-2 border-slate-200 p-4 rounded-lg flex-grow">
-                        <p className="text-[#1a2947] text-base leading-relaxed">
-                            Generar un borrador de contrato de compraventa mercantil entre <strong>TechCorp SL</strong> y <strong>InnoSolutions SA</strong>, incluyendo una cláusula de confidencialidad de <strong>5 años</strong>, arbitraje en <strong>Madrid</strong> y condiciones de pago a <strong>60 días</strong>.
+                        <p className="text-[#1a2947] text-2xl leading-relaxed">
+                            Contrato <strong>TechCorp-InnoSolutions</strong>: confidencialidad <strong>5 años</strong>, arbitraje <strong>Madrid</strong>, pago <strong>60 días</strong>.
                         </p>
                     </div>
                     <AnimatePresence>
@@ -94,7 +92,7 @@ export const Slide13_B: React.FC = () => {
                                 <CheckCircle className="w-8 h-8 text-green-500" />
                                 <div>
                                     <h4 className="font-bold text-base text-green-700">Contrato Generado</h4>
-                                    <p className="text-sm text-slate-600">Listo para revisar.</p>
+                                    <p className="text-sm text-slate-600">Listo.</p>
                                 </div>
                             </motion.div>
                         )}

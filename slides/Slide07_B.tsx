@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInterval } from '../hooks/useInterval';
 
 const conversation = [
-  { from: 'bot', text: 'Bienvenido al asistente de INTLAW. ¿En qué podemos ayudarle hoy?' },
-  { from: 'user', text: 'Necesito asesoramiento para un contrato mercantil.' },
-  { from: 'bot', text: 'Entendido. Para dirigirle al especialista adecuado, ¿cuál es el valor estimado del contrato?', tag: 'CONTRATO MERCANTIL' },
-  { from: 'user', text: 'Entre 50.000€ y 75.000€' },
-  { from: 'bot', text: 'Perfecto. Un socio se pondrá en contacto en breve. ¿Podría compartir algún documento relevante?' },
+  { from: 'bot', text: 'Bienvenido a INTLAW AI. ¿Cómo puedo ayudarle?' },
+  { from: 'user', text: 'Asesoramiento para contrato mercantil.' },
+  { from: 'bot', text: 'Entendido. ¿Valor estimado del contrato?', tag: 'CONTRATO MERCANTIL' },
+  { from: 'user', text: '50.000€ - 75.000€' },
   { from: 'bot', type: 'typing' },
+  { from: 'bot', text: 'Perfecto. Un socio le contactará. ¿Puede subir documentos?' },
 ];
 
 const ChatbotMockup = () => {
@@ -30,7 +30,7 @@ const ChatbotMockup = () => {
       <div className="bg-[#1a2947] text-white p-5 flex items-center gap-4">
         <div className="w-12 h-12 bg-gradient-to-br from-[#4a9eff] to-[#3b7dd6] rounded-full flex items-center justify-center font-bold text-xl">IA</div>
         <div>
-          <h3 className="text-lg font-semibold">INTLAW AI Assistant</h3>
+          <h3 className="text-xl font-semibold">INTLAW AI Assistant</h3>
           <div className="flex items-center gap-2 text-sm text-[#4ade80]">
             <span className="w-2 h-2 bg-[#4ade80] rounded-full animate-pulse"></span>
             Online
@@ -58,13 +58,13 @@ const ChatbotMockup = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className={`flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}
               >
-                <div className={`p-4 rounded-2xl max-w-[85%] text-lg shadow-md ${
+                <div className={`p-4 rounded-2xl max-w-[85%] text-2xl shadow-md ${
                   msg.from === 'bot' 
                   ? 'bg-white text-[#1a2947] rounded-bl-sm' 
                   : 'bg-[#1a2947] text-white rounded-br-sm'
                 }`}>
                   <p>{msg.text}</p>
-                   {msg.tag && <div className="mt-2 inline-block bg-[#dbeafe] text-[#1e40af] text-xs font-bold px-3 py-1 rounded-full">{msg.tag}</div>}
+                   {msg.tag && <div className="mt-2 inline-block bg-[#dbeafe] text-[#1e40af] text-sm font-bold px-3 py-1 rounded-full">{msg.tag}</div>}
                 </div>
               </motion.div>
             );
@@ -72,7 +72,7 @@ const ChatbotMockup = () => {
         </AnimatePresence>
       </div>
       <div className="p-5 bg-white border-t border-slate-200 flex items-center gap-3">
-        <input type="text" placeholder="Escriba un mensaje..." className="w-full bg-slate-100 border-2 border-slate-200 rounded-full p-3 text-base" disabled />
+        <input type="text" placeholder="Escriba un mensaje..." className="w-full bg-slate-100 border-2 border-slate-200 rounded-full p-3 text-lg" disabled />
         <button className="w-12 h-12 bg-gradient-to-br from-[#4a9eff] to-[#3b7dd6] text-white rounded-full flex-shrink-0 flex items-center justify-center text-2xl">➤</button>
       </div>
     </div>
@@ -85,12 +85,12 @@ export const Slide07_B: React.FC = () => {
       <div className="grid grid-cols-2 gap-12 items-center h-full">
         <div>
           <div className="inline-block bg-[#dbeafe] text-[#1e40af] text-lg font-bold px-4 py-2 rounded-full mb-4">Módulo 1</div>
-          <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Automatización Web de Principio a Fin</h2>
-          <div className="space-y-6 text-3xl text-slate-700">
+          <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Automatización Web</h2>
+          <div className="space-y-6 text-5xl text-slate-700">
             <div className="flex items-center gap-4"><CheckCircle className="text-green-500 w-8 h-8"/><span>Cualificación 24/7</span></div>
-            <div className="flex items-center gap-4"><CheckCircle className="text-green-500 w-8 h-8"/><span>Cita reuniones Automática</span></div>
+            <div className="flex items-center gap-4"><CheckCircle className="text-green-500 w-8 h-8"/><span>Agendamiento automático</span></div>
             <div className="flex items-center gap-4"><CheckCircle className="text-green-500 w-8 h-8"/><span>Captura Segura de Documentos</span></div>
-            <div className="flex items-center gap-4"><CheckCircle className="text-green-500 w-8 h-8"/><span>Creación de Caso Automática</span></div>
+            <div className="flex items-center gap-4"><CheckCircle className="text-green-500 w-8 h-8"/><span>Creación automática de casos</span></div>
           </div>
         </div>
         <div className="flex justify-center">

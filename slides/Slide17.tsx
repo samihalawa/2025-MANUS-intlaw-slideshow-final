@@ -10,8 +10,8 @@ export const Slide17: React.FC = () => {
         <h2 className="text-[10rem] leading-none font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
           Gracias.
         </h2>
-        <p className="text-4xl text-slate-700 max-w-4xl leading-relaxed">
-          Una oportunidad para transformar la práctica legal a través de la inteligencia artificial.
+        <p className="text-6xl text-slate-700 max-w-4xl leading-relaxed">
+          Transformemos la práctica legal con IA.
         </p>
 
         <motion.div 
@@ -19,19 +19,19 @@ export const Slide17: React.FC = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <button className="bg-gradient-to-r from-[#4a9eff] to-[#3b7dd6] text-white font-bold text-2xl px-12 py-5 rounded-lg shadow-lg hover:shadow-[#4a9eff]/50 transition-shadow">
-              Agendemos una demostración en vivo
+          <button className="bg-gradient-to-r from-[#4a9eff] to-[#3b7dd6] text-white font-bold text-4xl px-16 py-6 rounded-lg shadow-lg hover:shadow-[#4a9eff]/50 transition-shadow">
+              Agendar Demo
           </button>
         </motion.div>
 
         <div className="mt-16 border-t-2 border-[#4a9eff]/50 pt-10 inline-block">
-            <p className="text-2xl font-semibold text-slate-800">Ignacio Jové</p>
+            <p className="text-3xl font-semibold text-slate-800">Ignacio Jové</p>
             <p className="text-xl text-slate-600 mb-4">Project Lead</p>
             <p className="text-6xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4a9eff] to-[#3b7dd6]">INTLAW</span>
                 <span className="text-slate-800"> AI</span>
             </p>
-            <p className="text-xl text-slate-500 mt-4">sami@agentsai.ltd</p>
+            <p className="text-2xl text-slate-500 mt-4">sami@agentsai.ltd</p>
         </div>
       </div>
     </SlideWrapper>

@@ -4,15 +4,15 @@ import { Target, Webhook, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ignacioPoints = [
-    { text: "Análisis de Rentabilidad en 'Mutaciones'" },
-    { text: "Extraer la base de datos de leads de Idealista" },
-    { text: "Establecer P&L mensual por cliente, por socio" },
+    { text: "Análisis Rentabilidad 'Mutaciones'" },
+    { text: "Extraer leads de Idealista" },
+    { text: "P&L mensual por cliente/socio" },
 ];
 
 const simonePoints = [
-    { text: "Automatizar el 'scoring' de leads y la solicitud de 'compliance'" },
-    { text: "Integrar un chatbot inteligente en el WordPress actual" },
-    { text: "Asistencia IA en la creación y personalización de contenidos" },
+    { text: "Automatizar scoring y compliance" },
+    { text: "Integrar chatbot en WordPress" },
+    { text: "Asistencia IA para contenido" },
 ];
 
 const Card = ({ title, points, icon }: { title: string; points: { text: string }[]; icon: React.ReactNode; }) => (
@@ -21,9 +21,9 @@ const Card = ({ title, points, icon }: { title: string; points: { text: string }
             <div className="w-16 h-16 bg-[#dbeafe] text-[#1e40af] rounded-lg flex items-center justify-center flex-shrink-0">
                 {icon}
             </div>
-            <h3 className="text-4xl font-bold text-slate-800">{title}</h3>
+            <h3 className="text-6xl font-bold text-slate-800">{title}</h3>
         </div>
-        <ul className="space-y-4 text-2xl text-slate-700 flex-grow">
+        <ul className="space-y-4 text-4xl text-slate-700 flex-grow">
             {points.map((point, index) => (
                 <motion.li 
                     key={index} 
@@ -44,8 +44,8 @@ const Card = ({ title, points, icon }: { title: string; points: { text: string }
 export const Slide03_Analysis: React.FC = () => {
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Una Solución a su Medida</h2>
-            <p className="text-3xl text-slate-600 mb-12 text-center">Hemos escuchado sus desafíos y diseñado una respuesta directa.</p>
+            <h2 className="text-9xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Solución a Medida</h2>
+            <p className="text-4xl text-slate-600 mb-12 text-center">Respuesta a sus desafíos.</p>
 
             <div className="grid grid-cols-2 gap-8">
                 <Card title="Para Ignacio: Eficiencia y Crecimiento" points={ignacioPoints} icon={<Target size={32}/>} />

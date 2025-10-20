@@ -49,7 +49,7 @@ const CRMDashboardMockup = () => (
                     </div>
                     <div className="flex-grow">
                         <p className="font-bold text-4xl text-slate-800">{lead.name}</p>
-                        <p className="text-2xl text-slate-500">{lead.type}</p>
+                        <p className="text-3xl text-slate-500">{lead.type}</p>
                     </div>
                     <div className="text-right">
                         <p className={`text-6xl font-bold text-slate-800`}>{lead.score}</p>
@@ -79,9 +79,9 @@ export const Slide08: React.FC = () => {
           <div className="inline-block bg-cyan-500/10 text-cyan-600 text-lg font-bold px-4 py-2 rounded-full mb-4">Módulo 2 · SOLUCIÓN</div>
           <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>CRM con Filtrado IA</h2>
           <div className="space-y-8">
-            <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-4xl text-slate-700">Filtrado Automático</span></div>
-            <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-4xl text-slate-700">Cualificación IA</span></div>
-            <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-4xl text-slate-700">Priorización Leads</span></div>
+            <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-5xl text-slate-700">Filtrado Automático</span></div>
+            <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-5xl text-slate-700">Cualificación IA</span></div>
+            <div className="flex items-center gap-4"><div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div><span className="text-5xl text-slate-700">Priorización Leads</span></div>
           </div>
         </div>
         <div className="flex justify-center">

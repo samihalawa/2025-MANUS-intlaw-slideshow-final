@@ -44,7 +44,7 @@ export const Slide02: React.FC = () => {
             <div className="flex-shrink-0 w-24 h-24 flex items-center justify-center bg-[#dbeafe]/50 text-[#1e40af] rounded-lg">
               {item.icon}
             </div>
-            <p className="text-5xl font-medium text-slate-800">{item.text}</p>
+            <p className="text-6xl font-medium text-slate-800">{item.text}</p>
           </motion.div>
         ))}
       </motion.div>

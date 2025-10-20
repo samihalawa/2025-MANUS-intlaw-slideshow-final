@@ -70,7 +70,7 @@ const ChatWidgetConversation = () => {
           <div className="text-sm text-green-600 font-semibold">Online</div>
         </div>
       </div>
-      <div ref={chatContainerRef} className="p-4 space-y-4 h-72 text-lg bg-white overflow-y-auto scroll-smooth">
+      <div ref={chatContainerRef} className="p-4 space-y-4 h-72 text-xl bg-white overflow-y-auto scroll-smooth">
         <AnimatePresence>
         {visibleMessages.map((msg, i) => (
             <motion.div

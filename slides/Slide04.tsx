@@ -30,10 +30,10 @@ export const Slide04: React.FC = () => {
   return (
     <SlideWrapper className="p-16 flex flex-col items-center justify-center text-center">
       <h2 className="text-8xl font-bold tracking-tighter text-slate-900" style={{ fontFamily: "'Playfair Display', serif" }}>Visión: INTLAW AI</h2>
-      <p className="mt-4 text-3xl text-slate-600">Un ecosistema legal inteligente y proactivo.</p>
+      <p className="mt-4 text-4xl text-slate-600">Un ecosistema legal proactivo.</p>
       
       <div className="mt-16 w-full max-w-6xl">
-        <h3 className="text-3xl font-semibold text-slate-700 mb-12 tracking-wider uppercase">Dashboard de Impacto</h3>
+        <h3 className="text-4xl font-semibold text-slate-700 mb-12 tracking-wider uppercase">Impacto</h3>
         <div className="grid grid-cols-3 gap-8">
             {stats.map(stat => {
                 const isAnimatable = !isNaN(parseInt(stat.value.replace(/[^0-9]/g, '')));
@@ -50,7 +50,7 @@ export const Slide04: React.FC = () => {
                             {stat.value.endsWith('%') && '%'}
                             {stat.value.endsWith('s') && 's'}
                         </div>
-                        <div className="mt-4 text-2xl font-semibold text-slate-600 uppercase tracking-widest">{stat.label}</div>
+                        <div className="mt-4 text-4xl font-semibold text-slate-600 uppercase tracking-widest">{stat.label}</div>
                     </div>
                 );
             })}

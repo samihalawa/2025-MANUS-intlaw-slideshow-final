@@ -44,7 +44,7 @@ const InboxView = () => {
             </div>
              <div className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm mb-6">
                 <h3 className="font-bold text-slate-900 text-2xl mb-2 flex items-center gap-2"><Sparkles className="text-cyan-500" />Análisis IA del Lead Principal</h3>
-                <p className="text-slate-600 text-xl">
+                <p className="text-slate-600 text-2xl">
                     <strong>Motivo (Score 95):</strong> El sistema identificó palabras clave de alta prioridad ("internacional", "valor > 250k€") y clasificó a la empresa en el sector tecnológico de alto crecimiento. Se recomienda asignación inmediata a un socio senior.
                 </p>
             </div>

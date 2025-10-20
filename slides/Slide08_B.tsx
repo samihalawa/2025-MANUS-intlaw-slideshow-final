@@ -18,16 +18,16 @@ const WhatsAppMockup = () => (
             {/* Chat Area */}
             <div className="flex-grow p-4 space-y-2">
                  <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 0.5}}} className="flex justify-start">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-sm shadow rounded-tl-none">Entendido su caso de contrato. Para darle una cotización, por favor, envíeme los documentos.</div>
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow rounded-tl-none">Para cotizar, envíe los documentos.</div>
                 </motion.div>
                  <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 1.5}}} className="flex justify-end">
-                    <div className="bg-[#dcf8c6] p-2 rounded-lg max-w-[80%] text-sm shadow rounded-br-none flex items-center gap-2"><FileText size={18} className="text-slate-600"/> Contrato_V1.pdf</div>
+                    <div className="bg-[#dcf8c6] p-2 rounded-lg max-w-[80%] text-base shadow rounded-br-none flex items-center gap-2"><FileText size={18} className="text-slate-600"/> Contrato_V1.pdf</div>
                 </motion.div>
                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 2.5}}} className="flex justify-center">
-                     <div className="bg-[#fff4ce] p-2 rounded-lg max-w-[85%] text-xs text-center text-slate-700">✅ Análisis completado. <strong>Caso ID-4588</strong> creado en el sistema.</div>
+                     <div className="bg-[#fff4ce] p-2 rounded-lg max-w-[85%] text-sm text-center text-slate-700">✅ Análisis OK. <strong>Caso ID-4588</strong> creado.</div>
                 </motion.div>
                  <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 4.0}}} className="flex justify-start">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-sm shadow rounded-tl-none">Un abogado especializado le contactará en breve.</div>
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow rounded-tl-none">Un especialista le contactará.</div>
                 </motion.div>
             </div>
             {/* Input bar */}
@@ -55,15 +55,15 @@ const NewLeadCard = () => (
             <p className="text-lg text-[#1e40af] font-semibold bg-[#dbeafe] inline-block px-2 py-0.5 rounded mt-1">Caso ID-4588</p>
         </div>
         
-        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 text-base space-y-2">
+        <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 text-xl space-y-2">
             <div className="flex"><strong className="font-semibold text-slate-500 w-24 inline-block">Contacto:</strong> <span className="font-semibold text-slate-800">+34 6XX XXX XXX</span></div>
             <div className="flex"><strong className="font-semibold text-slate-500 w-24 inline-block">Tipo:</strong> <span className="font-semibold text-slate-800">Contrato Mercantil</span></div>
             <div className="flex"><strong className="font-semibold text-slate-500 w-24 inline-block">Canal:</strong> <span className="font-semibold text-slate-800">WhatsApp</span></div>
         </div>
 
         <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
-            <p className="font-bold text-slate-600 text-sm mb-2 flex items-center gap-2"><Target size={16} />Resumen por IA:</p>
-            <p className="text-slate-800 text-base">Contrato de 50 págs. Cláusulas clave: Confidencialidad, Pago (90 días). <span className="bg-[#4ade80] text-white px-2 py-0.5 rounded font-bold text-xs">Potencial ALTO</span></p>
+            <p className="font-bold text-slate-600 text-lg mb-2 flex items-center gap-2"><Target size={16} />Resumen por IA:</p>
+            <p className="text-slate-800 text-xl">Contrato 50 pág. Claves: Confidencialidad, Pago 90d. <span className="bg-[#4ade80] text-white px-2 py-0.5 rounded font-bold text-xs">Potencial: ALTO</span></p>
         </div>
     </motion.div>
 );
@@ -71,8 +71,8 @@ const NewLeadCard = () => (
 export const Slide08_B: React.FC = () => {
     return (
         <SlideWrapper className="p-12">
-            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 1: Ejemplo Práctico (WhatsApp)</h2>
-            <p className="text-2xl text-slate-600 mb-6">De WhatsApp a un caso cualificado en segundos, sin intervención humana.</p>
+            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Ejemplo Práctico (WhatsApp)</h2>
+            <p className="text-2xl text-slate-600 mb-6">De WhatsApp a caso cualificado en segundos.</p>
             <div className="grid grid-cols-2 gap-8 items-center">
                 <div className="flex justify-center">
                     <WhatsAppMockup />

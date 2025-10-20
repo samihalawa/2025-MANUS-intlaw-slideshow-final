@@ -18,17 +18,17 @@ const ChatbotWidget = () => {
   }, 2500);
 
   return (
-    <div className="absolute bottom-6 right-6 w-80 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden transform-gpu transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/20 z-20">
+    <div className="absolute bottom-6 right-6 w-96 bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden transform-gpu transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/20 z-20">
       <div className="p-3 bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center gap-3">
         <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center text-white"><Bot size={20}/></div>
         <div>
-          <div className="font-bold text-white text-base">INTLAW AI Assistant</div>
+          <div className="font-bold text-white text-lg">INTLAW AI Assistant</div>
           <div className="text-sm text-white/80 flex items-center gap-1.5">
             <div className="w-2 h-2 rounded-full bg-green-400"></div> Online
           </div>
         </div>
       </div>
-      <div className="p-3 space-y-2 h-48 text-base bg-white/50 text-slate-800">
+      <div className="p-4 space-y-3 h-56 text-lg bg-white/50 text-slate-800">
         <AnimatePresence>
           {messages.map((msg, i) => (
             <motion.div 
@@ -45,7 +45,7 @@ const ChatbotWidget = () => {
         </AnimatePresence>
       </div>
        <div className="p-2 border-t border-slate-200">
-        <input type="text" placeholder="Escriba un mensaje..." className="w-full bg-slate-100 border-2 border-slate-200 rounded-md p-2 text-base focus:ring-cyan-500 focus:border-cyan-500 outline-none" />
+        <input type="text" placeholder="Escriba un mensaje..." className="w-full bg-slate-100 border-2 border-slate-200 rounded-md p-2 text-lg focus:ring-cyan-500 focus:border-cyan-500 outline-none" />
       </div>
     </div>
   );
@@ -53,7 +53,7 @@ const ChatbotWidget = () => {
 
 const FeatureAnnotation = ({ text, position }: { text: string; position: string }) => (
     <motion.div 
-        className={`absolute ${position} bg-slate-800 text-white text-xl font-bold px-5 py-3 rounded-lg shadow-lg flex items-center gap-3`}
+        className={`absolute ${position} bg-slate-800 text-white text-2xl font-bold px-5 py-3 rounded-lg shadow-lg flex items-center gap-3`}
         animate={{ scale: [1, 1.03, 1] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
     >
@@ -92,8 +92,8 @@ export const Slide06: React.FC = () => {
 
                     <ChatbotWidget />
 
-                    <FeatureAnnotation text="Experiencia de Usuario Fluida" position="top-1/3 right-[380px]" />
-                    <FeatureAnnotation text="Cualificación Inteligente 24/7" position="top-1/2 right-[420px]" />
+                    <FeatureAnnotation text="Experiencia de Usuario Fluida" position="top-1/3 right-[420px]" />
+                    <FeatureAnnotation text="Cualificación Inteligente 24/7" position="top-1/2 right-[460px]" />
                 </div>
             </div>
         </SlideWrapper>

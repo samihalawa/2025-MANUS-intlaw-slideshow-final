@@ -4,14 +4,14 @@ import { DatabaseZap, Search, FileText, Check, ShieldCheck } from 'lucide-react'
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const features = [
-    { icon: <DatabaseZap size={40} />, text: 'Procesamiento masivo' },
-    { icon: <Search size={40} />, text: 'Extracción inteligente' },
-    { icon: <FileText size={40} />, text: 'Resúmenes automáticos' }
+    { icon: <DatabaseZap size={40} />, text: 'Procesamiento Masivo' },
+    { icon: <Search size={40} />, text: 'Extracción Inteligente' },
+    { icon: <FileText size={40} />, text: 'Resúmenes Automáticos' }
 ];
 
 const guarantees = [
-    'Cada respuesta vinculada a documentos específicos.',
-    'Garantía de reembolso total si se detecta alguna alucinación.',
+    'Respuestas vinculadas a fuentes.',
+    'Garantía anti-alucinaciones.',
 ];
 
 const AnimatedStat = ({ value, suffix = '' }) => {
@@ -44,15 +44,15 @@ export const Slide10: React.FC = () => {
 
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Agente Documentos</h2>
-            <p className="text-3xl text-slate-600 mb-10">Precisión absoluta garantizada.</p>
+            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Agente de Documentos</h2>
+            <p className="text-4xl text-slate-600 mb-10">Precisión Garantizada.</p>
 
             <div className="grid grid-cols-2 gap-12">
                 <div className="space-y-6">
                     {features.map((feature, i) => (
                         <div key={i} className="bg-slate-50/50 p-6 rounded-lg flex items-center gap-6 border border-slate-200">
                             <div className="text-cyan-500">{feature.icon}</div>
-                            <p className="text-3xl text-slate-700">{feature.text}</p>
+                            <p className="text-5xl text-slate-700">{feature.text}</p>
                         </div>
                     ))}
                     <div className="grid grid-cols-2 gap-6 pt-4">
@@ -76,7 +76,7 @@ export const Slide10: React.FC = () => {
                         {guarantees.map((item, i) => (
                             <li key={i} className="flex items-start gap-3">
                                 <Check className="text-blue-600 mt-1.5 flex-shrink-0" size={24}/>
-                                <span className="text-slate-700 text-xl">{item}</span>
+                                <span className="text-slate-700 text-3xl">{item}</span>
                             </li>
                         ))}
                     </ul>
