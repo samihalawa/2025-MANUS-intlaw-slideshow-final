@@ -18,7 +18,7 @@ const simonePoints = [
 const Card = ({ title, points, icon }: { title: string; points: { text: string }[]; icon: React.ReactNode; }) => (
     <div className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 flex flex-col h-full">
         <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 bg-cyan-500/10 text-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-16 h-16 bg-[#dbeafe] text-[#1e40af] rounded-lg flex items-center justify-center flex-shrink-0">
                 {icon}
             </div>
             <h3 className="text-4xl font-bold text-slate-800">{title}</h3>

@@ -41,8 +41,8 @@ export const Slide04: React.FC = () => {
                 
                 return (
                     <div key={stat.label} className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 shadow-lg flex flex-col items-center justify-center hover:bg-white transition-colors duration-300">
-                        <div className="text-cyan-500 mb-6">{stat.icon}</div>
-                        <div className="text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+                        <div className="text-[#1a2947] mb-6">{stat.icon}</div>
+                        <div className="text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4a9eff] to-[#3b7dd6]">
                             {stat.value.startsWith('>') && '>'}
                             {stat.value.startsWith('+') && '+'}
                              {stat.value.startsWith('<') && '<'}

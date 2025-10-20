@@ -39,9 +39,9 @@ export const Slide02: React.FC = () => {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="flex items-center gap-8 p-6 bg-slate-50 rounded-lg border border-slate-200 hover:border-cyan-500/50 hover:bg-white transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
+            className="flex items-center gap-8 p-6 bg-slate-50 rounded-lg border border-slate-200 hover:border-[#4a9eff]/50 hover:bg-white transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
           >
-            <div className="flex-shrink-0 w-24 h-24 flex items-center justify-center bg-slate-100 text-cyan-500 rounded-lg">
+            <div className="flex-shrink-0 w-24 h-24 flex items-center justify-center bg-[#dbeafe]/50 text-[#1e40af] rounded-lg">
               {item.icon}
             </div>
             <p className="text-5xl font-medium text-slate-800">{item.text}</p>

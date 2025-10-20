@@ -17,8 +17,8 @@ export const Slide16: React.FC = () => {
             <div className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 mb-8">
                 <h3 className="text-4xl font-bold text-slate-900 mb-6 text-center">Opciones de Implementación</h3>
                 <div className="grid grid-cols-2 gap-8">
-                    <div className="bg-white rounded-lg p-8 border-2 border-cyan-500 text-center shadow-lg">
-                         <div className="bg-cyan-500 text-white text-base font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Recomendado</div>
+                    <div className="bg-white rounded-lg p-8 border-2 border-[#4a9eff] text-center shadow-lg">
+                         <div className="bg-[#4a9eff] text-white text-base font-bold px-3 py-1 rounded-full uppercase inline-block mb-4">Recomendado</div>
                          <p className="text-8xl font-bold text-slate-900">80 días</p>
                          <p className="text-slate-600 mt-2 text-xl">Implementación completa, incluyendo talleres de personalización y fases de prueba exhaustivas.</p>
                     </div>
