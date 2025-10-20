@@ -109,13 +109,14 @@ const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
       <div
         ref={slideRef}
         style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
+          width: SLIDE_WIDTH,
+          height: SLIDE_HEIGHT,
           transform: `scale(${scale})`,
-          transformOrigin: 'center center',
+          transformOrigin: 'top left',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: `translate(-50%, -50%) scale(${scale})`,
         }}
       >
         {children}
