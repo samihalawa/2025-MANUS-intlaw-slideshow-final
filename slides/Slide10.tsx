@@ -1,10 +1,11 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
+import { DatabaseZap, Search, FileText, Check, ShieldCheck } from 'lucide-react';
 
 const features = [
-    { icon: '📚', text: 'Procesamiento masivo' },
-    { icon: '🔍', text: 'Extracción inteligente' },
-    { icon: '📊', text: 'Resúmenes automáticos' }
+    { icon: <DatabaseZap size={40} />, text: 'Procesamiento masivo' },
+    { icon: <Search size={40} />, text: 'Extracción inteligente' },
+    { icon: <FileText size={40} />, text: 'Resúmenes automáticos' }
 ];
 
 const guarantees = [
@@ -21,33 +22,32 @@ export const Slide10: React.FC = () => {
             <div className="grid grid-cols-2 gap-12">
                 <div className="space-y-6">
                     {features.map((feature, i) => (
-                        <div key={i} className="bg-slate-100/50 p-6 rounded-lg flex items-center gap-6">
-                            <div className="text-5xl">{feature.icon}</div>
+                        <div key={i} className="bg-slate-50/50 p-6 rounded-lg flex items-center gap-6 border border-slate-200">
+                            <div className="text-cyan-500">{feature.icon}</div>
                             <p className="text-3xl text-slate-700">{feature.text}</p>
                         </div>
                     ))}
                     <div className="grid grid-cols-2 gap-6 pt-4">
-                        {[{i:'⚡',l:'Velocidad',v:'100x'},{i:'💰',l:'Ahorro',v:'80%'}].map(b=>(
-                            <div key={b.l} className="bg-slate-100/50 p-4 rounded-lg text-center">
-                                <div className="text-5xl mb-2">{b.i}</div>
-                                <p className="font-bold text-5xl text-slate-900">{b.v}</p>
-                                <p className="text-base text-slate-500 uppercase tracking-wider">{b.l}</p>
+                        {[{l:'Velocidad',v:'100x'},{l:'Ahorro',v:'80%'}].map(b=>(
+                            <div key={b.l} className="bg-slate-50/50 p-4 rounded-lg text-center border border-slate-200">
+                                <p className="font-bold text-6xl text-slate-900">{b.v}</p>
+                                <p className="text-lg text-slate-500 uppercase tracking-wider">{b.l}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="bg-yellow-400/10 border-2 border-yellow-500/50 rounded-xl p-8 flex flex-col justify-center items-center text-center">
-                    <h3 className="text-5xl font-bold text-yellow-600 flex items-center gap-3 mb-6">
-                        <span>⚠️</span>
+                <div className="bg-blue-600/10 border-2 border-blue-500/50 rounded-xl p-8 flex flex-col justify-center items-center text-center">
+                    <h3 className="text-5xl font-bold text-blue-600 flex items-center gap-4 mb-6">
+                        <ShieldCheck size={52} />
                         <span>Garantizado</span>
                     </h3>
                     <p className="text-[6rem] leading-none font-bold text-slate-900">0%</p>
-                    <p className="text-4xl font-semibold text-yellow-600 mt-2">Alucinaciones</p>
-                     <ul className="space-y-3 mt-8">
+                    <p className="text-4xl font-semibold text-blue-600 mt-2">Alucinaciones</p>
+                     <ul className="space-y-3 mt-8 text-left">
                         {guarantees.map((item, i) => (
                             <li key={i} className="flex items-start gap-3">
-                                <span className="text-yellow-600 text-2xl mt-1">✓</span>
+                                <Check className="text-blue-600 mt-1.5 flex-shrink-0" size={24}/>
                                 <span className="text-slate-700 text-xl">{item}</span>
                             </li>
                         ))}

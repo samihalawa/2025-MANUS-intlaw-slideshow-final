@@ -1,11 +1,12 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
+import { Zap, TrendingUp, ShieldCheck, Award } from 'lucide-react';
 
 const benefits = [
-    { number: 1, title: 'Eficiencia +60%', desc: 'Menos tareas repetitivas.' },
-    { number: 2, title: 'Escalabilidad', desc: 'Más clientes, mismo equipo.' },
-    { number: 3, title: 'Calidad 100%', desc: 'Cero errores humanos.' },
-    { number: 4, title: 'Ventaja Competitiva', desc: 'Liderazgo tecnológico.' },
+    { icon: <Zap size={40} />, title: 'Eficiencia +60%', desc: 'Menos tareas repetitivas.' },
+    { icon: <TrendingUp size={40}/>, title: 'Escalabilidad', desc: 'Más clientes, mismo equipo.' },
+    { icon: <ShieldCheck size={40}/>, title: 'Calidad 100%', desc: 'Cero errores humanos.' },
+    { icon: <Award size={40}/>, title: 'Ventaja Competitiva', desc: 'Liderazgo tecnológico.' },
 ];
 
 export const Slide14: React.FC = () => {
@@ -14,14 +15,14 @@ export const Slide14: React.FC = () => {
             <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-16 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Beneficios Clave</h2>
             <div className="grid grid-cols-2 gap-10">
                 {benefits.map((benefit) => (
-                    <div key={benefit.number} className="bg-slate-100/50 rounded-xl p-8 border border-slate-200 hover:border-cyan-500/50 hover:bg-slate-100 transition-all duration-300 transform hover:-translate-y-2">
-                        <div className="flex items-center gap-5 mb-5">
-                            <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full text-white font-bold text-3xl shadow-lg">
-                                {benefit.number}
+                    <div key={benefit.title} className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 hover:border-cyan-500/50 hover:bg-white transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl">
+                        <div className="flex items-center gap-6 mb-5">
+                            <div className="w-20 h-20 flex-shrink-0 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg">
+                                {benefit.icon}
                             </div>
                             <h3 className="text-5xl font-bold text-slate-900">{benefit.title}</h3>
                         </div>
-                        <p className="text-2xl text-slate-600">{benefit.desc}</p>
+                        <p className="text-2xl text-slate-600 pl-24">{benefit.desc}</p>
                     </div>
                 ))}
             </div>

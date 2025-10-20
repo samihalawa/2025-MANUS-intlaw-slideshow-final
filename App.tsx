@@ -66,7 +66,7 @@ const ScaledSlide = ({ children }: { children: React.ReactNode }) => {
   return (
     <div
       ref={containerRef}
-      className="w-full shadow-2xl"
+      className="w-full"
       style={{
         // The container's height is determined by the scaled height of the slide content
         height: SLIDE_HEIGHT * scale,
@@ -89,8 +89,8 @@ const ScaledSlide = ({ children }: { children: React.ReactNode }) => {
 
 export default function App() {
   return (
-    <div className="w-full bg-slate-100 font-sans text-base flex flex-col items-center py-8 sm:py-12 px-4 sm:px-8">
-      <main className="w-full max-w-6xl space-y-8 sm:space-y-12">
+    <div className="w-full bg-slate-900 font-sans text-base flex flex-col items-center py-24 px-16">
+      <main className="w-full max-w-6xl space-y-16">
         {slides.map((SlideComponent, index) => (
           <ScaledSlide key={index}>
             <SlideComponent />

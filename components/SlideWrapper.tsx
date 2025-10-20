@@ -8,9 +8,8 @@ interface SlideWrapperProps {
 export const SlideWrapper: React.FC<SlideWrapperProps> = ({ children, className }) => {
   return (
     <section 
-      className={`bg-white border border-slate-200 rounded-2xl shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-cyan-500/10 hover:border-slate-300 w-full h-full ${className}`}
+      className={`bg-white rounded-2xl shadow-2xl shadow-black/30 overflow-hidden relative transition-all duration-300 w-full h-full ring-0 hover:ring-4 ring-cyan-500/50 ${className}`}
     >
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-50"></div>
       {children}
     </section>
   );
