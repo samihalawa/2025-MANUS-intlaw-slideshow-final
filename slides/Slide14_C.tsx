@@ -22,9 +22,9 @@ const TimelineItem: React.FC<{ children: React.ReactNode; isLast?: boolean;}> = 
 
 export const Slide14_C: React.FC = () => {
     return (
-        <SlideWrapper className="p-12">
-            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Plataforma Unificada: Vista 360°</h2>
-            <p className="text-2xl text-slate-600 mb-6 text-center">Toda la inteligencia en una pantalla.</p>
+        <SlideWrapper className="p-10">
+            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 text-center mb-1" style={{ fontFamily: "'Playfair Display', serif" }}>Plataforma Unificada: Vista 360°</h2>
+            <p className="text-xl text-slate-600 mb-4 text-center">Toda la inteligencia en una pantalla.</p>
 
             <motion.div 
                 className="bg-slate-50 rounded-2xl p-6 border border-slate-200 flex-grow"
@@ -43,7 +43,7 @@ export const Slide14_C: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 grid-rows-2 gap-6 h-[450px]">
+                <div className="grid grid-cols-2 grid-rows-2 gap-6">
                     <Card icon={<Euro className="text-[#4a9eff]"/>} title="Pricing IA">
                          <div className="bg-slate-100 p-4 rounded-lg">
                             <p className="font-bold text-cyan-800 text-lg">Honorarios IA:</p>
