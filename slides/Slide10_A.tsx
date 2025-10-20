@@ -1,9 +1,11 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { Search, Filter, Send, Target } from 'lucide-react';
-import { motion } from 'framer-motion';
+// FIX: Import `Variants` type from framer-motion to ensure correct type inference.
+import { motion, Variants } from 'framer-motion';
 
-const stepVariants = {
+// FIX: Explicitly type `stepVariants` with `Variants` to prevent type widening issues with nested properties.
+const stepVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i:number) => ({
         opacity: 1,

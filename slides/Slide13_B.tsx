@@ -4,18 +4,51 @@ import { FileText, Sparkles, Loader, CheckCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const DocumentPreview = () => (
-    <div className="bg-white rounded-md shadow-lg h-full overflow-hidden relative border border-slate-200">
-        <div className="p-8 font-serif text-sm text-slate-800 leading-relaxed">
-            <h3 className="text-center font-bold text-xl mb-2">CONTRATO DE COMPRAVENTA MERCANTIL</h3>
-            <p className="text-center text-slate-500 mb-6 text-xs">Entre TechCorp S.L. y InnoSolutions S.A.</p>
-            <p className="font-bold mb-1">I. COMPARECEN</p>
-            <p className="mb-4">De una parte, <span className="font-semibold">TechCorp S.L.</span>, y de otra, <span className="font-semibold">InnoSolutions S.A.</span></p>
-            <p className="font-bold mb-1">II. CLÁUSULAS</p>
-            <p className="mb-2"><strong>PRIMERA.- OBJETO.</strong> El objeto del presente contrato es la compraventa de los activos...</p>
-            <p className="mb-2"><strong>SEGUNDA.- CONFIDENCIALIDAD.</strong> Las partes se comprometen a mantener confidencialidad durante <span className="bg-yellow-200/80 px-1 rounded">cinco (5) años</span>.</p>
-            <p className="mb-2"><strong>TERCERA.- PAGO.</strong> El pago se realizará a los <span className="bg-yellow-200/80 px-1 rounded">sesenta (60) días</span> de la fecha de factura.</p>
-            <p><strong>CUARTA.- ARBITRAJE.</strong> Para cualquier controversia, las partes se someten al arbitraje de la Corte de <span className="bg-yellow-200/80 px-1 rounded">Madrid</span>.</p>
+    <div className="bg-white rounded-md shadow-lg h-full overflow-y-auto relative border border-slate-200">
+        <div className="p-8 font-serif text-sm text-slate-800 leading-relaxed doc-content">
+            <div className="text-center mb-6 pb-4 border-b-2 border-slate-200">
+                <h3 className="font-bold text-xl uppercase tracking-wider text-[#1a2947]">Contrato de Compraventa Mercantil</h3>
+                <p className="text-slate-600">Entre <span className="variable">TechCorp S.L.</span> y <span className="variable">InnoSolutions S.A.</span></p>
+            </div>
+            
+            <div className="space-y-4 text-base">
+                <div>
+                    <h4 className="font-bold text-base mb-2 text-[#1a2947]">REUNIDOS</h4>
+                    <p><strong>De una parte,</strong> <span className="variable">TechCorp S.L.</span> (en adelante, "la COMPRADORA").</p>
+                    <p><strong>De otra parte,</strong> <span className="variable">InnoSolutions S.A.</span> (en adelante, "la VENDEDORA").</p>
+                </div>
+                
+                <div>
+                    <h4 className="font-bold text-base mb-2 text-[#1a2947]">CLÁUSULAS</h4>
+                    <p><strong>Primera. Objeto del Contrato.</strong> El objeto del presente contrato es la compraventa de activos tecnológicos.</p>
+                    <p><strong>Segunda. Confidencialidad.</strong> Las partes se comprometen a mantener confidencialidad absoluta sobre los términos durante un período de <span className="variable">cinco (5) años</span>.</p>
+                    <p><strong>Tercera. Forma de Pago.</strong> El pago se realizará a los <span className="variable">sesenta (60) días</span> posteriores a la fecha de firma del presente contrato.</p>
+                    <p><strong>Cuarta. Arbitraje y Jurisdicción.</strong> Para cualquier controversia, las partes se someten al arbitraje de la Corte de <span className="variable">Madrid</span>.</p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-8 pt-8 mt-8 border-t-2 border-slate-200">
+                    <div className="text-center">
+                        <div className="border-b-2 border-slate-800 h-12 mb-2"></div>
+                        <p className="font-bold text-sm text-slate-600">LA COMPRADORA</p>
+                        <p className="font-semibold text-base text-[#1a2947]">TechCorp S.L.</p>
+                    </div>
+                    <div className="text-center">
+                        <div className="border-b-2 border-slate-800 h-12 mb-2"></div>
+                        <p className="font-bold text-sm text-slate-600">LA VENDEDORA</p>
+                        <p className="font-semibold text-base text-[#1a2947]">InnoSolutions S.A.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <style>{`
+          .doc-content .variable {
+            background: #fef3c7;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+            color: #92400e;
+          }
+        `}</style>
     </div>
 );
 
@@ -35,7 +68,7 @@ export const Slide13_B: React.FC = () => {
 
     return (
         <SlideWrapper className="p-12 flex flex-col">
-            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generación de Documentos con IA</h2>
+            <h2 className="text-5xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 4: Generación de Documentos con IA</h2>
             <p className="text-xl text-slate-600 text-center mb-6">De una instrucción en lenguaje natural a un contrato completo y preciso.</p>
 
             <div className="flex-grow bg-slate-50 rounded-2xl border border-slate-200 flex shadow-xl">

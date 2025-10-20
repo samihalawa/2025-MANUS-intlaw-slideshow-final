@@ -27,16 +27,16 @@ const slides = [
   Slide02,            // 2. Agenda
   Slide03_Analysis,   // 3. Needs Analysis
   Slide04,            // 4. Vision & Impact Dashboard
-  Slide07_B,          // 5. Module 1: Web Automation (Polished Chatbot UI)
-  Slide08_B,          // 6. Module 1 (Advanced): Multichannel Lead Capture (Enhanced WhatsApp to CRM UI)
-  Slide10_D,          // 7. Module 2: Automated Prospecting Campaigns (New Dashboard UI)
-  Slide11_B,          // 8. Module 3: Document Agent with Citations (New Split-Screen UI)
-  Slide13_B,          // 9. Module 4: AI Document Generation (New Copilot to Preview UI)
-  Slide14_C,          // 10. Unified Platform: 360° Case View (New Case Dashboard UI)
-  Slide14_Dashboard,  // 11. ROI Dashboard (New Impactful Metrics UI)
-  Slide15,            // 12. Investment Model
-  Slide16,            // 13. Next Steps
-  Slide17             // 14. Closing & Thank You
+  Slide07_B,          // 5. Módulo 1: Web Automation (Polished Chatbot UI)
+  Slide08_B,          // 6. Módulo 1 (Avanzado): Captación Multicanal (Enhanced WhatsApp to CRM UI)
+  Slide10_D,          // 7. Módulo 2: Campañas de Captación Automatizadas
+  Slide11_B,          // 8. Módulo 3: Agente de Documentos Masivos (con citas)
+  Slide13_B,          // 9. Módulo 4: Generación de Documentos IA (Copilot con previsualización avanzada)
+  Slide14_C,          // 10. Plataforma Unificada: Vista del Caso 360°
+  Slide14_Dashboard,  // 11. Dashboard de Retorno de Inversión (ROI)
+  Slide15,            // 12. Modelo de Inversión
+  Slide16,            // 13. Próximos Pasos
+  Slide17             // 14. Cierre y Agradecimiento
 ];
 
 
