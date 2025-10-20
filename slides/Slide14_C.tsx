@@ -3,7 +3,14 @@ import { SlideWrapper } from '../components/SlideWrapper';
 import { Euro, BarChart, Target, FileText, Check, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const StatCard = ({ icon, title, children }: { icon: React.ReactNode, title: string, children: React.ReactNode }) => (
+// FIX: Switched to a dedicated interface for props to resolve TypeScript errors with the `children` prop.
+interface StatCardProps {
+    icon: React.ReactNode;
+    title: string;
+    children: React.ReactNode;
+}
+
+const StatCard: React.FC<StatCardProps> = ({ icon, title, children }) => (
     <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-6 h-full">
         <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3">{icon}{title}</h3>
         {children}
