@@ -31,17 +31,16 @@ export const Slide15: React.FC = () => {
                         Recomendado
                     </motion.div>
                     <h3 className="text-4xl font-bold text-slate-900 text-center">Plan por Hitos</h3>
-                     <p className="text-xl text-slate-600 mb-6 text-center">Alinea la inversión con el progreso y <span className="font-bold text-cyan-600">ofrece un ahorro del 20%</span>.</p>
+                     <p className="text-xl text-slate-600 mb-6 text-center">Alinea la inversión con el progreso del proyecto.</p>
                     <div className="bg-slate-50/50 p-6 rounded-lg text-xl space-y-4 mb-6 flex-grow border border-cyan-500/50">
-                        <div className="text-center"><span className="text-slate-500">Hito 1 (Inicio)</span> <br/><span className="font-semibold text-slate-900 text-6xl">€12,000</span></div>
+                        <div className="text-center"><span className="text-slate-500">Hito 1 (Inicio)</span> <br/><span className="font-semibold text-slate-900 text-6xl">€15,000</span></div>
                         <hr/>
-                        <div className="text-center"><span className="text-slate-500">Hito 2 (Despliegue)</span><br/><span className="font-semibold text-slate-900 text-6xl">€12,000</span></div>
+                        <div className="text-center"><span className="text-slate-500">Hito 2 (Despliegue)</span><br/><span className="font-semibold text-slate-900 text-6xl">€15,000</span></div>
                         <hr/>
-                         <div className="text-center"><span className="text-slate-500">Hito 3 (Post)</span><br/><span className="font-semibold text-slate-900 text-6xl">€12,000</span></div>
+                         <div className="text-center"><span className="text-slate-500">Hito 3 (Post)</span><br/><span className="font-semibold text-slate-900 text-6xl">€15,000</span></div>
                     </div>
                     <div className="text-center mt-2">
-                        <p className="text-2xl font-bold text-slate-800">Total: €36,000</p>
-                        <p className="text-lg font-semibold text-slate-500 line-through">€45,000</p>
+                        <p className="text-2xl font-bold text-slate-800">Total: €45,000</p>
                     </div>
                 </div>
             </div>
