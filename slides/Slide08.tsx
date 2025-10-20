@@ -58,7 +58,7 @@ const CRMDashboardMockup = () => (
                             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                             className={`inline-block`}
                         >
-                            <p className={`text-xl font-bold text-${lead.priorityColor}-500 bg-${lead.priorityColor}-500/10 px-3 py-1 rounded-full`}>{lead.priority}</p>
+                            <p className={`text-xl font-bold px-3 py-1 rounded-full ${lead.priorityColor === 'red' ? 'text-red-500 bg-red-500/10' : ''}`}>{lead.priority}</p>
                         </motion.div>
                     </div>
                 </motion.div>

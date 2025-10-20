@@ -64,7 +64,7 @@ export const Slide10_B: React.FC = () => {
                                 </div>
                             </div>
                             <div className="text-right">
-                                <p className={`text-xl font-bold text-${op.color}-500 bg-${op.color}-500/10 px-3 py-1 rounded-full`}>{op.potential}</p>
+                                <p className={`text-xl font-bold px-3 py-1 rounded-full ${op.color === 'red' ? 'text-red-500 bg-red-500/10' : 'text-yellow-500 bg-yellow-500/10'}`}>{op.potential}</p>
                             </div>
                              <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition-colors">
                                 Contactar
