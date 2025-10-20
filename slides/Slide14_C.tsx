@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Euro, BarChart, Target, FileText, Check, Clock } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Euro, FileText, Check, Clock } from 'lucide-react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
-// FIX: Switched to a dedicated interface for props to resolve TypeScript errors with the `children` prop.
-interface StatCardProps {
-    icon: React.ReactNode;
-    title: string;
-    children: React.ReactNode;
-}
+const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, latest => Math.round(latest).toLocaleString('es-ES'));
 
-const StatCard: React.FC<StatCardProps> = ({ icon, title, children }) => (
-    <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-6 h-full">
+    useEffect(() => {
+        const controls = animate(count, value, { duration: 1.5, ease: 'easeOut' });
+        return controls.stop;
+    }, [value]);
+
+    return (
+        <span className="flex items-center justify-center">
+            {prefix}
+            <motion.span>{rounded}</motion.span>
+            {suffix}
+        </span>
+    );
+};
+
+const StatCard: React.FC<{ icon: React.ReactNode; title: string; children: React.ReactNode; className?: string }> = ({ icon, title, children, className }) => (
+    <div className={`bg-white rounded-xl shadow-lg border border-slate-200 p-6 h-full flex flex-col ${className}`}>
         <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3">{icon}{title}</h3>
-        {children}
+        <div className="flex-grow">{children}</div>
     </div>
 );
 
@@ -25,24 +36,24 @@ export const Slide14_C: React.FC = () => {
 
             <motion.div 
                 className="bg-slate-50/70 rounded-2xl p-8 border border-slate-200"
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
+                initial="hidden"
+                whileInView="visible"
+                transition={{ staggerChildren: 0.1 }}
                 viewport={{ once: true }}
             >
                 {/* Header */}
-                <div className="border-b border-slate-200 pb-4 mb-6">
+                <motion.div variants={{hidden: {opacity:0, y:-20}, visible: {opacity:1, y:0}}} className="border-b border-slate-200 pb-4 mb-6">
                     <h2 className="text-4xl font-bold text-slate-900">Caso 4588: Compañía XYZ S.L.</h2>
                     <div className="flex gap-6 text-xl text-slate-600 mt-2">
                         <span><strong className="font-semibold">Tipo:</strong> Contrato Mercantil</span>
                         <span><strong className="font-semibold">Socio:</strong> Ignacio Jové</span>
                         <span><strong className="font-semibold">Estado:</strong> <span className="text-green-600 font-bold">Análisis Completado</span></span>
                     </div>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-3 gap-6">
                     {/* Left Column */}
-                    <div className="col-span-2 space-y-6">
+                    <motion.div variants={{hidden: {opacity:0, x:-20}, visible: {opacity:1, x:0}}} className="col-span-2 space-y-6">
                         <StatCard icon={<Euro className="text-cyan-500"/>} title="Análisis Financiero y Pricing IA">
                             <div className="space-y-4">
                                 <p className="text-xl"><strong>Salud Financiera:</strong> Caja Estimada: 300.000€+</p>
@@ -52,8 +63,10 @@ export const Slide14_C: React.FC = () => {
                                 </div>
                                 <div className="flex items-center gap-4">
                                     <label className="font-semibold text-xl">Propuesta Actual:</label>
-                                    <input type="text" defaultValue="€ 7,200" className="w-48 bg-white border-2 border-slate-300 rounded-md p-2 text-xl font-bold text-slate-800 text-center" />
-                                    <button className="bg-cyan-500 text-white font-bold py-2 px-4 rounded-md text-lg">Enviar Propuesta</button>
+                                    <div className="w-48 bg-white border-2 border-slate-300 rounded-md p-2 text-2xl font-bold text-slate-800 text-center">
+                                       <AnimatedNumber value={7200} prefix="€ "/>
+                                    </div>
+                                    <button className="bg-cyan-500 text-white font-bold py-3 px-4 rounded-md text-lg hover:bg-cyan-600 transition-colors">Enviar Propuesta</button>
                                 </div>
                             </div>
                         </StatCard>
@@ -62,12 +75,12 @@ export const Slide14_C: React.FC = () => {
                                 <p className="text-xl font-semibold">Contrato_V1.pdf</p>
                                 <span className="text-lg font-semibold text-green-500">Analizado</span>
                              </div>
-                             <button className="mt-4 w-full bg-slate-800 text-white font-bold py-3 rounded-md text-lg">Generar Propuesta de Honorarios</button>
+                             <button className="mt-4 w-full bg-slate-800 text-white font-bold py-3 rounded-md text-lg hover:bg-slate-900 transition-colors">Generar Propuesta de Honorarios</button>
                         </StatCard>
-                    </div>
+                    </motion.div>
 
                     {/* Right Column */}
-                    <div className="space-y-6">
+                    <motion.div variants={{hidden: {opacity:0, x:20}, visible: {opacity:1, x:0}}} className="space-y-6">
                         <StatCard icon={<Clock className="text-cyan-500"/>} title="Línea de Tiempo">
                             <ul className="space-y-2 text-lg">
                                 <li><strong>Hoy:</strong> Chequeo financiero OK</li>
@@ -77,14 +90,19 @@ export const Slide14_C: React.FC = () => {
                             </ul>
                         </StatCard>
                          <StatCard icon={<Check className="text-cyan-500"/>} title="Próximas Tareas IA">
-                            <ul className="space-y-2 text-lg">
-                                <li className="flex items-center gap-2"><input type="checkbox" className="w-5 h-5"/> Revisar y confirmar honorarios.</li>
-                                <li className="flex items-center gap-2"><input type="checkbox" className="w-5 h-5"/> Enviar propuesta al cliente.</li>
-                            </ul>
+                            <motion.ul variants={{visible: {transition: {staggerChildren: 0.3}}}} className="space-y-2 text-lg">
+                                <motion.li variants={{hidden: {opacity:0, x:-10}, visible:{opacity:1, x:0}}} className="flex items-center gap-2"><motion.div initial={{scale:0}} animate={{scale:1, transition:{delay:0.5}}}><CheckSquare className="text-cyan-600"/></motion.div> Revisar y confirmar honorarios.</li>
+                                <motion.li variants={{hidden: {opacity:0, x:-10}, visible:{opacity:1, x:0}}} className="flex items-center gap-2"><motion.div initial={{scale:0}} animate={{scale:1, transition:{delay:0.8}}}><CheckSquare className="text-cyan-600"/></motion.div> Enviar propuesta al cliente.</li>
+                            </motion.ul>
                         </StatCard>
-                    </div>
+                    </motion.div>
                 </div>
             </motion.div>
         </SlideWrapper>
     );
 };
+const CheckSquare = (props: any) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/>
+    </svg>
+)

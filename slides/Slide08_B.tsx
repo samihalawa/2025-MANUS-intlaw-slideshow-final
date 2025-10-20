@@ -33,36 +33,48 @@ const WhatsAppMockup = () => (
     </div>
 );
 
+const dashboardVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.4, delay: 4.5 } }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring' } }
+};
+
 const LawyerDashboardView = () => (
     <motion.div 
-        initial={{opacity: 0, scale: 0.95}} 
-        animate={{opacity: 1, scale: 1, transition: {delay: 4.5, duration: 0.5}}}
-        className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-8 space-y-6 h-full"
+        variants={dashboardVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-8 space-y-6 h-full flex flex-col"
     >
-        <h3 className="text-3xl font-bold text-slate-900">Nuevo Lead: Caso ID-4588</h3>
-        <div>
+        <motion.h3 variants={itemVariants} className="text-3xl font-bold text-slate-900">Nuevo Lead: Caso ID-4588</motion.h3>
+        <motion.div variants={itemVariants}>
             <p className="text-xl"><strong className="font-semibold text-slate-600">Contacto:</strong> +34 6XX XXX XXX (via WhatsApp)</p>
             <p className="text-xl"><strong className="font-semibold text-slate-600">Tipo:</strong> Contrato Mercantil</p>
-        </div>
-        <div className="bg-slate-50/70 p-4 rounded-lg border border-slate-200">
+        </motion.div>
+        <motion.div variants={itemVariants} className="bg-slate-50/70 p-4 rounded-lg border border-slate-200">
             <p className="font-bold text-slate-800 text-xl mb-2">Resumen IA del Documento:</p>
             <p className="text-slate-600 text-lg">Contrato de 50 págs. Cláusulas clave: Confidencialidad (3 años), Pago (90 días), Jurisdicción (Barcelona).</p>
-        </div>
-        <div className="bg-cyan-500/5 p-4 rounded-lg border border-cyan-500/30">
+        </motion.div>
+        <motion.div variants={itemVariants} className="bg-cyan-500/5 p-4 rounded-lg border border-cyan-500/30 flex-grow">
             <p className="font-bold text-cyan-800 text-xl mb-3">Cualificación Automática:</p>
             <div className="space-y-3">
                 <div className="flex items-center gap-3 text-lg"><Briefcase className="text-cyan-600"/> <strong>Empresa (API Reg. Mercantil):</strong> <span className="font-semibold">Compañía XYZ S.L.</span></div>
                 <div className="flex items-center gap-3 text-lg"><Euro className="text-cyan-600"/> <strong>Salud Financiera:</strong> <span className="font-semibold">Caja estimada: 300.000€+</span></div>
                 <div className="flex items-center gap-3 text-lg"><Target className="text-cyan-600"/> <strong>Precio Recomendado IA:</strong> <span className="font-semibold text-xl bg-cyan-500/20 px-2 py-1 rounded">€6,000 - €8,500</span></div>
             </div>
-        </div>
+        </motion.div>
     </motion.div>
 );
 
 export const Slide08_B: React.FC = () => {
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 1: Recepción y Cualificación Multicanal</h2>
+            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 1 (Avanzado): Captación Multicanal y Cualificación IA</h2>
             <p className="text-3xl text-slate-600 mb-8">De WhatsApp a un caso cualificado en segundos.</p>
             <div className="grid grid-cols-2 gap-12 items-center">
                 <div className="flex justify-center">
