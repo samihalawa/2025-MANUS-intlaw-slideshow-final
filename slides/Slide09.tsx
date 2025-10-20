@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { LayoutDashboard, Users, Briefcase, Settings, Bell, ChevronDown } from 'lucide-react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+
+const AnimatedStat = ({ value, suffix = '' }: { value: number, suffix?: string }) => {
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, latest => Math.round(latest));
+
+    useEffect(() => {
+        const controls = animate(count, value, { duration: 1.5 });
+        return controls.stop;
+    }, [value]);
+
+    return (
+        <div className="flex items-baseline">
+            <motion.p className="text-5xl font-semibold text-slate-900">{rounded}</motion.p>
+            <p className="text-5xl font-semibold text-slate-900">{suffix}</p>
+        </div>
+    );
+};
+
 
 const CRMApp = () => {
     const leads = [
@@ -12,6 +31,12 @@ const CRMApp = () => {
         { icon: <LayoutDashboard size={24}/>, label: 'Dashboard' },
         { icon: <Users size={24}/>, label: 'Leads', active: true },
         { icon: <Briefcase size={24}/>, label: 'Clientes' },
+    ];
+
+    const stats = [
+        { l: 'Total Leads', v: 47 },
+        { l: 'Alta Prioridad', v: 12 },
+        { l: 'Tasa Conversión', v: 68, s: '%' }
     ];
 
     return (
@@ -48,8 +73,11 @@ const CRMApp = () => {
                 <main className="p-6 bg-slate-50/30 flex-grow">
                     <h2 className="text-4xl font-bold text-slate-900 mb-6">Leads Cualificados</h2>
                     <div className="grid grid-cols-3 gap-5 mb-6">
-                        {[{l:'Total Leads', v:'47'}, {l:'Alta Prioridad', v:'12'}, {l:'Tasa Conversión', v:'68%'}].map(s=>(
-                             <div key={s.l} className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm"><p className="text-slate-500 mb-1 text-xl">{s.l}</p><p className="text-5xl font-semibold text-slate-900">{s.v}</p></div>
+                        {stats.map(s=>(
+                             <div key={s.l} className="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
+                                <p className="text-slate-500 mb-1 text-xl">{s.l}</p>
+                                <AnimatedStat value={s.v} suffix={s.s} />
+                            </div>
                         ))}
                     </div>
                     <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">

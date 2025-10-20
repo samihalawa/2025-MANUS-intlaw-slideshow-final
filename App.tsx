@@ -30,11 +30,18 @@ const slides = [
   Slide10, Slide11, Slide12, Slide13, Slide14, Slide15, Slide16, Slide17
 ];
 
+// FIX: The original inline prop type for ScaledSlide was causing a TypeScript error
+// with the `key` prop in a list. Defining props with a separate interface resolves this.
+interface ScaledSlideProps {
+  children: React.ReactNode;
+}
+
 /**
  * A component that wraps a slide, scaling it to fit the container's width
  * while maintaining a 16:9 aspect ratio.
  */
-const ScaledSlide = ({ children }: { children: React.ReactNode }) => {
+// FIX: Changed to React.FC to correctly handle the 'key' prop in lists.
+const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 

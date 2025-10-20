@@ -1,6 +1,7 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { ShieldCheck } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const Slide15: React.FC = () => {
     return (
@@ -21,7 +22,13 @@ export const Slide15: React.FC = () => {
 
                 {/* Plan 2 - Recommended */}
                 <div className="bg-slate-50/50 rounded-xl p-8 border-2 border-cyan-500 relative flex flex-col">
-                    <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-cyan-500 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase">Recomendado</div>
+                    <motion.div 
+                        className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-cyan-500 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase"
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                        Recomendado
+                    </motion.div>
                     <h3 className="text-4xl font-bold text-slate-900 mb-6">Plan por Hitos</h3>
                     <div className="bg-white p-6 rounded-lg text-xl space-y-4 mb-6 flex-grow border border-cyan-500/50">
                         <div className="text-center"><span className="text-slate-500">Hito 1 (Inicio)</span> <br/><span className="font-semibold text-slate-900 text-6xl">€15,000</span></div>

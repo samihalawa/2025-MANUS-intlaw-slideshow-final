@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { DatabaseZap, Search, FileText, Check, ShieldCheck } from 'lucide-react';
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const features = [
     { icon: <DatabaseZap size={40} />, text: 'Procesamiento masivo' },
@@ -10,10 +11,37 @@ const features = [
 
 const guarantees = [
     'Cada respuesta vinculada a documentos específicos.',
-    'Reembolso total si se detecta cualquier alucinación.',
+    'Garantía de reembolso total si se detecta alguna alucinación.',
 ];
 
+const AnimatedStat = ({ value, suffix = '' }) => {
+    const count = useMotionValue(0);
+    const rounded = useTransform(count, latest => Math.round(latest));
+
+    useEffect(() => {
+        const controls = animate(count, value, { 
+            duration: 1.5,
+            ease: "easeOut",
+            repeat: Infinity,
+            repeatDelay: 3
+        });
+        return controls.stop;
+    }, [value]);
+    
+    return (
+        <div className="flex items-baseline justify-center">
+            <motion.p className="text-6xl font-bold text-slate-900">{rounded}</motion.p>
+            <p className="text-6xl font-bold text-slate-900">{suffix}</p>
+        </div>
+    );
+};
+
 export const Slide10: React.FC = () => {
+    const benefits = [
+        {l:'Análisis Acelerado',v:100, s:'x'},
+        {l:'Ahorro de Tiempo',v:80, s:'%'}
+    ];
+
     return (
         <SlideWrapper className="p-16">
             <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Agente Documentos</h2>
@@ -28,10 +56,10 @@ export const Slide10: React.FC = () => {
                         </div>
                     ))}
                     <div className="grid grid-cols-2 gap-6 pt-4">
-                        {[{l:'Velocidad',v:'100x'},{l:'Ahorro',v:'80%'}].map(b=>(
+                        {benefits.map(b=>(
                             <div key={b.l} className="bg-slate-50/50 p-4 rounded-lg text-center border border-slate-200">
-                                <p className="font-bold text-6xl text-slate-900">{b.v}</p>
-                                <p className="text-lg text-slate-500 uppercase tracking-wider">{b.l}</p>
+                                <AnimatedStat value={b.v} suffix={b.s} />
+                                <p className="text-lg text-slate-500 uppercase tracking-wider mt-1">{b.l}</p>
                             </div>
                         ))}
                     </div>

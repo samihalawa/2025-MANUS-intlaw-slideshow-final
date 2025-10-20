@@ -1,6 +1,30 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { Check, User } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const leadsData = [
+    { name: "TechCorp SL", type: "Derecho Mercantil", score: 95, priority: "ALTA", priorityColor: "red" },
+    { name: "InnoSolutions SA", type: "Contratos", score: 92, priority: "ALTA", priorityColor: "red" },
+];
+
+const listVariants = {
+    visible: {
+        opacity: 1,
+        transition: {
+            when: "beforeChildren",
+            staggerChildren: 0.3,
+        },
+    },
+    hidden: {
+        opacity: 0,
+    },
+};
+
+const itemVariants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 20 },
+};
 
 const CRMDashboardMockup = () => (
     <div className="w-full bg-white/80 rounded-2xl shadow-2xl border border-slate-200 p-6 space-y-4">
@@ -8,12 +32,18 @@ const CRMDashboardMockup = () => (
             <h3 className="text-4xl font-bold text-slate-800">Leads Cualificados</h3>
             <div className="text-lg font-semibold bg-cyan-500/10 text-cyan-600 px-3 py-1 rounded-full">En Tiempo Real</div>
         </div>
-        {
-            [
-                { name: "TechCorp SL", type: "Derecho Mercantil", score: 95, priority: "ALTA", priorityColor: "red" },
-                { name: "InnoSolutions SA", type: "Contratos", score: 92, priority: "ALTA", priorityColor: "red" },
-            ].map((lead, i) => (
-                <div key={i} className="bg-white p-4 rounded-lg flex items-center gap-6 border border-slate-200 hover:border-cyan-500/50 transition-colors duration-300 shadow-sm">
+        <motion.div
+            variants={listVariants}
+            initial="hidden"
+            animate="visible"
+            className="space-y-4"
+        >
+            {leadsData.map((lead, i) => (
+                <motion.div
+                    key={i}
+                    variants={itemVariants}
+                    className="bg-white p-4 rounded-lg flex items-center gap-6 border border-slate-200 hover:border-cyan-500/50 transition-colors duration-300 shadow-sm"
+                >
                     <div className={`w-20 h-20 rounded-full bg-slate-200 flex items-center justify-center`}>
                         <User className="w-10 h-10 text-slate-500" />
                     </div>
@@ -23,11 +53,17 @@ const CRMDashboardMockup = () => (
                     </div>
                     <div className="text-right">
                         <p className={`text-6xl font-bold text-slate-800`}>{lead.score}</p>
-                        <p className={`text-xl font-bold text-${lead.priorityColor}-500 bg-${lead.priorityColor}-500/10 px-3 py-1 rounded-full`}>{lead.priority}</p>
+                        <motion.div
+                            animate={{ scale: lead.priority === "ALTA" ? [1, 1.05, 1] : 1 }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                            className={`inline-block`}
+                        >
+                            <p className={`text-xl font-bold text-${lead.priorityColor}-500 bg-${lead.priorityColor}-500/10 px-3 py-1 rounded-full`}>{lead.priority}</p>
+                        </motion.div>
                     </div>
-                </div>
-            ))
-        }
+                </motion.div>
+            ))}
+        </motion.div>
     </div>
 );
 

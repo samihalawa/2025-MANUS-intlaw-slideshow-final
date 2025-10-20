@@ -1,12 +1,10 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-// FIX: 'MousePointerSquare' is not an exported member of 'lucide-react'. Replaced with 'MousePointer'.
-import { Clock, MousePointer, FileText, Database } from 'lucide-react';
+import { Clock, MousePointerClick, FileText, Database } from 'lucide-react';
 
 const challenges = [
   { title: "Ineficiencia", desc: "Procesos lentos y costosos.", icon: <Clock size={32} /> },
-  // FIX: Replaced MousePointerSquare with MousePointer.
-  { title: "Tareas Manuales", desc: "Errores y falta de escalabilidad.", icon: <MousePointer size={32} /> },
+  { title: "Procesos Manuales", desc: "Alto índice de error y consumo de tiempo.", icon: <MousePointerClick size={32} /> },
   { title: "Documentos Lentos", desc: "Generación manual consume tiempo.", icon: <FileText size={32} /> },
   { title: "Análisis Masivo", desc: "Inviabilidad de revisar todo.", icon: <Database size={32} /> },
 ];
