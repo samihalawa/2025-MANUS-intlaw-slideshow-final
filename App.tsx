@@ -6,18 +6,15 @@ import { Slide02 } from './slides/Slide02';
 import { Slide03_Analysis } from './slides/Slide03_Analysis';
 import { Slide03 } from './slides/Slide03';
 import { Slide04 } from './slides/Slide04';
-import { Slide05 } from './slides/Slide05';
 import { Slide06 } from './slides/Slide06';
-import { Slide07 } from './slides/Slide07';
-import { Slide08 } from './slides/Slide08';
-import { Slide09 } from './slides/Slide09';
-import { Slide10_A } from './slides/Slide10_A';
+import { Slide07_B } from './slides/Slide07_B';
+import { Slide09_B } from './slides/Slide09_B';
 import { Slide10_B } from './slides/Slide10_B';
 import { Slide10_C } from './slides/Slide10_C';
 import { Slide10 } from './slides/Slide10';
-import { Slide11 } from './slides/Slide11';
+import { Slide11_B } from './slides/Slide11_B';
 import { Slide12 } from './slides/Slide12';
-import { Slide13 } from './slides/Slide13';
+import { Slide13_B } from './slides/Slide13_B';
 import { Slide14_Dashboard } from './slides/Slide14_Dashboard';
 import { Slide14 } from './slides/Slide14';
 import { Slide15 } from './slides/Slide15';
@@ -31,9 +28,21 @@ const SLIDE_HEIGHT = 720;
 
 // Array of slide components from the 'slides' folder
 const slides = [
-  Slide01, Slide02, Slide03_Analysis, Slide03, Slide04, Slide05, Slide06, Slide07,
-  Slide08, Slide09, Slide10_A, Slide10_B, Slide10, Slide10_C, Slide11, Slide12,
-  Slide13, Slide14, Slide14_Dashboard, Slide15, Slide16, Slide17
+  Slide01, Slide02, Slide03_Analysis, Slide03, Slide04, 
+  Slide06, // Web Integration
+  Slide07_B, // New: Full Chatbot Flow
+  Slide09_B, // New: Proactive CRM & Prospecting
+  Slide10_B, // Opportunity Radar
+  Slide10_C, // Document Intelligence Graph
+  Slide10,   // Guarantees
+  Slide11_B, // New: Document Analysis with Citations
+  Slide12,   // Copilot Intro
+  Slide13_B, // New: Integrated Doc Gen
+  Slide14,
+  Slide14_Dashboard, 
+  Slide15, 
+  Slide16, 
+  Slide17
 ];
 
 

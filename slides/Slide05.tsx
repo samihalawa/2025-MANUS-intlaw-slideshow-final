@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Check, Bot } from 'lucide-react';
+import { Check, Bot, UploadCloud, FileCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInterval } from '../hooks/useInterval';
 
@@ -9,8 +9,37 @@ const conversation = [
   { from: 'user', text: 'Necesito asesoramiento para un contrato mercantil internacional.' },
   { from: 'bot', text: 'Entendido. Para dirigirle al especialista adecuado, ¿podría indicar el valor estimado del contrato?' },
   { from: 'user', text: 'Aproximadamente 250.000€.' },
-  { from: 'bot', text: 'Perfecto. Este es un caso de alta prioridad. He alertado a nuestro equipo de derecho mercantil. Por favor, facilite un correo para que un socio le contacte en menos de 30 minutos.' },
+  { from: 'bot', text: 'Perfecto. Para casos de esta naturaleza, nuestra tarifa de análisis inicial es de 250€. ¿Desea proceder?' },
+  { from: 'user', text: 'Sí, procedo.' },
+  { from: 'bot', text: 'Excelente. Para que un socio revise su caso, por favor, suba la documentación relevante de forma segura aquí.', type: 'upload' },
+  { from: 'user', text: '...', type: 'upload_success' },
+  { from: 'bot', text: 'Documentos recibidos. He añadido el caso a nuestro sistema y será revisado por un socio en breve.' },
 ];
+
+const DocumentUploader = () => (
+    <motion.div 
+      className="border-4 border-dashed border-slate-300 rounded-2xl p-8 text-center bg-slate-100/50"
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ type: 'spring' }}
+    >
+        <UploadCloud className="w-16 h-16 text-cyan-500 mx-auto mb-4" />
+        <p className="font-bold text-slate-700 text-2xl">Arrastre y suelte sus archivos aquí</p>
+        <p className="text-slate-500 text-xl">Carga segura y encriptada</p>
+    </motion.div>
+);
+
+const UploadSuccess = () => (
+    <motion.div 
+        className="flex justify-end"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+    >
+        <div className="p-4 rounded-2xl bg-green-100 text-green-800 flex items-center gap-3 text-2xl font-semibold">
+            <FileCheck />
+            <span>3 archivos subidos</span>
+        </div>
+    </motion.div>
+);
 
 const ChatbotMockup = () => {
   const [messages, setMessages] = useState([conversation[0]]);
@@ -42,12 +71,13 @@ const ChatbotMockup = () => {
       <div className="p-6 space-y-4 h-96 bg-white/50 overflow-y-auto">
         <AnimatePresence>
           {messages.map((msg, i) => (
+            msg.type === 'upload_success' ? <UploadSuccess key={i} /> :
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className={`flex ${msg.from === 'user' ? 'justify-end' : ''}`}
+              className={`flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}
             >
               <div className={`p-4 rounded-2xl max-w-[80%] text-2xl ${
                 msg.from === 'bot' 
@@ -56,6 +86,7 @@ const ChatbotMockup = () => {
               }`}>
                 <p>{msg.text}</p>
               </div>
+              {msg.type === 'upload' && <div className="mt-4 w-full"><DocumentUploader /></div>}
             </motion.div>
           ))}
         </AnimatePresence>
@@ -78,19 +109,19 @@ export const Slide05: React.FC = () => {
       <div className="grid grid-cols-2 gap-12 items-center">
         <div>
           <div className="inline-block bg-cyan-500/10 text-cyan-600 text-lg font-bold px-4 py-2 rounded-full mb-4">Módulo 1 · SOLUCIÓN</div>
-          <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>IA en Web</h2>
+          <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Flujo Automatizado</h2>
           <div className="space-y-8">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-4xl text-slate-700">Atención Inmediata 24/7</span>
+              <span className="text-4xl text-slate-700">Cualificación y Cotización</span>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-4xl text-slate-700">Cualificación Inteligente</span>
+              <span className="text-4xl text-slate-700">Captura Segura de Documentos</span>
             </div>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>
-              <span className="text-4xl text-slate-700">Captura de Leads Priorizados</span>
+              <span className="text-4xl text-slate-700">Creación Automática de Caso</span>
             </div>
           </div>
         </div>

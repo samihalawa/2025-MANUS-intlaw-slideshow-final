@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { FileText, Download, Sparkles } from 'lucide-react';
+import { FileText, Download, Sparkles, UserPlus } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const FormInput = ({ label, value }: { label: string, value: string }) => (
+const FormInput = ({ label, value, onChange }: { label: string; value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; }) => (
     <div className="mb-4">
         <label className="text-lg font-semibold text-slate-600 mb-2 block">{label}</label>
-        <input type="text" defaultValue={value} className="w-full bg-white border-2 border-slate-300 rounded-md p-3 text-xl text-slate-800 outline-none focus:ring-1 focus:ring-cyan-500 transition-all"/>
+        <input type="text" value={value} onChange={onChange} className="w-full bg-white border-2 border-slate-300 rounded-md p-3 text-xl text-slate-800 outline-none focus:ring-1 focus:ring-cyan-500 transition-all"/>
     </div>
 );
 
-const DocumentPreview = () => (
+const DocumentPreview = ({ data }: { data: { compradora: string, vendedora: string }}) => (
     <div className="bg-white rounded-md shadow-lg h-full overflow-hidden relative border border-slate-200">
         <motion.div
             className="p-10 text-black leading-relaxed font-serif"
@@ -18,18 +18,12 @@ const DocumentPreview = () => (
             transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
         >
             <h3 className="text-center font-bold text-3xl mb-4">CONTRATO DE COMPRAVENTA MERCANTIL</h3>
-            <p className="text-center text-gray-500 mb-8 text-lg">Entre TechCorp S.L. y InnoSolutions S.A.</p>
+            <p className="text-center text-gray-500 mb-8 text-lg">Entre {data.compradora || '...'} y {data.vendedora || '...'}</p>
             <p className="font-bold mb-3 text-2xl">I. COMPARECEN</p>
-            <p className="mb-4 text-2xl">De una parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">TechCorp S.L.</span>, con NIF B-12345678 y domicilio social en C/ Innovación, 1, 28080 Madrid, en adelante "la Compradora".</p>
-            <p className="mb-8 text-2xl">De otra parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">InnoSolutions S.A.</span>, con NIF A-87654321 y domicilio social en Av. del Progreso, 2, 08080 Barcelona, en adelante "la Vendedora".</p>
+            <p className="mb-4 text-2xl">De una parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">{data.compradora || '[COMPRADORA]'}</span>, con NIF B-12345678 y domicilio social en C/ Innovación, 1, 28080 Madrid, en adelante "la Compradora".</p>
+            <p className="mb-8 text-2xl">De otra parte, <span className="bg-cyan-100/80 px-1 rounded font-semibold">{data.vendedora || '[VENDEDORA]'}</span>, con NIF A-87654321 y domicilio social en Av. del Progreso, 2, 08080 Barcelona, en adelante "la Vendedora".</p>
             <p className="font-bold mb-3 text-2xl">II. OBJETO DEL CONTRATO</p>
-            <p className="pl-4 text-2xl">1. El objeto del presente contrato es la compraventa de <span className="bg-yellow-100/80 px-1 rounded font-semibold">los activos tecnológicos</span> que se detallan en el Anexo I, incluyendo software, patentes y equipos asociados.</p>
-            <p className="font-bold mb-3 text-2xl mt-8">III. PRECIO Y CONDICIONES DE PAGO</p>
-            <p className="pl-4 text-2xl">2. El precio total asciende a Doscientos Cincuenta Mil Euros (€250,000.00). El pago se realizará <span className="bg-yellow-100/80 px-1 rounded font-semibold">a los 60 días de la firma</span> del presente contrato mediante transferencia bancaria.</p>
-            <p className="font-bold mb-3 text-2xl mt-8">IV. CONFIDENCIALIDAD</p>
-            <p className="pl-4 text-2xl">3. Ambas partes se comprometen a mantener la más estricta confidencialidad sobre la información intercambiada durante un período de <span className="bg-yellow-100/80 px-1 rounded font-semibold">cinco (5) años</span> desde la firma de este contrato.</p>
-             <p className="font-bold mb-3 text-2xl mt-8">V. LEY APLICABLE Y JURISDICCIÓN</p>
-            <p className="pl-4 text-2xl">4. El presente contrato se regirá por la ley española. Para cualquier controversia, las partes se someten a los tribunales de <span className="bg-yellow-100/80 px-1 rounded font-semibold">Madrid Capital</span>, renunciando a su fuero propio.</p>
+            <p className="pl-4 text-2xl">1. El objeto del presente contrato es la compraventa de <span className="bg-yellow-100/80 px-1 rounded font-semibold">los activos tecnológicos</span> que se detallan en el Anexo I...</p>
         </motion.div>
         <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-white to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white via-white to-transparent"></div>
@@ -37,10 +31,26 @@ const DocumentPreview = () => (
 );
 
 export const Slide13: React.FC = () => {
+    const [formData, setFormData] = useState({
+        compradora: '',
+        vendedora: '',
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>, field: 'compradora' | 'vendedora') => {
+        setFormData(prev => ({ ...prev, [field]: e.target.value }));
+    };
+
+    const handleImport = () => {
+        setFormData({
+            compradora: 'TechCorp S.L.',
+            vendedora: 'InnoSolutions S.A.',
+        });
+    };
+
     return (
         <SlideWrapper className="p-8 flex flex-col">
-            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generación de Documentos</h2>
-            <p className="text-slate-600 text-center mb-6 text-2xl">De prompt a documento en segundos.</p>
+            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generación de Documentos Integrada</h2>
+            <p className="text-slate-600 text-center mb-6 text-2xl">De lead a documento en segundos.</p>
 
             <div className="flex-grow bg-slate-50 rounded-xl border border-slate-200 flex min-h-[550px]">
                 {/* Left Panel: Form */}
@@ -48,9 +58,14 @@ export const Slide13: React.FC = () => {
                     <h3 className="font-bold text-slate-900 text-2xl mb-2">Nuevo Documento</h3>
                     <p className="text-lg text-slate-500 mb-6">Compraventa Mercantil</p>
                     <div className="flex-grow">
-                        <FormInput label="Compradora" value="TechCorp S.L." />
-                        <FormInput label="Vendedora" value="InnoSolutions S.A." />
+                        <FormInput label="Compradora" value={formData.compradora} onChange={e => handleChange(e, 'compradora')} />
+                        <FormInput label="Vendedora" value={formData.vendedora} onChange={e => handleChange(e, 'vendedora')} />
                     </div>
+                     <button 
+                        onClick={handleImport}
+                        className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-lg transition-colors text-lg flex items-center justify-center gap-3 mb-3">
+                        <UserPlus /> Importar desde CRM
+                    </button>
                     <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity text-xl flex items-center justify-center gap-3">
                         <Sparkles /> Generar Documento
                     </button>
@@ -62,7 +77,7 @@ export const Slide13: React.FC = () => {
                        <button className="text-base bg-cyan-600 text-white px-4 py-2 rounded-md font-semibold flex items-center gap-2"><Download size={16}/> Descargar PDF</button>
                     </div>
                      <div className="flex-grow overflow-hidden">
-                        <DocumentPreview />
+                        <DocumentPreview data={formData} />
                      </div>
                 </div>
             </div>
