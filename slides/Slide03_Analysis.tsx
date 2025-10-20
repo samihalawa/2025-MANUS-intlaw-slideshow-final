@@ -4,15 +4,15 @@ import { Target, Webhook, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ignacioPoints = [
-    { text: "Analizar causas de 3,000 folios sin 'alucinaciones'." },
-    { text: "Superar la baja calidad de leads de SEO/SEM." },
-    { text: "El 'objetivo bomba': captar clientes por nicho específico (herencias, real estate)." },
+    { text: "Análisis de Rentabilidad en 'Mutaciones'" },
+    { text: "Extraer la base de datos de leads de Idealista" },
+    { text: "Establecer P&L mensual por cliente, por socio" },
 ];
 
 const simonePoints = [
-    { text: "Automatizar el primer contacto y la solicitud de documentos." },
-    { text: "Integrar un chatbot inteligente en el WordPress actual." },
-    { text: "Reducir el tiempo en la creación y personalización de contratos." },
+    { text: "Automatizar el 'scoring' de leads y la solicitud de 'compliance'" },
+    { text: "Integrar un chatbot inteligente en el WordPress actual" },
+    { text: "Asistencia IA en la creación y personalización de contenidos" },
 ];
 
 const Card = ({ title, points, icon }: { title: string; points: { text: string }[]; icon: React.ReactNode; }) => (

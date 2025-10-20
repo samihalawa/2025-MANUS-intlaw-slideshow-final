@@ -118,7 +118,7 @@ export const Slide07_B: React.FC = () => {
           <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Automatización Web de Principio a Fin</h2>
           <div className="space-y-8 text-4xl text-slate-700">
             <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Cualificación 24/7</span></div>
-            <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Cotización Instantánea</span></div>
+            <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Cita reuniones Automática</span></div>
             <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Captura Segura de Documentos</span></div>
             <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Creación de Caso Automática</span></div>
           </div>

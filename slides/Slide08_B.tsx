@@ -1,6 +1,6 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Bot, FileText, CheckCircle, Briefcase, Euro, Target } from 'lucide-react';
+import { Bot, FileText, Briefcase, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const WhatsAppMockup = () => (
@@ -43,30 +43,33 @@ const itemVariants = {
     visible: { opacity: 1, y: 0, transition: { type: 'spring' } }
 };
 
-const LawyerDashboardView = () => (
+const NewLeadCard = () => (
     <motion.div 
         variants={dashboardVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-8 space-y-6 h-full flex flex-col"
+        className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-8 space-y-6 h-full flex flex-col justify-center"
     >
-        <motion.h3 variants={itemVariants} className="text-3xl font-bold text-slate-900">Nuevo Lead: Caso ID-4588</motion.h3>
         <motion.div variants={itemVariants}>
-            <p className="text-xl"><strong className="font-semibold text-slate-600">Contacto:</strong> +34 6XX XXX XXX (via WhatsApp)</p>
-            <p className="text-xl"><strong className="font-semibold text-slate-600">Tipo:</strong> Contrato Mercantil</p>
-        </motion.div>
-        <motion.div variants={itemVariants} className="bg-slate-50/70 p-4 rounded-lg border border-slate-200">
-            <p className="font-bold text-slate-800 text-xl mb-2">Resumen IA del Documento:</p>
-            <p className="text-slate-600 text-lg">Contrato de 50 págs. Cláusulas clave: Confidencialidad (3 años), Pago (90 días), Jurisdicción (Barcelona).</p>
-        </motion.div>
-        <motion.div variants={itemVariants} className="bg-cyan-500/5 p-4 rounded-lg border border-cyan-500/30 flex-grow">
-            <p className="font-bold text-cyan-800 text-xl mb-3">Cualificación Automática:</p>
-            <div className="space-y-3">
-                <div className="flex items-center gap-3 text-lg"><Briefcase className="text-cyan-600"/> <strong>Empresa (API Reg. Mercantil):</strong> <span className="font-semibold">Compañía XYZ S.L.</span></div>
-                <div className="flex items-center gap-3 text-lg"><Euro className="text-cyan-600"/> <strong>Salud Financiera:</strong> <span className="font-semibold">Caja estimada: 300.000€+</span></div>
-                <div className="flex items-center gap-3 text-lg"><Target className="text-cyan-600"/> <strong>Precio Recomendado IA:</strong> <span className="font-semibold text-xl bg-cyan-500/20 px-2 py-1 rounded">€6,000 - €8,500</span></div>
+            <div className="flex justify-between items-center">
+                <h3 className="text-3xl font-bold text-slate-900">Nuevo Lead Cualificado</h3>
+                <span className="text-lg font-semibold bg-green-500/10 text-green-600 px-3 py-1 rounded-full">Recibido</span>
             </div>
+             <p className="text-xl text-slate-500 mt-1">Caso ID-4588</p>
+        </motion.div>
+        
+        <motion.div variants={itemVariants} className="bg-slate-50/70 p-4 rounded-lg border border-slate-200 space-y-2">
+            <p className="text-xl"><strong className="font-semibold text-slate-600 w-28 inline-block">Empresa:</strong> Compañía XYZ S.L.</p>
+            <p className="text-xl"><strong className="font-semibold text-slate-600 w-28 inline-block">Contacto:</strong> +34 6XX XXX XXX</p>
+            <p className="text-xl"><strong className="font-semibold text-slate-600 w-28 inline-block">Tipo:</strong> Contrato Mercantil</p>
+        </motion.div>
+
+        <motion.div variants={itemVariants} className="bg-cyan-500/5 p-4 rounded-lg border border-cyan-500/30">
+            <p className="font-bold text-cyan-800 text-xl mb-2 flex items-center gap-2"><Target size={20} />Resumen por IA:</p>
+            <p className="text-slate-600 text-lg">
+                Contrato de 50 págs. Cláusulas clave: Confidencialidad (3 años), Pago (90 días). Potencial de honorarios alto.
+            </p>
         </motion.div>
     </motion.div>
 );
@@ -81,7 +84,7 @@ export const Slide08_B: React.FC = () => {
                     <WhatsAppMockup />
                 </div>
                 <div>
-                    <LawyerDashboardView />
+                    <NewLeadCard />
                 </div>
             </div>
         </SlideWrapper>

@@ -16,9 +16,9 @@ export const Slide15: React.FC = () => {
                     <div className="bg-white p-6 rounded-lg text-xl space-y-4 mb-6 flex-grow border border-slate-200">
                         <div className="text-center"><span className="text-slate-500">Inicial</span> <br/><span className="font-semibold text-slate-900 text-6xl">€9,000</span></div>
                         <hr/>
-                        <div className="text-center"><span className="text-slate-500">Mensual (12 meses)</span> <br/><span className="font-semibold text-slate-900 text-6xl">€4,000</span></div>
+                        <div className="text-center"><span className="text-slate-500">Mensual (9 meses)</span> <br/><span className="font-semibold text-slate-900 text-6xl">€4,000</span></div>
                     </div>
-                    <p className="text-xl font-semibold text-slate-600 text-center mt-2">Total: €57,000</p>
+                    <p className="text-xl font-semibold text-slate-600 text-center mt-2">Total: €45,000</p>
                 </div>
 
                 {/* Plan 2 - Recommended */}
