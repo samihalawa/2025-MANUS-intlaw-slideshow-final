@@ -1,0 +1,77 @@
+import React from 'react';
+import { SlideWrapper } from '../components/SlideWrapper';
+import { Bot, FileText, CheckCircle, Briefcase, Euro, Target } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const WhatsAppMockup = () => (
+    <div className="w-[360px] h-[640px] bg-white rounded-[40px] shadow-2xl border-8 border-slate-800 overflow-hidden mx-auto">
+        <div className="h-full flex flex-col">
+            {/* Header */}
+            <div className="bg-slate-100 p-3 flex items-center gap-3 border-b border-slate-200">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white"><Bot size={24}/></div>
+                <div>
+                    <p className="font-bold text-slate-800 text-lg">INTLAW AI</p>
+                    <p className="text-sm text-green-600 font-semibold">online</p>
+                </div>
+            </div>
+            {/* Chat Area */}
+            <div className="flex-grow p-4 bg-[#E5DDD5] space-y-3">
+                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 0.5}}} className="flex justify-start">
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Entendido su caso de contrato. Para darle una cotización, por favor, envíeme los documentos relevantes.</div>
+                </motion.div>
+                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 1.5}}} className="flex justify-end">
+                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] text-base shadow flex items-center gap-2"><FileText size={20} className="text-slate-600"/> Contrato_V1.pdf</div>
+                </motion.div>
+                <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 2.5}}} className="flex justify-start">
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Recibido. Analizando...</div>
+                </motion.div>
+                <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 4.0}}} className="flex justify-start">
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Análisis preliminar completado. Caso ID-4588 creado en nuestro sistema.</div>
+                </motion.div>
+            </div>
+        </div>
+    </div>
+);
+
+const LawyerDashboardView = () => (
+    <motion.div 
+        initial={{opacity: 0, scale: 0.95}} 
+        animate={{opacity: 1, scale: 1, transition: {delay: 4.5, duration: 0.5}}}
+        className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-8 space-y-6 h-full"
+    >
+        <h3 className="text-3xl font-bold text-slate-900">Nuevo Lead: Caso ID-4588</h3>
+        <div>
+            <p className="text-xl"><strong className="font-semibold text-slate-600">Contacto:</strong> +34 6XX XXX XXX (via WhatsApp)</p>
+            <p className="text-xl"><strong className="font-semibold text-slate-600">Tipo:</strong> Contrato Mercantil</p>
+        </div>
+        <div className="bg-slate-50/70 p-4 rounded-lg border border-slate-200">
+            <p className="font-bold text-slate-800 text-xl mb-2">Resumen IA del Documento:</p>
+            <p className="text-slate-600 text-lg">Contrato de 50 págs. Cláusulas clave: Confidencialidad (3 años), Pago (90 días), Jurisdicción (Barcelona).</p>
+        </div>
+        <div className="bg-cyan-500/5 p-4 rounded-lg border border-cyan-500/30">
+            <p className="font-bold text-cyan-800 text-xl mb-3">Cualificación Automática:</p>
+            <div className="space-y-3">
+                <div className="flex items-center gap-3 text-lg"><Briefcase className="text-cyan-600"/> <strong>Empresa (API Reg. Mercantil):</strong> <span className="font-semibold">Compañía XYZ S.L.</span></div>
+                <div className="flex items-center gap-3 text-lg"><Euro className="text-cyan-600"/> <strong>Salud Financiera:</strong> <span className="font-semibold">Caja estimada: 300.000€+</span></div>
+                <div className="flex items-center gap-3 text-lg"><Target className="text-cyan-600"/> <strong>Precio Recomendado IA:</strong> <span className="font-semibold text-xl bg-cyan-500/20 px-2 py-1 rounded">€6,000 - €8,500</span></div>
+            </div>
+        </div>
+    </motion.div>
+);
+
+export const Slide08_B: React.FC = () => {
+    return (
+        <SlideWrapper className="p-16">
+            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 1: Recepción y Cualificación Multicanal</h2>
+            <p className="text-3xl text-slate-600 mb-8">De WhatsApp a un caso cualificado en segundos.</p>
+            <div className="grid grid-cols-2 gap-12 items-center">
+                <div className="flex justify-center">
+                    <WhatsAppMockup />
+                </div>
+                <div>
+                    <LawyerDashboardView />
+                </div>
+            </div>
+        </SlideWrapper>
+    );
+};
