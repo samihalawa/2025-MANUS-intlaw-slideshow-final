@@ -64,12 +64,14 @@ interface ScaledSlideProps {
 const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  const slideRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateScale = () => {
-      if (containerRef.current) {
-        const { width } = containerRef.current.getBoundingClientRect();
-        setScale(width / SLIDE_WIDTH);
+      if (containerRef.current && slideRef.current) {
+        const { width, height } = containerRef.current.getBoundingClientRect();
+        const newScale = Math.min(width / SLIDE_WIDTH, height / SLIDE_HEIGHT);
+        setScale(newScale);
       }
     };
 
@@ -91,35 +93,63 @@ const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
   return (
     <div
       ref={containerRef}
-      className="w-full"
+      className="w-full flex justify-center items-center"
       style={{
-        height: SLIDE_HEIGHT * scale,
+        width: '100%',
+        height: '100%',
+        maxWidth: '100vw',
+        maxHeight: '100vh',
+        aspectRatio: `${SLIDE_WIDTH} / ${SLIDE_HEIGHT}`,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden',
       }}
     >
       <div
+        ref={slideRef}
         style={{
-          width: SLIDE_WIDTH,
-          height: SLIDE_HEIGHT,
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
           transform: `scale(${scale})`,
-          transformOrigin: 'top left',
+          transformOrigin: 'center center',
         }}
       >
         {children}
       </div>
     </div>
   );
-};
+}
 
 
 export default function App() {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const CurrentSlideComponent = slides[currentSlideIndex];
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowRight') {
+        setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % slides.length);
+      } else if (event.key === 'ArrowLeft') {
+        setCurrentSlideIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
-    <div className="w-full bg-slate-900 font-sans text-base flex flex-col items-center py-12 px-8">
-      <main className="w-full max-w-6xl space-y-8">
-        {slides.map((SlideComponent, index) => (
-          <ScaledSlide key={index}>
-            <SlideComponent />
-          </ScaledSlide>
-        ))}
+    <div className="w-full bg-slate-900 font-sans text-base flex flex-col items-center justify-center min-h-screen p-4">
+      <main className="w-full h-screen flex items-center justify-center">
+        <ScaledSlide>
+          <CurrentSlideComponent />
+        </ScaledSlide>
       </main>
     </div>
   );
