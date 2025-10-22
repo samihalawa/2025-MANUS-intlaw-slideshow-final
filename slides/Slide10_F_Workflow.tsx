@@ -51,11 +51,11 @@ export const Slide10_F_Workflow: React.FC = () => {
                     <Card>
                         <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><Target className="text-cyan-500"/> 1. Detección</h3>
                         <div className="bg-slate-50/70 p-4 rounded-lg border border-slate-200 flex-grow">
-                            <p className="font-semibold text-slate-500 text-lg">Nueva Señal de Mercado</p>
+                            <p className="font-semibold text-slate-600 text-lg">Nueva Señal de Mercado</p>
                             <p className="font-bold text-slate-800 text-xl mt-2">Transacción Inmobiliaria</p>
                             <p className="text-slate-600 text-lg">Valor: <span className="font-semibold">€2.5M</span></p>
                             <p className="text-slate-600 text-lg">Zona: <span className="font-semibold">Recoletos, Madrid</span></p>
-                            <p className="text-slate-500 text-sm mt-2">Fuente: Reg. de la Propiedad</p>
+                            <p className="text-slate-600 text-sm mt-2">Fuente: Reg. de la Propiedad</p>
                         </div>
                     </Card>
                 </div>
