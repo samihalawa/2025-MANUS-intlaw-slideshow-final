@@ -1,6 +1,6 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Gift, FastForward, MessageSquare, Phone, Clock } from 'lucide-react';
+import { Gift, FastForward, MessageSquare, Phone, Clock, LayoutDashboard, Target, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const OfferCard = ({ icon, title, value }: { icon: React.ReactNode; title: string; value: string; }) => (
@@ -13,6 +13,39 @@ const OfferCard = ({ icon, title, value }: { icon: React.ReactNode; title: strin
         </div>
     </div>
 );
+
+const offers = [
+    {
+        icon: <FastForward size={32} />,
+        title: "Entrega Acelerada (30 días)",
+        value: "€4,000"
+    },
+    {
+        icon: <MessageSquare size={32} />,
+        title: "Automatización de WhatsApp",
+        value: "€5,000"
+    },
+    {
+        icon: <Phone size={32} />,
+        title: "Automatización Telefónica",
+        value: "€6,000"
+    },
+    {
+        icon: <LayoutDashboard size={32} />,
+        title: "CRM & Dashboard 360°",
+        value: "€8,000"
+    },
+    {
+        icon: <Target size={32} />,
+        title: "Módulo de Prospección IA",
+        value: "€7,000"
+    },
+    {
+        icon: <FileText size={32} />,
+        title: "Agente de Documentos IA",
+        value: "€10,000"
+    }
+];
 
 export const Slide15_SpecialOffer: React.FC = () => {
     return (
@@ -38,22 +71,15 @@ export const Slide15_SpecialOffer: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                        <OfferCard 
-                            icon={<FastForward size={32} />} 
-                            title="Entrega Acelerada (30 días)" 
-                            value="€4,000"
-                        />
-                        <OfferCard 
-                            icon={<MessageSquare size={32} />} 
-                            title="Automatización de WhatsApp" 
-                            value="€5,000"
-                        />
-                        <OfferCard 
-                            icon={<Phone size={32} />} 
-                            title="Automatización Telefónica" 
-                            value="€6,000"
-                        />
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+                        {offers.map(offer => (
+                            <OfferCard 
+                                key={offer.title}
+                                icon={offer.icon} 
+                                title={offer.title} 
+                                value={offer.value}
+                            />
+                        ))}
                     </div>
                     
                     <motion.div 
@@ -63,7 +89,7 @@ export const Slide15_SpecialOffer: React.FC = () => {
                         className="text-center bg-slate-900/50 border border-slate-700 rounded-lg py-6"
                     >
                         <p className="text-2xl text-slate-300">Valor Total de la Bonificación:</p>
-                        <p className="text-6xl font-bold text-white mt-2">€15,000</p>
+                        <p className="text-6xl font-bold text-white mt-2">€40,000</p>
                         <div className="inline-flex items-center gap-3 mt-4 text-cyan-400 font-semibold bg-cyan-400/10 px-4 py-2 rounded-full">
                             <Clock size={20} />
                             <span>Oferta de tiempo limitado</span>
