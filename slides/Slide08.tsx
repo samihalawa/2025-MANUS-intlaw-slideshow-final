@@ -10,20 +10,17 @@ const leadsData = [
 
 const listVariants = {
     visible: {
-        opacity: 1,
         transition: {
             when: "beforeChildren",
             staggerChildren: 0.3,
         },
     },
-    hidden: {
-        opacity: 0,
-    },
+    hidden: {},
 };
 
 const itemVariants = {
-    visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 20 },
+    visible: { y: 0 },
+    hidden: { y: 20 },
 };
 
 const CRMDashboardMockup = () => (
@@ -41,7 +38,8 @@ const CRMDashboardMockup = () => (
         <motion.div
             variants={listVariants}
             initial="hidden"
-            animate="visible"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
             className="space-y-4"
         >
             {leadsData.map((lead, i) => (

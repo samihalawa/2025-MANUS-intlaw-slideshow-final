@@ -1,35 +1,35 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { ShieldCheck, CheckSquare, Clock, Repeat } from 'lucide-react';
+import { ShieldCheck, CheckSquare, Clock, Repeat, Handshake } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const guarantees = [
     {
         icon: <CheckSquare size={40} />,
-        title: "Criterios de Aceptación Medibles",
-        desc: "Cada fase se aprueba contra métricas claras de rendimiento (ej: ≥95% precisión en cualificación) antes de proceder con el pago."
-    },
-    {
-        icon: <Clock size={40} />,
-        title: "Compromiso Férreo con los Plazos",
-        desc: "En caso de no cumplir con la fecha de entrega por causas atribuibles a nuestro equipo, se aplica una penalización del 10% sobre el hito."
+        title: "Pagos Vinculados a Verificación",
+        desc: "Cada pago se realiza únicamente tras la verificación y aceptación de la funcionalidad del hito correspondiente."
     },
     {
         icon: <ShieldCheck size={40} />,
-        title: "Soporte Post-Lanzamiento (90 Días)",
-        desc: "La entrega final es solo el comienzo. Incluimos un periodo de soporte completo para la corrección de errores sin coste."
+        title: "Garantía 0% Alucinaciones",
+        desc: "Si nuestro agente documental genera una alucinación, ofrecemos el reembolso total del módulo."
     },
     {
-        icon: <Repeat size={40} />,
-        title: "Cláusula de Reembolso por Defectos",
-        desc: "Si un defecto crítico no se resuelve en 30 días, la inversión del módulo afectado está protegida con un reembolso del 100%."
+        icon: <Clock size={40} />,
+        title: "Compromiso con los Plazos",
+        desc: "Aplicamos una penalización del 10% sobre el valor del hito por cada semana de retraso en la entrega."
+    },
+    {
+        icon: <Handshake size={40} />,
+        title: "Soporte Continuo Incluido",
+        desc: "La asociación incluye 12 meses de soporte proactivo y optimización para maximizar el valor."
     },
 ];
 
 export const Slide15_Assurance: React.FC = () => {
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Garantías: Compromiso de Riesgo Cero</h2>
+            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Garantías de Valor</h2>
             <p className="text-3xl text-slate-600 mb-16 text-center max-w-5xl mx-auto">Un marco de garantías explícitas que protege su inversión en cada paso.</p>
             
             <div className="grid grid-cols-2 gap-10">
@@ -37,8 +37,8 @@ export const Slide15_Assurance: React.FC = () => {
                     <motion.div
                         key={item.title}
                         className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 hover:border-cyan-500/50 hover:bg-white transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ y: 50 }}
+                        whileInView={{ y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.15 }}
                     >

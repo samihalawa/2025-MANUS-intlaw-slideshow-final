@@ -12,7 +12,7 @@ const chatConversation = [
 ];
 
 const ChatbotWidget = () => {
-  const [messages, setMessages] = useState([chatConversation[0]]);
+  const [messages, setMessages] = useState(chatConversation);
 
   useInterval(() => {
     setMessages(prev => (prev.length < chatConversation.length) ? [...prev, chatConversation[prev.length]] : [chatConversation[0]]);
@@ -34,8 +34,8 @@ const ChatbotWidget = () => {
           {messages.map((msg, i) => (
             <motion.div 
               key={i} 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 10 }}
+              animate={{ y: 0 }}
               className={`flex ${msg.from === 'user' ? 'justify-end' : ''}`}
             >
               <div className={`p-2.5 rounded-lg max-w-[85%] ${msg.from === 'bot' ? 'bg-slate-100 rounded-bl-none' : 'bg-cyan-600 text-white rounded-br-none'}`}>

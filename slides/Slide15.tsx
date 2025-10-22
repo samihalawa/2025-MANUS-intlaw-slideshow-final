@@ -1,84 +1,141 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { ShieldCheck } from 'lucide-react';
+import {
+  MessageCircle, Mail, FilePlus, FileCheck2, Search, Link,
+  Target, Filter, LayoutDashboard, Users, Wrench, Star
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const modules = [
+  {
+    name: 'Módulo 1: Captación y Asistente Inteligente',
+    features: [
+      { icon: <MessageCircle size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Asistente Web IA:</strong> Asistente web 24/7 que cualifica, cotiza y recoge documentos automáticamente.' },
+      { icon: <Mail size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Intake Multicanal:</strong> Centralice la captación de clientes desde web, email y WhatsApp.' },
+      { icon: <FilePlus size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Propuesta Automática:</strong> Genere y envíe propuestas de honorarios al instante tras la cualificación.' }
+    ],
+    standardPrice: '€15,000',
+    offerPrice: '€12,000'
+  },
+  {
+    name: 'Módulo 2: Inteligencia Documental (Garantizado)',
+    features: [
+      { icon: <FileCheck2 size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Análisis Confiable:</strong> Análisis documental masivo con precisión garantizada (0% alucinaciones).' },
+      { icon: <Search size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Búsqueda Inteligente:</strong> Detección instantánea de riesgos, contradicciones y cláusulas críticas.' },
+      { icon: <Link size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Cita de Fuentes:</strong> Fiabilidad total: cada dato generado está vinculado a su fuente original.' }
+    ],
+    standardPrice: '€15,000',
+    offerPrice: '€12,000'
+  },
+  {
+    name: 'Módulo 3: Motor de Crecimiento Proactivo IA',
+    features: [
+      { icon: <Target size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Radar de Oportunidades:</strong> Escaneo de datos públicos para detectar eventos (transacciones, litigios) y generar clientes.' },
+      { icon: <Filter size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Prospección Quirúrgica:</strong> Flujo constante de oportunidades de alto valor, filtradas para sus nichos más rentables.' },
+      { icon: <LayoutDashboard size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Inteligencia Competitiva:</strong> Identifique necesidades legales de empresas antes que su competencia y actúe primero.' }
+    ],
+    standardPrice: '€15,000',
+    offerPrice: '€12,000'
+  },
+  {
+    name: 'Módulo 4: Copilot Documental y Asociación Estratégica',
+    features: [
+      { icon: <FilePlus size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Copilot de Redacción:</strong> Redacte documentos complejos desde lenguaje natural, conectado a los datos del caso.' },
+      { icon: <Users size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Implementación y Adopción:</strong> Formación completa para maximizar el rendimiento del equipo desde el día uno.' },
+      { icon: <Wrench size={20} className="flex-shrink-0 text-cyan-600" />, text: '<strong>Soporte Proactivo:</strong> 12 meses de soporte y monitorización para optimizar y evolucionar el sistema.' }
+    ],
+    standardPrice: '€15,000',
+    offerPrice: '€12,000'
+  }
+];
+
+const addons = [
+  { name: 'Automatización de WhatsApp', price: '+€5,000' },
+  { name: 'Agente de Voz Telefónico (IA)', price: '+€6,000' },
+  { name: 'Entrega Acelerada (30 Días)', price: '+€4,000' }
+];
+
 export const Slide15: React.FC = () => {
-    return (
-        <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Modelo de Inversión</h2>
-
-            <motion.div 
-                className="grid grid-cols-2 gap-8 mb-8"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={{
-                    visible: { transition: { staggerChildren: 0.2 } }
-                }}
-            >
-                {/* Plan 1 */}
-                <motion.div 
-                    className="bg-white rounded-xl p-8 border border-slate-200 flex flex-col hover:shadow-xl transition-shadow duration-300"
-                    variants={{
-                        hidden: { opacity: 0, y: 50 },
-                        visible: { opacity: 1, y: 0 }
-                    }}
-                >
-                    <h3 className="text-4xl font-bold text-slate-900 text-center">Plan Financiado</h3>
-                    <p className="text-xl text-slate-600 mb-6 text-center">Ideal para un flujo de caja predecible y una inversión distribuida.</p>
-                    <div className="bg-slate-50/50 p-6 rounded-lg text-xl space-y-4 mb-6 flex-grow border border-slate-200">
-                        <div className="text-center"><span className="text-slate-500">Inicial</span> <br/><span className="font-semibold text-slate-900 text-6xl">€9,000</span></div>
-                        <hr/>
-                        <div className="text-center"><span className="text-slate-500">Mensual (12 meses)</span> <br/><span className="font-semibold text-slate-900 text-6xl">€4,000</span></div>
-                    </div>
-                    <p className="text-2xl font-bold text-slate-800 text-center mt-2">Total: €57,000</p>
-                </motion.div>
-
-                {/* Plan 2 - Recommended */}
-                <motion.div 
-                    className="bg-white rounded-xl p-8 border-2 border-cyan-500 relative flex flex-col shadow-2xl shadow-cyan-500/20"
-                    variants={{
-                        hidden: { opacity: 0, y: 50 },
-                        visible: { opacity: 1, y: 0 }
-                    }}
-                >
-                    <motion.div 
-                        className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-cyan-500 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase"
-                        animate={{ scale: [1, 1.05, 1] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                        Recomendado
-                    </motion.div>
-                    <h3 className="text-4xl font-bold text-slate-900 text-center">Plan por Hitos</h3>
-                     <p className="text-xl text-slate-600 mb-6 text-center">Alinea la inversión con el progreso y la entrega de valor.</p>
-                    <div className="bg-slate-50/50 p-6 rounded-lg text-xl space-y-4 mb-6 flex-grow border border-cyan-500/50">
-                        <div className="text-center"><span className="text-slate-500">Hito 1 (Inicio)</span> <br/><span className="font-semibold text-slate-900 text-6xl">€12,000</span></div>
-                        <hr/>
-                        <div className="text-center"><span className="text-slate-500">Hito 2 (Despliegue)</span><br/><span className="font-semibold text-slate-900 text-6xl">€12,000</span></div>
-                        <hr/>
-                         <div className="text-center"><span className="text-slate-500">Hito 3 (Post)</span><br/><span className="font-semibold text-slate-900 text-6xl">€12,000</span></div>
-                         <hr/>
-                         <div className="text-center"><span className="text-slate-500">Hito 4 (Final)</span><br/><span className="font-semibold text-slate-900 text-6xl">€12,000</span></div>
-                    </div>
-                    <div className="text-center mt-2">
-                        <p className="text-2xl font-bold text-slate-800">Total: €48,000</p>
-                    </div>
-                </motion.div>
-            </motion.div>
-
-            <div className="bg-blue-600/10 border-l-4 border-blue-500 p-6 rounded-md text-center">
-                <h4 className="font-bold text-3xl text-blue-600 mb-2 flex items-center justify-center gap-3">
-                    <motion.div
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                        <ShieldCheck size={32}/>
-                    </motion.div>
-                    GARANTÍA DE REEMBOLSO TOTAL
-                </h4>
-                <p className="text-slate-700 text-xl">Si no funciona como se espera, se corrige o se reembolsa. 100% garantizado.</p>
-            </div>
-        </SlideWrapper>
-    );
+  return (
+    <SlideWrapper className="p-16 bg-slate-50/50">
+      <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-4 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Inversión Estratégica</h2>
+      <p className="text-3xl text-slate-600 mb-12 text-center max-w-4xl mx-auto">Una estructura de valor transparente con una oferta de asociación preferente.</p>
+      
+      <motion.div 
+        className="bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden"
+        initial={{ y: 20 }}
+        whileInView={{ y: 0 }}
+        viewport={{ once: true }}
+      >
+        <table className="w-full text-lg">
+          <thead>
+            <tr className="border-b border-slate-300">
+              <th className="w-1/2 p-6 text-left text-xl font-bold text-slate-700 uppercase tracking-wider">Características Principales Incluidas</th>
+              <th className="w-1/4 p-6 text-center text-xl font-bold text-slate-700 uppercase tracking-wider">Asociación Estratégica</th>
+              <th className="w-1/4 p-6 text-center text-xl font-bold text-white uppercase tracking-wider bg-slate-800">
+                <div className="flex items-center justify-center gap-2">
+                  <Star className="text-yellow-400" size={20} fill="currentColor" />
+                  Oferta FastDeal
+                </div>
+                <span className="text-sm font-normal normal-case text-slate-300 mt-1 block">Válido hasta 30 Oct 2025</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-slate-200">
+            {modules.map((module) => (
+              <tr key={module.name}>
+                <td className="p-6 align-top">
+                  <p className="font-bold text-2xl text-slate-800 mb-3">{module.name}</p>
+                  <ul className="space-y-2">
+                    {module.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3 text-slate-600">
+                        {feature.icon}
+                        <span dangerouslySetInnerHTML={{ __html: feature.text }} />
+                      </li>
+                    ))}
+                  </ul>
+                </td>
+                <td className="p-6 text-center align-middle font-semibold text-2xl text-slate-800">
+                  {module.standardPrice}
+                </td>
+                <td className="p-6 text-center align-middle bg-cyan-500/5">
+                  <span className="text-slate-500 line-through text-lg">{module.standardPrice}</span>
+                  <span className="font-bold text-3xl text-cyan-600 ml-2">{module.offerPrice}</span>
+                  <span className="block text-sm font-semibold text-green-600 mt-1">Ahorro 20%</span>
+                </td>
+              </tr>
+            ))}
+            <tr>
+              <td className="p-6 font-semibold text-2xl text-slate-800" colSpan={3}>Módulos Premium Adicionales</td>
+            </tr>
+            {addons.map(addon => (
+              <tr key={addon.name}>
+                <td className="pl-12 py-3 text-slate-600">{addon.name}</td>
+                <td className="text-center font-semibold text-slate-700">{addon.price}</td>
+                <td className="text-center font-bold text-green-600 bg-cyan-500/5">Incluido</td>
+              </tr>
+            ))}
+            <tr className="bg-slate-100 font-bold text-2xl">
+              <td className="p-6 text-slate-800">INVERSIÓN TOTAL</td>
+              <td className="p-6 text-center text-slate-800">
+                €60,000
+                <span className="block text-sm font-normal text-slate-500">(+ €15,000 módulos premium)</span>
+              </td>
+              <td className="p-6 text-center text-white bg-cyan-600">
+                €48,000
+              </td>
+            </tr>
+             <tr className="font-bold text-2xl">
+              <td className="p-6 text-green-700">AHORRO TOTAL (FastDeal)</td>
+              <td className="p-6 text-center"></td>
+              <td className="p-6 text-center text-green-700 bg-green-500/10">
+                €27,000
+                <span className="block text-sm font-normal text-green-600">(€12,000 dto. + €15,000 bonus)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </motion.div>
+    </SlideWrapper>
+  );
 };

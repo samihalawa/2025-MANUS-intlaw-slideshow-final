@@ -17,7 +17,7 @@ const conversation = [
 ];
 
 const ChatbotMockup = () => {
-  const [messages, setMessages] = useState([conversation[0]]);
+  const [messages, setMessages] = useState(conversation.slice(0, 4));
   const [showButtons, setShowButtons] = useState(false);
 
   useEffect(() => {
@@ -70,14 +70,14 @@ const ChatbotMockup = () => {
         <AnimatePresence>
           {messages.map((msg, i) => {
             if (msg.type === 'upload_action') {
-              return <motion.div key={i} initial={{opacity:0}} animate={{opacity:1}} className="flex justify-end my-2"><div className="p-3 rounded-2xl bg-green-100 text-green-800 flex items-center gap-3 text-xl font-semibold"><FileCheck /><span>Contrato_Borrador.pdf</span></div></motion.div>;
+              return <motion.div key={i} initial={{y:10}} animate={{y:0}} className="flex justify-end my-2"><div className="p-3 rounded-2xl bg-green-100 text-green-800 flex items-center gap-3 text-xl font-semibold"><FileCheck /><span>Contrato_Borrador.pdf</span></div></motion.div>;
             }
             if (msg.from) {
               return (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 20 }}
+                  animate={{ y: 0 }}
                   className={`flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}
                 >
                   <div className={`p-4 rounded-2xl max-w-[85%] text-2xl ${
@@ -114,13 +114,13 @@ export const Slide07_B: React.FC = () => {
     <SlideWrapper className="p-16">
       <div className="grid grid-cols-2 gap-12 items-center h-full">
         <div>
-          <div className="inline-block bg-cyan-500/10 text-cyan-600 text-lg font-bold px-4 py-2 rounded-full mb-4">Módulo 1</div>
-          <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Automatización Web de Principio a Fin</h2>
-          <div className="space-y-8 text-4xl text-slate-700">
-            <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Cualificación 24/7</span></div>
-            <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Cita reuniones Automática</span></div>
-            <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Captura Segura de Documentos</span></div>
-            <div className="flex items-center gap-4"><CheckCircle className="text-green-500"/><span>Creación de Caso Automática</span></div>
+          <div className="inline-block bg-cyan-500/10 text-cyan-600 text-lg font-bold px-4 py-2 rounded-full mb-4">Módulo 1: Asistente Web IA</div>
+          <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Asistente Web: Automatización de Principio a Fin</h2>
+          <div className="space-y-6 text-3xl text-slate-700">
+            <div className="flex items-start gap-4"><CheckCircle className="text-green-500 mt-1 flex-shrink-0"/><span><strong className="font-semibold text-slate-800">Asistente Conversacional 24/7:</strong> Capture y atienda a cada visitante de su web, a cualquier hora.</span></div>
+            <div className="flex items-start gap-4"><CheckCircle className="text-green-500 mt-1 flex-shrink-0"/><span><strong className="font-semibold text-slate-800">Cualificación Inteligente:</strong> Filtre y priorice leads automáticamente según sus criterios de cliente ideal.</span></div>
+            <div className="flex items-start gap-4"><CheckCircle className="text-green-500 mt-1 flex-shrink-0"/><span><strong className="font-semibold text-slate-800">Ingesta Segura de Documentos:</strong> Permita a los clientes subir documentación de forma encriptada y directa en el chat.</span></div>
+            <div className="flex items-start gap-4"><CheckCircle className="text-green-500 mt-1 flex-shrink-0"/><span><strong className="font-semibold text-slate-800">Creación Automática de Casos:</strong> Convierta conversaciones cualificadas en casos activos en su CRM, sin entrada manual de datos.</span></div>
           </div>
         </div>
         <div className="flex justify-center">

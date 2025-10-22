@@ -3,7 +3,13 @@ import { SlideWrapper } from '../components/SlideWrapper';
 import { Gift, FastForward, MessageSquare, Phone, Clock, LayoutDashboard, Target, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const OfferCard = ({ icon, title, value }: { icon: React.ReactNode; title: string; value: string; }) => (
+interface OfferCardProps {
+    icon: React.ReactNode;
+    title: string;
+    value: string;
+}
+
+const OfferCard: React.FC<OfferCardProps> = ({ icon, title, value }) => (
     <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700 h-full flex flex-col">
         <div className="text-cyan-400 mb-4">{icon}</div>
         <h4 className="text-2xl font-bold text-white flex-grow">{title}</h4>
@@ -83,8 +89,8 @@ export const Slide15_SpecialOffer: React.FC = () => {
                     </div>
                     
                     <motion.div 
-                         initial={{ opacity: 0, y: 20 }}
-                         animate={{ opacity: 1, y: 0 }}
+                         initial={{ y: 20 }}
+                         animate={{ y: 0 }}
                          transition={{ delay: 0.5 }}
                         className="text-center bg-slate-900/50 border border-slate-700 rounded-lg py-6"
                     >

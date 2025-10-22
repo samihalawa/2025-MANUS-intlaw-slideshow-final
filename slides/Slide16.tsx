@@ -16,23 +16,18 @@ export const Slide16: React.FC = () => {
             <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Próximos Pasos</h2>
 
             <div className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 mb-8">
-                <h3 className="text-4xl font-bold text-slate-900 mb-6 text-center">Opciones de Implementación</h3>
-                <div className="grid grid-cols-2 gap-8">
-                    <div className="bg-white rounded-lg p-8 border-2 border-cyan-500 text-center shadow-lg relative">
-                         <motion.div 
-                            className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-cyan-500 text-white text-base font-bold px-3 py-1 rounded-full uppercase inline-block"
-                            animate={{ scale: [1, 1.05, 1] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                         >
-                            Recomendado
-                         </motion.div>
-                         <p className="text-8xl font-bold text-slate-900">80 días</p>
-                         <p className="text-slate-600 mt-2 text-xl">Implementación completa, incluyendo talleres de personalización y fases de prueba exhaustivas.</p>
+                <h3 className="text-4xl font-bold text-slate-900 mb-6 text-center">Hoja de Ruta de Colaboración</h3>
+                <div className="bg-white rounded-lg p-8 border-2 border-cyan-500 shadow-lg flex items-center justify-around text-center">
+                    <div>
+                        <p className="text-base text-cyan-600 font-bold uppercase mb-2">Fase 1: Implementación Core</p>
+                        <p className="text-8xl font-bold text-slate-900">80 días</p>
+                        <p className="text-slate-600 mt-2 text-xl max-w-sm">Despliegue de módulos de crecimiento y fiabilidad documental.</p>
                     </div>
-                     <div className="bg-white rounded-lg p-8 border border-slate-200 text-center">
-                         <p className="text-base text-slate-500 uppercase mb-4">Pack Express</p>
-                         <p className="text-8xl font-bold text-slate-900">30 días</p>
-                         <p className="text-slate-600 mt-2 text-xl">Despliegue rápido enfocado en los módulos de mayor impacto para un ROI acelerado.</p>
+                    <div className="text-5xl font-light text-slate-300">+</div>
+                    <div>
+                        <p className="text-base text-cyan-600 font-bold uppercase mb-2">Fase 2: Optimización Continua</p>
+                        <p className="text-8xl font-bold text-slate-900">Meses 3-12</p>
+                        <p className="text-slate-600 mt-2 text-xl max-w-sm">Ajuste colaborativo para maximizar el rendimiento y la adopción.</p>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Euro, FileText, Check, Clock, CheckSquare } from 'lucide-react';
+import { Euro, FileText, Check, Clock, CheckSquare, BrainCircuit } from 'lucide-react';
 import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 
 interface AnimatedNumberProps {
@@ -42,8 +42,8 @@ const TimelineItem: React.FC<TimelineItemProps> = ({ children, isLast = false, d
     <motion.div 
         className="flex gap-4"
         variants={{
-            hidden: { opacity: 0, x: -20 },
-            visible: { opacity: 1, x: 0, transition: { delay } }
+            hidden: { x: -20 },
+            visible: { x: 0, transition: { delay } }
         }}
     >
         <div className="flex flex-col items-center">
@@ -83,7 +83,7 @@ export const Slide14_C: React.FC = () => {
                 transition={{ staggerChildren: 0.1 }}
             >
                 {/* Header */}
-                <motion.div variants={{hidden: {opacity:0, y:-20}, visible: {opacity:1, y:0}}} className="border-b border-slate-200 pb-4 mb-6">
+                <motion.div variants={{hidden: {y:-20}, visible: {y:0}}} className="border-b border-slate-200 pb-4 mb-6">
                     <h2 className="text-4xl font-bold text-slate-900">Caso 4588: Compañía XYZ S.L.</h2>
                     <div className="flex gap-6 text-xl text-slate-600 mt-2">
                         <span><strong className="font-semibold">Tipo:</strong> Contrato Mercantil</span>
@@ -102,12 +102,12 @@ export const Slide14_C: React.FC = () => {
 
                 <div className="grid grid-cols-3 gap-6">
                     {/* Left Column */}
-                    <motion.div variants={{hidden: {opacity:0, x:-20}, visible: {opacity:1, x:0}}} className="col-span-2 space-y-6">
-                        <StatCard icon={<Euro className="text-cyan-500"/>} title="Análisis Financiero y Pricing IA">
+                    <motion.div variants={{hidden: {x:-20}, visible: {x:0}}} className="col-span-2 space-y-6">
+                        <StatCard icon={<Euro className="text-cyan-500"/>} title="Módulo de Pricing IA y Viabilidad">
                             <div className="space-y-4">
-                                <p className="text-xl"><strong>Salud Financiera:</strong> Caja Estimada: 300.000€+</p>
+                                <p className="text-xl"><strong>Análisis de Solvencia del Cliente:</strong> <span className="font-semibold text-green-600">Positiva</span></p>
                                 <div className="bg-cyan-500/10 p-4 rounded-lg">
-                                    <p className="font-bold text-cyan-800">Rango de Honorarios Recomendado IA:</p>
+                                    <p className="font-bold text-cyan-800">Rango de Honorarios (Basado en Viabilidad Económica IA):</p>
                                     <p className="text-4xl font-bold text-slate-800 mt-1">€6,000 - €8,500</p>
                                 </div>
                                 <div className="flex items-center gap-4">
@@ -124,13 +124,13 @@ export const Slide14_C: React.FC = () => {
                                 <p className="text-xl font-semibold">Contrato_V1.pdf</p>
                                 <span className="text-lg font-semibold text-green-500">Analizado</span>
                              </div>
-                             <button className="mt-4 w-full bg-slate-800 text-white font-bold py-3 rounded-md text-lg hover:bg-slate-900 transition-colors">Generar Propuesta de Honorarios</button>
+                             <button className="mt-4 w-full bg-slate-800 text-white font-bold py-3 rounded-md text-lg hover:bg-slate-900 transition-colors">Generar Borrador de Propuesta</button>
                         </StatCard>
                     </motion.div>
 
                     {/* Right Column */}
-                    <motion.div variants={{hidden: {opacity:0, x:20}, visible: {opacity:1, x:0}}} className="space-y-6">
-                        <StatCard icon={<Clock className="text-cyan-500"/>} title="Línea de Tiempo">
+                    <motion.div variants={{hidden: {x:20}, visible: {x:0}}} className="space-y-6">
+                        <StatCard icon={<Clock className="text-cyan-500"/>} title="Línea de Tiempo del Caso">
                             <motion.div variants={{ visible: { transition: { staggerChildren: 0.2 } } }}>
                                 <TimelineItem delay={0.2}><p><strong className="font-semibold">Hoy:</strong> Chequeo financiero OK</p></TimelineItem>
                                 <TimelineItem delay={0.4}><p><strong className="font-semibold">Ayer:</strong> Análisis IA completado</p></TimelineItem>
@@ -138,11 +138,13 @@ export const Slide14_C: React.FC = () => {
                                 <TimelineItem delay={0.8} isLast><p className="text-slate-500"><strong className="font-semibold">Hace 2 días:</strong> Lead recibido (WhatsApp)</p></TimelineItem>
                             </motion.div>
                         </StatCard>
-                         <StatCard icon={<Check className="text-cyan-500"/>} title="Próximas Tareas IA">
-                            <motion.ul variants={{visible: {transition: {staggerChildren: 0.3}}}} className="space-y-2 text-lg">
-                                <motion.li variants={{hidden: {opacity:0, x:-10}, visible:{opacity:1, x:0}}} className="flex items-center gap-2"><motion.div initial={{scale:0}} animate={{scale:1, transition:{delay:0.5}}}><CheckSquare className="text-cyan-600"/></motion.div> Revisar y confirmar honorarios.</motion.li>
-                                <motion.li variants={{hidden: {opacity:0, x:-10}, visible:{opacity:1, x:0}}} className="flex items-center gap-2"><motion.div initial={{scale:0}} animate={{scale:1, transition:{delay:0.8}}}><CheckSquare className="text-cyan-600"/></motion.div> Enviar propuesta al cliente.</motion.li>
-                            </motion.ul>
+                         <StatCard icon={<BrainCircuit className="text-cyan-500"/>} title="Simulación Estratégica IA">
+                            <p className="text-xl mb-2"><strong>Escenario:</strong> Incumplimiento de contrato.</p>
+                            <div className="bg-slate-100 p-3 rounded-md">
+                                <p className="font-semibold text-slate-500 text-lg">Predicción de Resultado:</p>
+                                <p className="text-2xl font-bold text-green-600 mt-1">85% Probabilidad de Fallo Favorable</p>
+                                <p className="text-slate-600 text-base mt-1">Basado en jurisprudencia y perfil del juez.</p>
+                            </div>
                         </StatCard>
                     </motion.div>
                 </div>

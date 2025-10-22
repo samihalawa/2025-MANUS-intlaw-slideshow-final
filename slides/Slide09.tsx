@@ -159,8 +159,8 @@ const CRMApp = () => {
                     <div className="flex items-center gap-6">
                         <Bell className="text-slate-500" size={28}/>
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-lg">SK</div>
-                            <span className="text-xl font-medium text-slate-700">Sami Khouri</span>
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-lg">SH</div>
+                            <span className="text-xl font-medium text-slate-700">Sami Halawa</span>
                             <ChevronDown className="text-slate-400" size={20}/>
                         </div>
                     </div>

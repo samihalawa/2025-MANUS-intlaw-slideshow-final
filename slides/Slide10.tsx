@@ -4,9 +4,9 @@ import { DatabaseZap, Search, FileText, Check, ShieldCheck } from 'lucide-react'
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
 
 const features = [
-    { icon: <DatabaseZap size={40} />, text: 'Procesamiento masivo' },
-    { icon: <Search size={40} />, text: 'Extracción inteligente' },
-    { icon: <FileText size={40} />, text: 'Resúmenes automáticos' }
+    { icon: <DatabaseZap size={40} />, text: 'Análisis Masivo de Expedientes' },
+    { icon: <Search size={40} />, text: 'Extracción de Entidades y Cláusulas' },
+    { icon: <FileText size={40} />, text: 'Generación de Resúmenes Ejecutivos' }
 ];
 
 const guarantees = [
@@ -45,7 +45,7 @@ export const Slide10: React.FC = () => {
 
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Agente Documentos</h2>
+            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Analista Masivo de Documentos</h2>
             <p className="text-3xl text-slate-600 mb-10">Precisión absoluta garantizada.</p>
 
             <div className="grid grid-cols-2 gap-12">
@@ -86,6 +86,10 @@ export const Slide10: React.FC = () => {
                             </li>
                         ))}
                     </ul>
+                    <div className="mt-6 text-left p-4 bg-blue-500/10 rounded-lg border border-blue-500/20">
+                        <p className="font-bold text-blue-700 text-lg">¿Cómo lo garantizamos?</p>
+                        <p className="text-slate-700 text-lg mt-1">Un sistema de 4 agentes IA de supervisión verifica cada dato contra las fuentes originales, asegurando una fiabilidad total.</p>
+                    </div>
                 </div>
             </div>
         </SlideWrapper>

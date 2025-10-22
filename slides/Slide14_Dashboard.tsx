@@ -59,9 +59,9 @@ const PnLChart = () => (
              {/* Annotation */}
              <motion.div 
                 className="absolute"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.8 }}
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 1.8, type: 'spring' }}
                 style={{ left: '22%', top: '60%'}}
              >
                 <div className="w-3 h-3 bg-green-500 rounded-full ring-4 ring-white"></div>

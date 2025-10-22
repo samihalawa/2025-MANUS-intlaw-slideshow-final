@@ -5,9 +5,8 @@ import { motion, AnimatePresence, useMotionValue, useTransform, animate } from '
 
 const LeadNotification = () => (
     <motion.div 
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5, duration: 0.5, type: 'spring' }}
+        animate={{ scale: [1, 1.01, 1] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute top-8 right-8 w-[400px] bg-white rounded-xl shadow-2xl border border-slate-200 z-30 p-6 transform-gpu transition-all duration-300 hover:scale-105 hover:shadow-green-500/20">
         <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-lg bg-green-500/10 text-green-500 flex-shrink-0 flex items-center justify-center">
@@ -36,7 +35,7 @@ const ChatWidgetConversation = () => {
         {from: 'user', text: 'Gracias.'},
         {from: 'bot', text: 'Ha sido un placer ayudarle.'},
     ];
-    const [visibleMessages, setVisibleMessages] = useState([messages[0]]);
+    const [visibleMessages, setVisibleMessages] = useState(messages);
     const chatContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -75,8 +74,8 @@ const ChatWidgetConversation = () => {
         {visibleMessages.map((msg, i) => (
             <motion.div
              key={i}
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
+             initial={{ y: 20 }}
+             animate={{ y: 0 }}
              className={`flex items-end ${msg.from === 'user' ? 'justify-end' : ''}`}
             >
                 <div className={`p-3 rounded-lg max-w-[85%] ${msg.from === 'bot' ? 'bg-slate-200 text-slate-800 rounded-bl-none' : 'bg-cyan-600 text-white rounded-br-none'}`}>

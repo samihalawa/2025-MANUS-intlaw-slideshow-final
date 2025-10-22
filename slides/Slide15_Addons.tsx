@@ -34,8 +34,8 @@ export const Slide15_Addons: React.FC = () => {
                     <motion.div
                         key={addon.title}
                         className="bg-white rounded-xl p-8 border border-slate-200 flex flex-col hover:shadow-xl transition-shadow duration-300"
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ y: 50 }}
+                        whileInView={{ y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
                     >

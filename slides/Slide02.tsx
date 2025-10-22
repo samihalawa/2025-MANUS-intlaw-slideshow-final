@@ -20,8 +20,8 @@ const listVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0 },
+  hidden: { x: -50 },
+  visible: { x: 0, transition: { type: 'spring', stiffness: 100 } },
 };
 
 export const Slide02: React.FC = () => {
@@ -32,7 +32,8 @@ export const Slide02: React.FC = () => {
         className="space-y-6"
         variants={listVariants}
         initial="hidden"
-        animate="visible"
+        whileInView="visible"
+        viewport={{ once: true }}
       >
         {agendaItems.map((item, index) => (
           <motion.div

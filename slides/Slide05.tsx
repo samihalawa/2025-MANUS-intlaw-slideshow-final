@@ -42,7 +42,7 @@ const UploadSuccess = () => (
 );
 
 const ChatbotMockup = () => {
-  const [messages, setMessages] = useState([conversation[0]]);
+  const [messages, setMessages] = useState(conversation.slice(0, 4));
 
   useInterval(() => {
     setMessages(prev => {
@@ -50,7 +50,7 @@ const ChatbotMockup = () => {
         return [...prev, conversation[prev.length]];
       }
       // Loop conversation
-      return [conversation[0]];
+      return conversation.slice(0,1);
     });
   }, 2800);
 
@@ -74,9 +74,9 @@ const ChatbotMockup = () => {
             msg.type === 'upload_success' ? <UploadSuccess key={i} /> :
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              initial={{ y: 20 }}
+              animate={{ y: 0 }}
+              exit={{ y: -20 }}
               className={`flex flex-col ${msg.from === 'user' ? 'items-end' : 'items-start'}`}
             >
               <div className={`p-4 rounded-2xl max-w-[80%] text-2xl ${
@@ -108,8 +108,8 @@ export const Slide05: React.FC = () => {
       </div>
       <div className="grid grid-cols-2 gap-12 items-center">
         <div>
-          <div className="inline-block bg-cyan-500/10 text-cyan-600 text-lg font-bold px-4 py-2 rounded-full mb-4">Módulo 1 · SOLUCIÓN</div>
-          <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Flujo Automatizado</h2>
+          <div className="inline-block bg-cyan-500/10 text-cyan-600 text-lg font-bold px-4 py-2 rounded-full mb-4">Módulo 1: Asistente Web y Captación</div>
+          <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>Asistente Web: Flujo de Captación Automatizado</h2>
           <div className="space-y-8">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"><Check/></div>

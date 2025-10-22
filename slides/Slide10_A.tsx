@@ -5,9 +5,8 @@ import { motion, Variants } from 'framer-motion';
 
 // FIX: Explicitly type `stepVariants` with `Variants` from framer-motion to resolve the type error.
 const stepVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { y: 30 },
     visible: (i:number) => ({
-        opacity: 1,
         y: 0,
         transition: {
             delay: i * 0.2,
@@ -18,17 +17,17 @@ const stepVariants: Variants = {
 };
 
 const steps = [
-    { icon: <Search size={40}/>, title: 'Identificar Señales', desc: 'La IA rastrea datos públicos (noticias, registros) para detectar eventos legales.'},
-    { icon: <Filter size={40}/>, title: 'Cualificar por Nicho', desc: 'Filtra oportunidades según sus criterios exactos: herencias, real estate, etc.'},
-    { icon: <Send size={40}/>, title: 'Contacto Personalizado', desc: 'Genera borradores de comunicación para un acercamiento proactivo y relevante.'},
-    { icon: <Target size={40}/>, title: 'Captación Efectiva', desc: 'Convierte oportunidades en clientes de alto valor antes que la competencia.'},
+    { icon: <Search size={40}/>, title: '1. Defina su Objetivo', desc: "Describa su cliente ideal en lenguaje natural. Ej: 'empresas de construcción en Valencia que han ganado licitaciones de >500k€'."},
+    { icon: <Filter size={40}/>, title: '2. Búsqueda IA Multi-Fuente', desc: 'El sistema rastrea y cruza en tiempo real millones de datos de BOE, registros, prensa y licitaciones para encontrar coincidencias.'},
+    { icon: <Send size={40}/>, title: '3. Cualificación Automática', desc: 'Cada oportunidad es analizada y enriquecida con datos clave: decisores, salud financiera y contexto del evento.'},
+    { icon: <Target size={40}/>, title: '4. Contacto Inteligente', desc: 'Genere borradores de email hiper-personalizados en segundos, utilizando los insights de la IA para maximizar la tasa de respuesta.'},
 ];
 
 export const Slide10_A: React.FC = () => {
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Captación Proactiva IA</h2>
-            <p className="text-3xl text-slate-600 mb-12 text-center">Un módulo para la captación proactiva de clientes por nicho.</p>
+            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>El Motor de Crecimiento Proactivo</h2>
+            <p className="text-3xl text-slate-600 mb-12 text-center">Convierta el mercado entero en su base de datos de clientes potenciales.</p>
             <div className="grid grid-cols-4 gap-8">
                 {steps.map((step, i) => (
                     <motion.div 

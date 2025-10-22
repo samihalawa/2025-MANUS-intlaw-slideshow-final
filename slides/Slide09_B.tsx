@@ -4,7 +4,7 @@ import { LayoutDashboard, Users, Briefcase, Settings, Bell, ChevronDown, Sparkle
 import { motion, AnimatePresence } from 'framer-motion';
 
 const InboxView = () => (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <div>
         <div className="grid grid-cols-5 gap-6">
             <div className="col-span-3">
                  <div className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm">
@@ -34,16 +34,17 @@ const InboxView = () => (
                         <p className="text-slate-700 text-xl mt-2"><strong className="font-semibold">Fuente:</strong> Registro Mercantil</p>
                         <p className="text-slate-700 text-xl"><strong className="font-semibold">Facturación 2024:</strong> €5.2M</p>
                         <p className="text-slate-700 text-xl"><strong className="font-semibold">Decisor Clave:</strong> Juan Pérez (CEO)</p>
+                        <p className="text-green-600 text-xl font-bold mt-2"><strong className="font-semibold text-slate-600">Viabilidad Económica:</strong> ALTA</p>
                     </div>
                     <p className="mt-4 text-slate-500 text-lg"><strong className="font-semibold text-slate-800">Estado:</strong> Pendiente de revisión</p>
                 </div>
             </div>
         </div>
-    </motion.div>
+    </div>
 );
 
 const ProspeccionView = () => (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+    <div>
         <h2 className="text-3xl font-bold text-slate-900 mb-4">Campañas de Prospección Activas</h2>
         <div className="space-y-6">
             {[
@@ -66,7 +67,7 @@ const ProspeccionView = () => (
                 </div>
             ))}
         </div>
-    </motion.div>
+    </div>
 );
 
 export const Slide09_B: React.FC = () => {
@@ -106,16 +107,14 @@ export const Slide09_B: React.FC = () => {
                         <div className="flex items-center gap-6">
                             <Bell className="text-slate-500" size={28}/>
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-lg">SK</div>
-                                <span className="text-xl font-medium text-slate-700">Sami Khouri</span>
+                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-lg">SH</div>
+                                <span className="text-xl font-medium text-slate-700">Sami Halawa</span>
                                 <ChevronDown className="text-slate-400" size={20}/>
                             </div>
                         </div>
                     </header>
                     <main className="p-6 bg-slate-50/30 flex-grow overflow-y-auto">
-                        <AnimatePresence mode="wait">
-                            {activeTab === 'inbox' ? <InboxView key="inbox" /> : <ProspeccionView key="prospect" />}
-                        </AnimatePresence>
+                        {activeTab === 'inbox' ? <InboxView /> : <ProspeccionView />}
                     </main>
                 </div>
             </div>

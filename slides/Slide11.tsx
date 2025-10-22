@@ -56,7 +56,7 @@ export const Slide11: React.FC = () => {
 
     return (
         <SlideWrapper className="p-8 flex flex-col">
-            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Análisis con Citas: 0% Alucinaciones</h2>
+            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Análisis IA con Fuentes Citadas</h2>
             <p className="text-slate-600 text-center mb-6 text-2xl">La IA cita sus fuentes en tiempo real.</p>
 
             <div className="flex-grow bg-slate-50 rounded-xl border border-slate-200 flex gap-4 p-4 min-h-[600px]">

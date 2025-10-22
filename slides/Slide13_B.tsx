@@ -80,7 +80,7 @@ export const Slide13_B: React.FC = () => {
 
     return (
         <SlideWrapper className="p-8 flex flex-col relative">
-            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generación de Documentos Conectada</h2>
+            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generador de Documentos Conectado al CRM</h2>
             <p className="text-slate-600 text-center mb-6 text-2xl">De lead a documento en segundos, sin fricción.</p>
 
             <div className="flex-grow bg-slate-50 rounded-xl border border-slate-200 flex min-h-[550px]">

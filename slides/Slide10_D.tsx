@@ -44,8 +44,8 @@ const CampaignWorkflow = () => {
     }, start ? 1500 : null);
 
     const processVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: (i: number) => ({ opacity: 1, scale: 1, transition: { delay: i * 0.4 + (start ? 0.5 : 0) } })
+        hidden: { scale: 0.8 },
+        visible: (i: number) => ({ scale: 1, transition: { delay: i * 0.4 + (start ? 0.5 : 0) } })
     };
     
     return (
@@ -78,9 +78,9 @@ const CampaignWorkflow = () => {
                 />
             </svg>
             {[
-                { icon: <DatabaseZap size={32}/>, text: 'Búsqueda IA' },
-                { icon: <Users size={32}/>, text: 'Identificación Contactos' },
-                { icon: <Mail size={32}/>, text: 'Generación Emails' },
+                { icon: <DatabaseZap size={32}/>, text: 'Búsqueda Multi-Fuente' },
+                { icon: <Users size={32}/>, text: 'Cualificación y Enriquecimiento' },
+                { icon: <Mail size={32}/>, text: 'Copilot de Contacto' },
             ].map((step, i) => (
                 <motion.div key={i} custom={i} variants={processVariants} initial="hidden" animate={start ? "visible" : "hidden"} className="flex flex-col items-center gap-3 text-center bg-white px-4">
                     <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center border-2 border-slate-200 text-cyan-500">{step.icon}</div>
@@ -98,15 +98,15 @@ const CampaignWorkflow = () => {
                      result.status !== 'pending' &&
                         <motion.div
                             key={result.lead + i}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0 }}
+                            initial={{ y: 10 }}
+                            animate={{ y: 0 }}
+                            exit={{}}
                             className="bg-white p-4 rounded-md flex justify-between items-center border border-slate-200 shadow-sm"
                         >
                             <p className="font-semibold text-2xl text-slate-800">{result.lead}</p>
                             <AnimatePresence mode="wait">
-                                {result.status === 'sent' && <motion.div initial={{opacity:0, scale:0.8}} animate={{opacity:1, scale:1}} exit={{opacity:0, scale:0.8}} key="sent" className="text-lg font-semibold bg-green-500/10 text-green-600 px-3 py-1 rounded-full flex items-center gap-2"><CheckCircle size={16}/>Email Enviado</motion.div>}
-                                {result.status === 'sending' && <motion.div initial={{opacity:0, scale:0.8}} animate={{opacity:1, scale:1}} exit={{opacity:0, scale:0.8}} key="sending" className="text-lg font-semibold bg-blue-500/10 text-blue-600 px-3 py-1 rounded-full flex items-center gap-2"><Loader size={16} className="animate-spin"/> Enviando...</motion.div>}
+                                {result.status === 'sent' && <motion.div initial={{scale:0.8}} animate={{scale:1}} exit={{scale:0.8}} key="sent" className="text-lg font-semibold bg-green-500/10 text-green-600 px-3 py-1 rounded-full flex items-center gap-2"><CheckCircle size={16}/>Email Enviado</motion.div>}
+                                {result.status === 'sending' && <motion.div initial={{scale:0.8}} animate={{scale:1}} exit={{scale:0.8}} key="sending" className="text-lg font-semibold bg-blue-500/10 text-blue-600 px-3 py-1 rounded-full flex items-center gap-2"><Loader size={16} className="animate-spin"/> Enviando...</motion.div>}
                             </AnimatePresence>
                         </motion.div>
                  ))}
@@ -121,8 +121,8 @@ const CampaignWorkflow = () => {
 export const Slide10_D: React.FC = () => {
     return (
         <SlideWrapper className="p-12 flex flex-col items-center justify-center">
-            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 2: Campañas de Captación IA</h2>
-            <p className="text-3xl text-slate-600 mb-8 text-center">De una idea a una campaña de prospección en un clic.</p>
+            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 2: Buscador Proactivo de Clientes</h2>
+            <p className="text-3xl text-slate-600 mb-8 text-center">De una idea a una campaña de prospección en un solo clic.</p>
             <CampaignWorkflow />
         </SlideWrapper>
     );

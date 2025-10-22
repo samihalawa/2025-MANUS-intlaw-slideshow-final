@@ -10,13 +10,13 @@ const opportunities = [
 ];
 
 const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
+    hidden: { },
+    visible: { transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
 };
 
 const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    hidden: { y: 20 },
+    visible: { y: 0 }
 };
 
 export const Slide10_B: React.FC = () => {

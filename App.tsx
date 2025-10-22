@@ -19,6 +19,7 @@ import { Slide10_A } from './slides/Slide10_A';
 import { Slide10_B } from './slides/Slide10_B';
 import { Slide10_D } from './slides/Slide10_D';
 import { Slide10_E_Idealista } from './slides/Slide10_E_Idealista';
+import { Slide10_F_Workflow } from './slides/Slide10_F_Workflow';
 
 // Section 5: Módulo 3 - AI Document Agent
 import { Slide10 } from './slides/Slide10';
@@ -34,12 +35,10 @@ import { Slide14_C } from './slides/Slide14_C';
 
 // Section 8: Benefits & ROI
 import { Slide14 } from './slides/Slide14';
-import { Slide14_Dashboard } from './slides/Slide14_Dashboard';
 
 // Section 9: Investment & Closing
 import { Slide15 } from './slides/Slide15';
 import { Slide15_Addons } from './slides/Slide15_Addons';
-import { Slide15_SpecialOffer } from './slides/Slide15_SpecialOffer';
 import { Slide15_Assurance } from './slides/Slide15_Assurance';
 import { Slide16 } from './slides/Slide16';
 import { Slide17 } from './slides/Slide17';
@@ -66,30 +65,29 @@ const slides = [
   Slide10_B,          // 9. Radar de Oportunidades Proactivas
   Slide10_D,          // 10. Flujo de Campaña de Captación IA
   Slide10_E_Idealista,// 11. Caso de Uso: Prospección en Real Estate
+  Slide10_F_Workflow, // 12. DEMO: Flujo de Trabajo Completo (De la Señal a la Estrategia)
   
   // Section 5: Módulo 3 - AI Document Agent
-  Slide10,            // 12. Introducción al Agente de Documentos (Garantía 0% Alucinaciones)
-  Slide11_B,          // 13. Demostración: Agente con Citas
-  Slide10_C,          // 14. Demostración: Inteligencia Documental (Mapa de Entidades)
+  Slide10,            // 13. Introducción al Agente de Documentos (Garantía 0% Alucinaciones)
+  Slide11_B,          // 14. Demostración: Agente con Citas
+  Slide10_C,          // 15. Demostración: Inteligencia Documental (Mapa de Entidades)
 
   // Section 6: Módulo 4 - Connected Document Generation
-  Slide12,            // 15. Introducción a la Generación de Documentos (Copilot)
-  Slide13_B,          // 16. Demostración: Generación Conectada a CRM
+  Slide12,            // 16. Introducción a la Generación de Documentos (Copilot)
+  Slide13_B,          // 17. Demostración: Generación Conectada a CRM
   
   // Section 7: Módulo 5 - Unified Platform
-  Slide14_C,          // 17. Plataforma Unificada: Vista del Caso 360°
+  Slide14_C,          // 18. Plataforma Unificada: Vista del Caso 360°
 
   // Section 8: Benefits & ROI
-  Slide14,            // 18. Resumen de Beneficios Clave
-  Slide14_Dashboard,  // 19. Dashboard de ROI y Proyección P&L
+  Slide14,            // 19. Resumen de Beneficios Clave
   
   // Section 9: Investment & Closing
-  Slide15,            // 20. Modelo de Inversión
-  Slide15_Addons,     // 21. Módulos Adicionales
-  Slide15_SpecialOffer, // 22. Oferta Especial por Tiempo Limitado
-  Slide15_Assurance,  // 23. Garantías y Compromiso de Riesgo Cero
-  Slide16,            // 24. Próximos Pasos
-  Slide17             // 25. Cierre y Agradecimiento
+  Slide15,            // 20. Propuesta de Inversión Estratégica
+  Slide15_Addons,     // 21. Módulos Adicionales Opcionales
+  Slide15_Assurance,  // 22. Garantías de Valor
+  Slide16,            // 23. Próximos Pasos
+  Slide17             // 24. Cierre y Agradecimiento
 ];
 
 export default function App() {

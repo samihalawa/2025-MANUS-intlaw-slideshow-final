@@ -7,10 +7,13 @@ import { useInterval } from '../hooks/useInterval';
 const chatSequence = [
     { from: 'user', text: 'Analizar contradicciones entre el Contrato Principal y el Anexo II sobre Propiedad Intelectual.' },
     { from: 'bot', type: 'processing' },
-    { from: 'bot', type: 'text', text: "Análisis completado. He encontrado una contradicción crítica:",
+    { 
+      from: 'bot', 
+      type: 'text', 
+      text: "Análisis completado. Se ha detectado un punto de riesgo crítico: una contradicción directa en las cláusulas de Propiedad Intelectual. Haga clic para ver las fuentes:",
       citations: [
-        { id: 'c1', text: "1. El Contrato Principal indica que la PI pertenece 100% al Comprador." },
-        { id: 'c2', text: "2. El Anexo II establece que la PI es compartida (50/50)." }
+        { id: 'c1', text: "Contrato Principal (pág. 12): la PI pertenece 100% al Comprador." },
+        { id: 'c2', text: "Anexo II (pág. 4): la PI es compartida (50/50)." }
       ]
     },
 ];
@@ -47,7 +50,7 @@ export const Slide11_B: React.FC = () => {
 
     return (
         <SlideWrapper className="p-8 flex flex-col">
-            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Agente de Documentos con Citas</h2>
+            <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Análisis IA con Fuentes Citadas</h2>
             <p className="text-slate-600 text-center mb-6 text-2xl">La garantía de 0% Alucinaciones: la IA cita sus fuentes.</p>
 
             <div className="flex-grow bg-slate-50 rounded-xl border border-slate-200 flex gap-4 p-4 min-h-[600px]">
@@ -65,7 +68,7 @@ export const Slide11_B: React.FC = () => {
                 </div>
 
                 {/* Middle Panel - Document Viewer */}
-                <div className="w-2/4 bg-white h-full rounded-lg shadow-inner border border-slate-200 p-6 relative overflow-y-auto">
+                <div className="w-2/4 bg-white h-full rounded-lg shadow-inner border border-slate-200 p-6 relative overflow-y-auto overflow-x-hidden">
                      <p className="font-bold text-xl mb-4">Contrato_Principal.pdf</p>
                      <div className="text-slate-600 text-xl space-y-4 font-mono leading-relaxed">
                         <p>...</p>
@@ -99,18 +102,18 @@ export const Slide11_B: React.FC = () => {
                 <div className="w-1/4 p-4 flex flex-col bg-slate-100/50 rounded-lg">
                     <h3 className="font-bold text-slate-900 text-2xl mb-4 flex items-center gap-3"><Sparkles className="text-cyan-500"/>Chat IA</h3>
                     <motion.div 
-                        className="flex items-center gap-2 text-sm text-green-800 bg-green-500/10 p-2 rounded-md mb-4 border border-green-500/20"
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        className="flex items-center gap-4 text-base font-semibold text-green-800 bg-green-500/10 p-3 rounded-lg mb-4 border-2 border-green-500/20 shadow-sm"
+                        initial={{ y: -10 }}
+                        animate={{ y: 0 }}
                         transition={{ delay: 0.5 }}
                     >
-                        <Users size={32} className="flex-shrink-0" />
-                        <span className="font-semibold">Verificado por Múltiples Agentes de Supervisión para garantizar la fiabilidad.</span>
+                        <Users size={40} className="flex-shrink-0" />
+                        <span>Verificado por Agentes de Supervisión para garantizar fiabilidad total.</span>
                     </motion.div>
                     <div className="flex-grow space-y-4">
                         <AnimatePresence>
                         {messages.map((msg, i) => (
-                             <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className={`flex items-start gap-3 ${msg.from === 'user' ? 'justify-end' : ''}`}>
+                             <motion.div key={i} initial={{ y: 20 }} animate={{ y: 0 }} className={`flex items-start gap-3 ${msg.from === 'user' ? 'justify-end' : ''}`}>
                                 {msg.from === 'bot' && <div className="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center flex-shrink-0"><Bot size={20}/></div>}
                                 <div className="space-y-2">
                                     {msg.type === 'processing' ? (
