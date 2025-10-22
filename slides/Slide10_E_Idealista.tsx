@@ -3,7 +3,35 @@ import { SlideWrapper } from '../components/SlideWrapper';
 import { MapPin, Building, Search, User, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const mapImageUrl = "https://i.imgur.com/FwKC31g.png";
+const SimpleMapView = () => (
+    <div className="w-full h-full bg-slate-200 relative overflow-hidden">
+        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            {/* Background color */}
+            <rect width="100%" height="100%" fill="#e2e8f0" />
+            
+            {/* Street Grid */}
+            {/* Vertical streets */}
+            <line x1="20%" y1="0" x2="20%" y2="100%" stroke="#cbd5e1" strokeWidth="12" />
+            <line x1="50%" y1="0" x2="50%" y2="100%" stroke="#cbd5e1" strokeWidth="16" />
+            <line x1="80%" y1="0" x2="80%" y2="100%" stroke="#cbd5e1" strokeWidth="10" />
+
+            {/* Horizontal streets */}
+            <line x1="0" y1="25%" x2="100%" y2="25%" stroke="#cbd5e1" strokeWidth="10" />
+            <line x1="0" y1="60%" x2="100%" y2="60%" stroke="#cbd5e1" strokeWidth="14" />
+            
+            {/* Street Labels */}
+            <text x="51%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#94a3b8" fontSize="14" fontWeight="bold" transform="rotate(-90 51% 50%)">
+                Paseo de la Castellana
+            </text>
+            <text x="21%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#94a3b8" fontSize="12" fontWeight="bold" transform="rotate(-90 21% 50%)">
+                Calle de Serrano
+            </text>
+            <text x="50%" y="62%" dominantBaseline="middle" textAnchor="middle" fill="#94a3b8" fontSize="12" fontWeight="bold">
+                Calle de Goya
+            </text>
+        </svg>
+    </div>
+);
 
 const LeadDetailCard = () => (
     <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 h-full flex flex-col">
@@ -54,8 +82,7 @@ export const Slide10_E_Idealista: React.FC = () => {
                         <p className="text-lg text-slate-800 font-semibold">Filtros: Transacción &gt; 1M€ | Uso Comercial | Madrid Centro</p>
                     </div>
                     <div className="flex-grow bg-slate-300 rounded-lg relative overflow-hidden">
-                        <img src={mapImageUrl} alt="Map of Madrid with property listings" className="absolute inset-0 w-full h-full object-cover"/>
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-100/20 to-transparent"></div>
+                        <SimpleMapView />
                         <motion.div
                             className="absolute"
                             style={{ top: '45%', left: '55%' }}
