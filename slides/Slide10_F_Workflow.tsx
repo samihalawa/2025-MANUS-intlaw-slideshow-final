@@ -55,7 +55,7 @@ export const Slide10_F_Workflow: React.FC = () => {
                             <p className="font-bold text-slate-800 text-xl mt-2">Transacción Inmobiliaria</p>
                             <p className="text-slate-600 text-lg">Valor: <span className="font-semibold">€2.5M</span></p>
                             <p className="text-slate-600 text-lg">Zona: <span className="font-semibold">Recoletos, Madrid</span></p>
-                            <p className="text-slate-400 text-sm mt-2">Fuente: Reg. de la Propiedad</p>
+                            <p className="text-slate-500 text-sm mt-2">Fuente: Reg. de la Propiedad</p>
                         </div>
                     </Card>
                 </div>
