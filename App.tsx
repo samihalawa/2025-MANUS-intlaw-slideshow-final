@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // --- Import all slides from the 'slides' directory ---
 // Section 1: Introduction
@@ -90,14 +90,43 @@ const slides = [
   Slide17             // 24. Cierre y Agradecimiento
 ];
 
+const DESIGN_WIDTH = 1440; // The width the presentation is designed for.
+
 export default function App() {
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Scale the presentation based on the window's width.
+      const scaleValue = document.documentElement.clientWidth / DESIGN_WIDTH;
+      setScale(scaleValue);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div className="w-full bg-white font-sans text-base flex flex-col items-center py-8 sm:py-12 px-4 sm:px-6 md:px-8">
-      <main className="w-full max-w-7xl space-y-16 md:space-y-24">
-        {slides.map((SlideComponent, index) => (
-          <SlideComponent key={index} />
-        ))}
-      </main>
+    <div className="w-full bg-white font-sans text-base flex justify-center py-8 sm:py-12">
+      <div
+        style={{
+          width: `${DESIGN_WIDTH}px`,
+          transform: `scale(${scale})`,
+          transformOrigin: 'top center',
+        }}
+      >
+        <div className="flex flex-col items-center px-4 sm:px-6 md:px-8">
+            <main className="w-full max-w-7xl space-y-16 md:space-y-24">
+                {slides.map((SlideComponent, index) => (
+                <SlideComponent key={index} />
+                ))}
+            </main>
+        </div>
+      </div>
     </div>
   );
 }

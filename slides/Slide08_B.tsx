@@ -17,25 +17,25 @@ const WhatsAppMockup = () => (
             {/* Chat Area */}
             <div className="flex-grow p-4 bg-[#E5DDD5] space-y-3">
                  <motion.div initial={{y:10}} animate={{y:0, transition: {delay: 0.5}}} className="flex justify-end">
-                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] text-base shadow">Hola, necesito ayuda con un contrato de compraventa bastante complejo.</div>
+                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] text-base shadow text-slate-900">Hola, necesito ayuda con un contrato de compraventa bastante complejo.</div>
                 </motion.div>
                  <motion.div initial={{y:10}} animate={{y:0, transition: {delay: 1.5}}} className="flex justify-start">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Entendido. Para analizarlo y asignarle un especialista, ¿podría enviarme el borrador del contrato?</div>
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow text-slate-900">Entendido. Para analizarlo y asignarle un especialista, ¿podría enviarme el borrador del contrato?</div>
                 </motion.div>
                  <motion.div initial={{y:10}} animate={{y:0, transition: {delay: 2.8}}} className="flex justify-end">
-                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] text-base shadow flex flex-col items-end">
+                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] text-base shadow flex flex-col items-end text-slate-900">
                         <div className="flex items-center gap-2 p-2 bg-slate-100/50 rounded-md border border-slate-200 w-full">
                             <FileText size={32} className="text-slate-600 flex-shrink-0"/> 
-                            <span className="font-semibold">Contrato_V1.pdf</span>
+                            <span className="font-semibold text-slate-900">Contrato_V1.pdf</span>
                         </div>
                         <span className="mt-1">Aquí está todo.</span>
                     </div>
                 </motion.div>
                 <motion.div initial={{y:10}} animate={{y:0, transition: {delay: 4.0}}} className="flex justify-start">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Recibido y analizando...</div>
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow text-slate-900">Recibido y analizando...</div>
                 </motion.div>
                 <motion.div initial={{y:10}} animate={{y:0, transition: {delay: 5.5}}} className="flex justify-start">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Análisis preliminar completado. Caso ID-4588 creado. Un socio le contactará en breve. Gracias.</div>
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow text-slate-900">Análisis preliminar completado. Caso ID-4588 creado. Un socio le contactará en breve. Gracias.</div>
                 </motion.div>
             </div>
         </div>

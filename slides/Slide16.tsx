@@ -16,18 +16,29 @@ export const Slide16: React.FC = () => {
             <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Próximos Pasos</h2>
 
             <div className="bg-slate-50/50 rounded-xl p-6 md:p-8 border border-slate-200 mb-8">
-                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 text-center">Hoja de Ruta de Colaboración</h3>
-                <div className="bg-white rounded-lg p-6 md:p-8 border-2 border-cyan-500 shadow-lg flex flex-col md:flex-row items-center justify-around text-center gap-6 md:gap-0">
-                    <div>
-                        <p className="text-base text-cyan-600 font-bold uppercase mb-2">Fase 1: Implementación Core</p>
-                        <p className="text-6xl md:text-8xl font-bold text-slate-900">80 días</p>
-                        <p className="text-slate-600 mt-2 text-lg md:text-xl max-w-sm">Despliegue de módulos de crecimiento y fiabilidad documental.</p>
+                <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 text-center">Hoja de Ruta Temporal</h3>
+                <div className="bg-white rounded-lg p-6 md:p-8 shadow-lg flex flex-col md:flex-row items-stretch justify-around text-center gap-6 md:gap-8">
+                    {/* Option 1: Acelerada */}
+                    <div className="border-2 border-green-500 rounded-lg p-6 flex-1 flex flex-col items-center">
+                        <p className="text-6xl md:text-8xl font-bold text-slate-900">30 días</p>
+                        <p className="text-base text-green-600 font-bold uppercase mb-2">Implementación Acelerada</p>
+                        <div className="my-4 space-y-2 min-h-[68px] flex flex-col justify-center">
+                            <p className="text-slate-600 text-lg md:text-xl font-semibold line-through">+€4,000</p>
+                            <p className="text-green-600 text-lg md:text-xl font-bold bg-green-100 px-3 py-1 rounded-md inline-block">GRATIS (Antes del 30 Oct)</p>
+                        </div>
+                        <p className="text-slate-800 mt-auto text-lg md:text-xl font-semibold">Online: 1 de Diciembre</p>
                     </div>
-                    <div className="text-3xl md:text-5xl font-light text-slate-300">+</div>
-                    <div>
-                        <p className="text-base text-cyan-600 font-bold uppercase mb-2">Fase 2: Optimización Continua</p>
-                        <p className="text-6xl md:text-8xl font-bold text-slate-900">Meses 3-12</p>
-                        <p className="text-slate-600 mt-2 text-lg md:text-xl max-w-sm">Ajuste colaborativo para maximizar el rendimiento y la adopción.</p>
+
+                    <div className="self-center text-3xl md:text-5xl font-light text-slate-400">ó</div>
+
+                    {/* Option 2: Normal */}
+                    <div className="border-2 border-slate-300 rounded-lg p-6 flex-1 flex flex-col items-center">
+                         <p className="text-6xl md:text-8xl font-bold text-slate-900">90 días</p>
+                        <p className="text-base text-cyan-600 font-bold uppercase mb-2">Velocidad Normal</p>
+                         <div className="my-4 space-y-2 min-h-[68px] flex flex-col justify-center">
+                             <p className="text-slate-600 text-lg md:text-xl font-semibold">Incluido en el plan</p>
+                         </div>
+                         <p className="text-slate-800 mt-auto text-lg md:text-xl font-semibold">Online: 31 de Enero</p>
                     </div>
                 </div>
             </div>
