@@ -26,8 +26,8 @@ const itemVariants = {
 
 export const Slide02: React.FC = () => {
   return (
-    <SlideWrapper className="p-16">
-      <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-16" style={{ fontFamily: "'Playfair Display', serif" }}>Agenda</h2>
+    <SlideWrapper className="p-6 md:p-16">
+      <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-8 md:mb-16" style={{ fontFamily: "'Playfair Display', serif" }}>Agenda</h2>
       <motion.div
         className="space-y-6"
         variants={listVariants}
@@ -39,12 +39,12 @@ export const Slide02: React.FC = () => {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="flex items-center gap-8 p-6 bg-slate-50 rounded-lg border border-slate-200 hover:border-cyan-500/50 hover:bg-white transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
+            className="flex items-center gap-4 md:gap-8 p-4 md:p-6 bg-slate-50 rounded-lg border border-slate-200 hover:border-cyan-500/50 hover:bg-white transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg"
           >
-            <div className="flex-shrink-0 w-24 h-24 flex items-center justify-center bg-slate-100 text-cyan-500 rounded-lg">
+            <div className="flex-shrink-0 w-16 h-16 md:w-24 md:h-24 flex items-center justify-center bg-slate-100 text-cyan-500 rounded-lg">
               {item.icon}
             </div>
-            <p className="text-5xl font-medium text-slate-800">{item.text}</p>
+            <p className="text-3xl md:text-5xl font-medium text-slate-800">{item.text}</p>
           </motion.div>
         ))}
       </motion.div>

@@ -92,8 +92,8 @@ const slides = [
 
 export default function App() {
   return (
-    <div className="w-full bg-white font-sans text-base flex flex-col items-center py-12 px-8">
-      <main className="w-full max-w-7xl space-y-24">
+    <div className="w-full bg-white font-sans text-base flex flex-col items-center py-8 sm:py-12 px-4 sm:px-6 md:px-8">
+      <main className="w-full max-w-7xl space-y-16 md:space-y-24">
         {slides.map((SlideComponent, index) => (
           <SlideComponent key={index} />
         ))}

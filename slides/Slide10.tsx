@@ -31,8 +31,8 @@ const AnimatedStat = ({ value, suffix = '' }: { value: number; suffix?: string; 
     
     return (
         <div className="flex items-baseline justify-center">
-            <motion.p className="text-6xl font-bold text-slate-900">{rounded}</motion.p>
-            <p className="text-6xl font-bold text-slate-900">{suffix}</p>
+            <motion.p className="text-5xl md:text-6xl font-bold text-slate-900">{rounded}</motion.p>
+            <p className="text-5xl md:text-6xl font-bold text-slate-900">{suffix}</p>
         </div>
     );
 };
@@ -44,30 +44,30 @@ export const Slide10: React.FC = () => {
     ];
 
     return (
-        <SlideWrapper className="p-16">
-            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Analista Masivo de Documentos</h2>
-            <p className="text-3xl text-slate-600 mb-10">Precisión absoluta garantizada.</p>
+        <SlideWrapper className="p-6 md:p-16">
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-slate-900 mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 3: Analista Masivo de Documentos</h2>
+            <p className="text-2xl md:text-3xl text-slate-600 mb-10">Precisión absoluta garantizada.</p>
 
-            <div className="grid grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div className="space-y-6">
                     {features.map((feature, i) => (
                         <div key={i} className="bg-slate-50/50 p-6 rounded-lg flex items-center gap-6 border border-slate-200">
                             <div className="text-cyan-500">{feature.icon}</div>
-                            <p className="text-3xl text-slate-700">{feature.text}</p>
+                            <p className="text-2xl md:text-3xl text-slate-700">{feature.text}</p>
                         </div>
                     ))}
                     <div className="grid grid-cols-2 gap-6 pt-4">
                         {benefits.map(b=>(
                             <div key={b.l} className="bg-slate-50/50 p-4 rounded-lg text-center border border-slate-200">
                                 <AnimatedStat value={b.v} suffix={b.s} />
-                                <p className="text-lg text-slate-500 uppercase tracking-wider mt-1">{b.l}</p>
+                                <p className="text-base md:text-lg text-slate-500 uppercase tracking-wider mt-1">{b.l}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="bg-blue-600/10 border-2 border-blue-500/50 rounded-xl p-8 flex flex-col justify-center items-center text-center">
-                    <h3 className="text-5xl font-bold text-blue-600 flex items-center gap-4 mb-6">
+                <div className="bg-blue-600/10 border-2 border-blue-500/50 rounded-xl p-6 md:p-8 flex flex-col justify-center items-center text-center">
+                    <h3 className="text-4xl md:text-5xl font-bold text-blue-600 flex items-center gap-4 mb-6">
                         <motion.div
                              animate={{ scale: [1, 1.05, 1] }}
                              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
@@ -76,13 +76,13 @@ export const Slide10: React.FC = () => {
                         </motion.div>
                         <span>Garantizado</span>
                     </h3>
-                    <p className="text-[6rem] leading-none font-bold text-slate-900">0%</p>
-                    <p className="text-4xl font-semibold text-blue-600 mt-2">Alucinaciones</p>
+                    <p className="text-7xl md:text-[6rem] leading-none font-bold text-slate-900">0%</p>
+                    <p className="text-3xl md:text-4xl font-semibold text-blue-600 mt-2">Alucinaciones</p>
                      <ul className="space-y-3 mt-8 text-left">
                         {guarantees.map((item, i) => (
                             <li key={i} className="flex items-start gap-3">
                                 <Check className="text-blue-600 mt-1.5 flex-shrink-0" size={24}/>
-                                <span className="text-slate-700 text-xl">{item}</span>
+                                <span className="text-slate-700 text-lg md:text-xl">{item}</span>
                             </li>
                         ))}
                     </ul>

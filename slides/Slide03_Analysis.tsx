@@ -17,7 +17,7 @@ const simonePoints = [
 
 const Card = ({ title, points, icon }: { title: string; points: { text: React.ReactNode }[]; icon: React.ReactNode; }) => (
     <motion.div 
-        className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 flex flex-col h-full"
+        className="bg-slate-50/50 rounded-xl p-6 md:p-8 border border-slate-200 flex flex-col h-full"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -27,9 +27,9 @@ const Card = ({ title, points, icon }: { title: string; points: { text: React.Re
             <div className="w-16 h-16 bg-cyan-500/10 text-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
                 {icon}
             </div>
-            <h3 className="text-4xl font-bold text-slate-800">{title}</h3>
+            <h3 className="text-3xl md:text-4xl font-bold text-slate-800">{title}</h3>
         </div>
-        <ul className="space-y-4 text-2xl text-slate-700 flex-grow">
+        <ul className="space-y-4 text-xl md:text-2xl text-slate-700 flex-grow">
             {points.map((point, index) => (
                 <motion.li 
                     key={index} 
@@ -49,11 +49,11 @@ const Card = ({ title, points, icon }: { title: string; points: { text: React.Re
 
 export const Slide03_Analysis: React.FC = () => {
     return (
-        <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Una Solución a su Medida</h2>
-            <p className="text-3xl text-slate-600 mb-12 text-center">Hemos escuchado sus desafíos y diseñado una respuesta directa.</p>
+        <SlideWrapper className="p-6 md:p-16">
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Una Solución a su Medida</h2>
+            <p className="text-xl md:text-3xl text-slate-600 mb-8 md:mb-12 text-center">Hemos escuchado sus desafíos y diseñado una respuesta directa.</p>
 
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <Card title="Para el Área Legal y Estrategia (Ignacio)" points={ignacioPoints} icon={<Target size={32}/>} />
                 <Card title="Para la Operativa Diaria y Clientes (Simone)" points={simonePoints} icon={<Webhook size={32}/>} />
             </div>

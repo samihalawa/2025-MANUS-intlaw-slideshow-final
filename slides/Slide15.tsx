@@ -57,22 +57,22 @@ const addons = [
 
 export const Slide15: React.FC = () => {
   return (
-    <SlideWrapper className="p-16 bg-slate-50/50">
-      <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-4 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Inversión Estratégica</h2>
-      <p className="text-3xl text-slate-600 mb-12 text-center max-w-4xl mx-auto">Una estructura de valor transparente con una oferta de asociación preferente.</p>
+    <SlideWrapper className="p-6 md:p-16 bg-slate-50/50">
+      <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-4 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Inversión Estratégica</h2>
+      <p className="text-xl md:text-3xl text-slate-600 mb-12 text-center max-w-4xl mx-auto">Una estructura de valor transparente con una oferta de asociación preferente.</p>
       
       <motion.div 
-        className="bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden"
+        className="bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-x-auto"
         initial={{ y: 20 }}
         whileInView={{ y: 0 }}
         viewport={{ once: true }}
       >
-        <table className="w-full text-lg">
+        <table className="w-full text-lg min-w-[1000px]">
           <thead>
             <tr className="border-b border-slate-300">
-              <th className="w-1/2 p-6 text-left text-xl font-bold text-slate-700 uppercase tracking-wider">Características Principales Incluidas</th>
-              <th className="w-1/4 p-6 text-center text-xl font-bold text-slate-700 uppercase tracking-wider">Asociación Estratégica</th>
-              <th className="w-1/4 p-6 text-center text-xl font-bold text-white uppercase tracking-wider bg-slate-800">
+              <th className="w-1/2 p-6 text-left text-base md:text-xl font-bold text-slate-700 uppercase tracking-wider">Características Principales Incluidas</th>
+              <th className="w-1/4 p-6 text-center text-base md:text-xl font-bold text-slate-700 uppercase tracking-wider">Asociación Estratégica</th>
+              <th className="w-1/4 p-6 text-center text-base md:text-xl font-bold text-white uppercase tracking-wider bg-slate-800">
                 <div className="flex items-center justify-center gap-2">
                   <Star className="text-yellow-400" size={20} fill="currentColor" />
                   Oferta FastDeal
@@ -85,8 +85,8 @@ export const Slide15: React.FC = () => {
             {modules.map((module) => (
               <tr key={module.name}>
                 <td className="p-6 align-top">
-                  <p className="font-bold text-2xl text-slate-800 mb-3">{module.name}</p>
-                  <ul className="space-y-2">
+                  <p className="font-bold text-xl md:text-2xl text-slate-800 mb-3">{module.name}</p>
+                  <ul className="space-y-2 text-base md:text-lg">
                     {module.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-3 text-slate-600">
                         {feature.icon}
@@ -95,18 +95,18 @@ export const Slide15: React.FC = () => {
                     ))}
                   </ul>
                 </td>
-                <td className="p-6 text-center align-middle font-semibold text-2xl text-slate-800">
+                <td className="p-6 text-center align-middle font-semibold text-xl md:text-2xl text-slate-800">
                   {module.standardPrice}
                 </td>
                 <td className="p-6 text-center align-middle bg-cyan-500/5">
-                  <span className="text-slate-500 line-through text-lg">{module.standardPrice}</span>
-                  <span className="font-bold text-3xl text-cyan-600 ml-2">{module.offerPrice}</span>
+                  <span className="text-slate-500 line-through text-base md:text-lg">{module.standardPrice}</span>
+                  <span className="font-bold text-2xl md:text-3xl text-cyan-600 ml-2">{module.offerPrice}</span>
                   <span className="block text-sm font-semibold text-green-600 mt-1">Ahorro 20%</span>
                 </td>
               </tr>
             ))}
             <tr>
-              <td className="p-6 font-semibold text-2xl text-slate-800" colSpan={3}>Módulos Premium Adicionales</td>
+              <td className="p-6 font-semibold text-xl md:text-2xl text-slate-800" colSpan={3}>Módulos Premium Adicionales</td>
             </tr>
             {addons.map(addon => (
               <tr key={addon.name}>
@@ -115,7 +115,7 @@ export const Slide15: React.FC = () => {
                 <td className="text-center font-bold text-green-600 bg-cyan-500/5">Incluido</td>
               </tr>
             ))}
-            <tr className="bg-slate-100 font-bold text-2xl">
+            <tr className="bg-slate-100 font-bold text-xl md:text-2xl">
               <td className="p-6 text-slate-800">INVERSIÓN TOTAL</td>
               <td className="p-6 text-center text-slate-800">
                 €60,000
@@ -125,7 +125,7 @@ export const Slide15: React.FC = () => {
                 €48,000
               </td>
             </tr>
-             <tr className="font-bold text-2xl">
+             <tr className="font-bold text-xl md:text-2xl">
               <td className="p-6 text-green-700">AHORRO TOTAL (FastDeal)</td>
               <td className="p-6 text-center"></td>
               <td className="p-6 text-center text-green-700 bg-green-500/10">

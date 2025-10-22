@@ -4,27 +4,27 @@ import { motion } from 'framer-motion';
 
 export const Slide17: React.FC = () => {
   return (
-    <SlideWrapper className="flex flex-col items-center justify-center p-16 text-center bg-grid-pattern-light relative pb-48">
+    <SlideWrapper className="flex flex-col items-center justify-center p-6 md:p-16 text-center bg-grid-pattern-light relative pb-48 md:pb-56 min-h-screen">
        <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white"></div>
       <div className="relative z-10">
-        <h2 className="text-[10rem] leading-none font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
+        <h2 className="text-6xl sm:text-8xl lg:text-[10rem] leading-none font-bold tracking-tighter text-slate-900 mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
           Gracias.
         </h2>
-        <p className="text-4xl text-slate-700 max-w-4xl leading-relaxed">
+        <p className="text-2xl md:text-4xl text-slate-700 max-w-4xl leading-relaxed">
           Una invitación para liderar el futuro de la práctica legal.
         </p>
 
         <div className="mt-24 border-t-2 border-cyan-500/50 pt-10 inline-block">
-            <p className="text-2xl font-semibold text-slate-800">Sami Halawa</p>
-            <p className="text-xl text-slate-600 mb-4">Project Lead</p>
-            <p className="text-6xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <p className="text-xl md:text-2xl font-semibold text-slate-800">Sami Halawa</p>
+            <p className="text-lg md:text-xl text-slate-600 mb-4">Project Lead</p>
+            <p className="text-5xl md:text-6xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">INTLAW</span>
                 <span className="text-slate-800"> AI</span>
             </p>
-            <p className="text-xl text-slate-500 mt-4">sami@agentsai.ltd</p>
+            <p className="text-lg md:text-xl text-slate-500 mt-4">sami@agentsai.ltd</p>
         </div>
       </div>
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-6xl px-8 text-xs text-slate-500 text-center space-y-2">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full max-w-6xl px-4 md:px-8 text-xs text-slate-500 text-center space-y-2">
         <p className="italic">
           <strong>Confidentiality Statement:</strong> This document contains confidential information of AGENTS AI Limited and is for the information of the intended recipient only. Any reproduction, distribution or disclosure of any part of this document is strictly prohibited without the prior written consent of the Company.
         </p>

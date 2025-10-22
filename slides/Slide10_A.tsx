@@ -25,28 +25,6 @@ const steps = [
 
 export const Slide10_A: React.FC = () => {
     return (
-        <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>El Motor de Crecimiento Proactivo</h2>
-            <p className="text-3xl text-slate-600 mb-12 text-center">Convierta el mercado entero en su base de datos de clientes potenciales.</p>
-            <div className="grid grid-cols-4 gap-8">
-                {steps.map((step, i) => (
-                    <motion.div 
-                        key={step.title}
-                        className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 text-center flex flex-col items-center hover:bg-white hover:shadow-lg transition-all"
-                        custom={i}
-                        variants={stepVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.5 }}
-                    >
-                        <div className="w-24 h-24 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg mb-6">
-                            {step.icon}
-                        </div>
-                        <h3 className="text-3xl font-bold text-slate-800 mb-4">{step.title}</h3>
-                        <p className="text-xl text-slate-600 flex-grow">{step.desc}</p>
-                    </motion.div>
-                ))}
-            </div>
-        </SlideWrapper>
-    );
-};
+        <SlideWrapper className="p-6 md:p-16">
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>El Motor de Crecimiento Proactivo</h2>
+            <p className="text-xl md:text-3xl text-slate-600 mb-

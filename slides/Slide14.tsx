@@ -12,12 +12,12 @@ const benefits = [
 
 export const Slide14: React.FC = () => {
     return (
-        <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-16 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Beneficios Clave</h2>
-            <div className="grid grid-cols-2 gap-10">
+        <SlideWrapper className="p-6 md:p-16">
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-slate-900 mb-8 md:mb-16 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Beneficios Clave</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {benefits.map((benefit, i) => (
-                    <div key={benefit.title} className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 hover:border-cyan-500/50 hover:bg-white transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl">
-                        <div className="flex items-center gap-6 mb-5">
+                    <div key={benefit.title} className="bg-slate-50/50 rounded-xl p-6 md:p-8 border border-slate-200 hover:border-cyan-500/50 hover:bg-white transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl">
+                        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 mb-5">
                             <motion.div
                                 className="w-20 h-20 flex-shrink-0 flex items-center justify-center bg-cyan-500/10 text-cyan-500 rounded-lg"
                                 animate={{ scale: [1, 1.05, 1] }}
@@ -25,9 +25,9 @@ export const Slide14: React.FC = () => {
                             >
                                 {benefit.icon}
                             </motion.div>
-                            <h3 className="text-4xl font-bold text-slate-900">{benefit.title}</h3>
+                            <h3 className="text-3xl md:text-4xl font-bold text-slate-900">{benefit.title}</h3>
                         </div>
-                        <p className="text-2xl text-slate-600 pl-24">{benefit.desc}</p>
+                        <p className="text-xl md:text-2xl text-slate-600 md:pl-24">{benefit.desc}</p>
                     </div>
                 ))}
             </div>

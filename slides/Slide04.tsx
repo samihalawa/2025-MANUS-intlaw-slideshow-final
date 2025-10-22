@@ -31,19 +31,19 @@ const stats = [
 
 export const Slide04: React.FC = () => {
   return (
-    <SlideWrapper className="p-16 flex flex-col items-center justify-center text-center">
-      <h2 className="text-8xl font-bold tracking-tighter text-slate-900" style={{ fontFamily: "'Playfair Display', serif" }}>Visión: INTLAW AI</h2>
-      <p className="mt-4 text-3xl text-slate-600">Un ecosistema legal inteligente y proactivo.</p>
+    <SlideWrapper className="p-6 md:p-16 flex flex-col items-center justify-center text-center">
+      <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-slate-900" style={{ fontFamily: "'Playfair Display', serif" }}>Visión: INTLAW AI</h2>
+      <p className="mt-4 text-xl md:text-3xl text-slate-600">Un ecosistema legal inteligente y proactivo.</p>
       
-      <div className="mt-16 w-full max-w-6xl">
-        <h3 className="text-3xl font-semibold text-slate-700 mb-12 tracking-wider uppercase">Dashboard de Impacto</h3>
-        <div className="grid grid-cols-2 gap-8">
+      <div className="mt-12 md:mt-16 w-full max-w-6xl">
+        <h3 className="text-2xl md:text-3xl font-semibold text-slate-700 mb-8 md:mb-12 tracking-wider uppercase">Dashboard de Impacto</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {stats.map((stat, index) => {
                 const isAnimatable = !isNaN(parseInt(stat.value.replace(/[^0-9]/g, '')));
                 const numberValue = isAnimatable ? parseInt(stat.value.replace(/[^0-9]/g, '')) : 0;
                 
                 return (
-                    <div key={stat.label} className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 shadow-lg flex flex-col items-center justify-center hover:bg-white transition-colors duration-300">
+                    <div key={stat.label} className="bg-slate-50/50 rounded-xl p-6 md:p-8 border border-slate-200 shadow-lg flex flex-col items-center justify-center hover:bg-white transition-colors duration-300">
                         <motion.div 
                           className="text-cyan-500 mb-6"
                           animate={{ scale: [1, 1.1, 1], y: [0, -5, 0] }}
@@ -51,7 +51,7 @@ export const Slide04: React.FC = () => {
                         >
                           {stat.icon}
                         </motion.div>
-                        <div className="text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
+                        <div className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">
                             {stat.value.startsWith('>') && '>'}
                             {stat.value.startsWith('+') && '+'}
                              {stat.value.startsWith('<') && '<'}
@@ -59,7 +59,7 @@ export const Slide04: React.FC = () => {
                             {stat.value.endsWith('%') && '%'}
                             {stat.value.endsWith('s') && 's'}
                         </div>
-                        <div className="mt-4 text-2xl font-semibold text-slate-600 uppercase tracking-widest">{stat.label}</div>
+                        <div className="mt-4 text-xl md:text-2xl font-semibold text-slate-600 uppercase tracking-widest">{stat.label}</div>
                     </div>
                 );
             })}
