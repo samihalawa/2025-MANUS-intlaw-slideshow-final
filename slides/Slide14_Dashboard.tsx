@@ -1,95 +1,106 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
-import { Zap, TrendingUp, ShieldCheck, Award } from 'lucide-react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { Zap, TrendingUp, BarChart, LineChart } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-const AnimatedNumber = ({ value, suffix = '', duration = 1.5 }: { value: number; suffix?: string; duration?: number; }) => {
-    const count = useMotionValue(0);
-    const rounded = useTransform(count, latest => Math.round(latest));
-    
-    useEffect(() => {
-        const controls = animate(count, value, { duration, repeat: Infinity, repeatDelay: 4, ease: 'easeOut' });
-        return () => controls.stop();
-    }, [value, duration]);
-
-    return (
-        <>
-            <motion.span>{rounded}</motion.span>
-            {suffix}
-        </>
-    );
-};
-
-const BarChart = ({ data }: { data: { label: string; value: number; color: string; }[] }) => (
-    <div className="flex items-end justify-around h-48">
-        {data.map(item => (
-            <div key={item.label} className="flex flex-col items-center">
-                <motion.div 
-                    className={`w-16 rounded-t-md ${item.color}`}
-                    initial={{ height: 0 }}
-                    animate={{ height: `${item.value}%` }}
-                    transition={{ duration: 1, ease: 'easeOut' }}
-                ></motion.div>
-                <p className="mt-2 text-sm font-semibold text-slate-600">{item.label}</p>
-            </div>
-        ))}
+const StatCard = ({ icon, title, value, subtitle }: { icon: React.ReactNode; title: string; value: string; subtitle: string; }) => (
+     <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200">
+        <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3">{icon}{title}</h3>
+        <div className="text-center">
+            <p className="text-7xl font-bold text-cyan-500">{value}</p>
+            <p className="text-slate-600 text-lg">{subtitle}</p>
+        </div>
     </div>
 );
 
-export const Slide14_Dashboard: React.FC = () => {
-    const efficiencyData = [
-        { label: 'Antes', value: 25, color: 'bg-slate-300' },
-        { label: 'Después', value: 85, color: 'bg-cyan-500' },
-    ];
-     const capacityData = [
-        { label: 'Antes', value: 40, color: 'bg-slate-300' },
-        { label: 'Después', value: 90, color: 'bg-cyan-500' },
-    ];
+const PnLChart = () => (
+    <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200 col-span-2">
+        <h3 className="text-3xl font-bold text-slate-800 mb-4 flex items-center gap-3"><LineChart className="text-cyan-500"/> Proyección de P&L a 12 Meses</h3>
+        <div className="relative h-64">
+            {/* Chart Grid Lines */}
+            {[...Array(4)].map((_, i) => (
+                <div key={i} className="absolute w-full border-t border-slate-300/50" style={{ bottom: `${(i + 1) * 20}%` }}></div>
+            ))}
+            
+            {/* Chart Lines */}
+            <svg className="absolute w-full h-full">
+                {/* Costs Line */}
+                <motion.path
+                    d="M 0 192 Q 128 188, 256 182 T 512 170 T 768 160 T 1024 150"
+                    stroke="#f59e0b" strokeWidth="4" fill="none"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1.5, ease: 'easeInOut' }}
+                />
+                {/* Revenue Line */}
+                <motion.path
+                    d="M 0 230 Q 128 220, 256 160 T 512 80 T 768 40 T 1024 20"
+                    stroke="#06b6d4" strokeWidth="4" fill="none"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{ duration: 1.5, ease: 'easeInOut' }}
+                />
+                {/* Profit Area */}
+                 <motion.path
+                    d="M 230 165 L 1024 150 L 1024 20 L 230 165 Z"
+                    fill="url(#profitGradient)"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 1.5 }}
+                />
+                <defs>
+                    <linearGradient id="profitGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.3"/>
+                    <stop offset="100%" stopColor="#10b981" stopOpacity="0"/>
+                    </linearGradient>
+                </defs>
+            </svg>
 
+             {/* Annotation */}
+             <motion.div 
+                className="absolute"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.8 }}
+                style={{ left: '22%', top: '60%'}}
+             >
+                <div className="w-3 h-3 bg-green-500 rounded-full ring-4 ring-white"></div>
+                <div className="bg-slate-800 text-white font-semibold px-3 py-1 rounded-md text-sm absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap">
+                    ROI Breakeven (Mes ~4)
+                </div>
+             </motion.div>
+        </div>
+         <div className="flex justify-between text-sm font-semibold text-slate-500 mt-2 px-4">
+            <span>Inicio</span><span>Mes 3</span><span>Mes 6</span><span>Mes 9</span><span>Mes 12</span>
+        </div>
+        <div className="flex gap-6 mt-4">
+            <div className="flex items-center gap-2"><div className="w-4 h-4 bg-cyan-500 rounded"></div><span className="font-semibold">Ingresos</span></div>
+            <div className="flex items-center gap-2"><div className="w-4 h-4 bg-amber-500 rounded"></div><span className="font-semibold">Costes Operativos</span></div>
+            <div className="flex items-center gap-2"><div className="w-4 h-4 bg-green-500/50 rounded"></div><span className="font-semibold">Beneficio Neto</span></div>
+        </div>
+    </div>
+);
+
+
+export const Slide14_Dashboard: React.FC = () => {
     return (
         <SlideWrapper className="p-12 flex flex-col">
             <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Dashboard de Retorno de Inversión (ROI)</h2>
-            <p className="text-2xl text-slate-600 mb-8 text-center">Visualizando el impacto tangible de INTLAW AI.</p>
-            <div className="grid grid-cols-2 grid-rows-2 gap-8 flex-grow">
-                {/* Eficiencia */}
-                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200">
-                    <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><Zap className="text-cyan-500"/> Aumento de Eficiencia</h3>
-                    <div className="text-center mb-4">
-                        <p className="text-6xl font-bold text-cyan-500">
-                           +<AnimatedNumber value={60} suffix="%" />
-                        </p>
-                        <p className="text-slate-600 text-lg">En tareas automatizables</p>
-                    </div>
-                    <BarChart data={efficiencyData} />
-                </div>
-                 {/* Crecimiento */}
-                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200">
-                     <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><TrendingUp className="text-cyan-500"/> Capacidad de Crecimiento</h3>
-                     <div className="text-center mb-4">
-                        <p className="text-6xl font-bold text-cyan-500">
-                           +<AnimatedNumber value={25} suffix="%" />
-                        </p>
-                        <p className="text-slate-600 text-lg">Casos gestionados sin ampliar equipo</p>
-                    </div>
-                     <BarChart data={capacityData} />
-                </div>
-                 {/* Reducción Errores */}
-                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200 flex flex-col items-center justify-center text-center">
-                     <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><ShieldCheck className="text-cyan-500"/> Reducción de Errores</h3>
-                     <p className="text-xl text-slate-500 line-through">15% Tasa de Error Humano</p>
-                     <p className="text-7xl font-bold text-cyan-500 mt-2">
-                        &lt;<AnimatedNumber value={1} suffix="%" />
-                     </p>
-                     <p className="text-slate-600 text-lg mt-2">En análisis y redacción documental</p>
-                </div>
-                 {/* Liderazgo */}
-                <div className="bg-slate-50/70 rounded-2xl p-6 border border-slate-200 flex flex-col items-center justify-center text-center">
-                     <h3 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-3"><Award className="text-cyan-500"/> Liderazgo e Innovación</h3>
-                     <p className="text-7xl font-bold text-cyan-500">
-                        #<AnimatedNumber value={1} />
-                     </p>
-                     <p className="text-slate-600 text-lg mt-2">Posicionamiento como firma líder en tecnología legal</p>
-                </div>
+            <p className="text-2xl text-slate-600 mb-8 text-center">Visualizando el impacto tangible y la proyección financiera.</p>
+            <div className="grid grid-cols-2 gap-8 flex-grow">
+                <StatCard 
+                    icon={<Zap className="text-cyan-500"/>} 
+                    title="Aumento de Eficiencia"
+                    value="+60%"
+                    subtitle="En tareas automatizables"
+                />
+                <StatCard 
+                    icon={<TrendingUp className="text-cyan-500"/>} 
+                    title="Capacidad de Crecimiento"
+                    value="+25%"
+                    subtitle="Casos gestionados sin ampliar equipo"
+                />
+                <PnLChart />
             </div>
         </SlideWrapper>
     );

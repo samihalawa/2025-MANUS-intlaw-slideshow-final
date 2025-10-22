@@ -4,10 +4,11 @@ import { Bot, Lock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInterval } from '../hooks/useInterval';
 
+// FIX: Define the missing 'chatConversation' array to provide content for the chatbot.
 const chatConversation = [
-  { from: 'bot', text: 'Bienvenido. ¿Cómo podemos asistirle?' },
-  { from: 'user', text: 'Solicito información sobre derecho mercantil.' },
-  { from: 'bot', text: 'Por supuesto. Nuestro equipo está especializado en contratos, fusiones y litigios. ¿Tiene un área de interés específica?' },
+  { from: 'bot', text: 'Hola, soy el asistente de INTLAW AI. ¿Cómo puedo ayudarle?' },
+  { from: 'user', text: 'Tengo una consulta sobre derecho mercantil.' },
+  { from: 'bot', text: 'Por supuesto. ¿Podría darme más detalles?' },
 ];
 
 const ChatbotWidget = () => {
@@ -80,7 +81,7 @@ export const Slide06: React.FC = () => {
                 </div>
 
                 {/* Website Content */}
-                <div className="relative h-[450px] overflow-hidden">
+                <div className="relative min-h-[450px] overflow-hidden">
                     <div className="absolute inset-0 bg-slate-300">
                         <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-slate-200">
                             <h1 className="text-6xl font-bold text-slate-900" style={{ fontFamily: "'Playfair Display', serif" }}>MEET THE TEAM</h1>

@@ -31,7 +31,7 @@ export const Slide16: React.FC = () => {
                     </div>
                      <div className="bg-white rounded-lg p-8 border border-slate-200 text-center">
                          <p className="text-base text-slate-500 uppercase mb-4">Pack Express</p>
-                         <p className="text-8xl font-bold text-slate-900">40 días</p>
+                         <p className="text-8xl font-bold text-slate-900">30 días</p>
                          <p className="text-slate-600 mt-2 text-xl">Despliegue rápido enfocado en los módulos de mayor impacto para un ROI acelerado.</p>
                     </div>
                 </div>

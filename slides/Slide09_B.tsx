@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { LayoutDashboard, Users, Briefcase, Settings, Bell, ChevronDown, Sparkles, Target, Database, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -73,6 +73,14 @@ export const Slide09_B: React.FC = () => {
     const [activeTab, setActiveTab] = useState('inbox');
     const navItems = [{ i: <Users size={24}/>, l: 'Leads', a: true }, { i: <Briefcase size={24}/>, l: 'Clientes' }];
 
+    useEffect(() => {
+        const toggleTab = () => {
+            setActiveTab(prev => prev === 'inbox' ? 'prospecting' : 'inbox');
+        };
+        const intervalId = setInterval(toggleTab, 5000);
+        return () => clearInterval(intervalId);
+    }, []);
+
     return (
         <SlideWrapper className="p-8 flex flex-col items-center justify-center">
             <h2 className="text-6xl font-bold tracking-tighter text-slate-900 mb-6 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Dashboard de Oportunidades</h2>
@@ -95,9 +103,13 @@ export const Slide09_B: React.FC = () => {
                                 <Target size={20}/>Prospección IA (Proactivo)
                             </button>
                         </div>
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-lg">IJ</div>
-                            <span className="text-xl font-medium text-slate-700">Ignacio Jové</span>
+                        <div className="flex items-center gap-6">
+                            <Bell className="text-slate-500" size={28}/>
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center font-bold text-lg">SK</div>
+                                <span className="text-xl font-medium text-slate-700">Sami Khouri</span>
+                                <ChevronDown className="text-slate-400" size={20}/>
+                            </div>
                         </div>
                     </header>
                     <main className="p-6 bg-slate-50/30 flex-grow overflow-y-auto">

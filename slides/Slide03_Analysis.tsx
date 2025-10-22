@@ -4,9 +4,9 @@ import { Target, Webhook, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ignacioPoints = [
-    { text: "Análisis de Rentabilidad en 'Mutaciones'" },
-    { text: "Extraer la base de datos de leads de Idealista" },
-    { text: "Establecer P&L mensual por cliente, por socio" },
+    { text: "Procesar 5,000 folios para encontrar las '50 cosas importantes' al instante." },
+    { text: <>Un Agente IA con 0% Alucinaciones (Garantizado) que <i>cita</i> sus fuentes.</> },
+    { text: "Simulación y Estrategia de Casos" },
 ];
 
 const simonePoints = [
@@ -15,7 +15,7 @@ const simonePoints = [
     { text: "Asistencia IA en la creación y personalización de contenidos" },
 ];
 
-const Card = ({ title, points, icon }: { title: string; points: { text: string }[]; icon: React.ReactNode; }) => (
+const Card = ({ title, points, icon }: { title: string; points: { text: React.ReactNode }[]; icon: React.ReactNode; }) => (
     <div className="bg-slate-50/50 rounded-xl p-8 border border-slate-200 flex flex-col h-full">
         <div className="flex items-center gap-4 mb-6">
             <div className="w-16 h-16 bg-cyan-500/10 text-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -47,8 +47,8 @@ export const Slide03_Analysis: React.FC = () => {
             <p className="text-3xl text-slate-600 mb-12 text-center">Hemos escuchado sus desafíos y diseñado una respuesta directa.</p>
 
             <div className="grid grid-cols-2 gap-8">
-                <Card title="Para Ignacio: Eficiencia y Crecimiento" points={ignacioPoints} icon={<Target size={32}/>} />
-                <Card title="Para Simone: Web y Automatización" points={simonePoints} icon={<Webhook size={32}/>} />
+                <Card title="Para el Área Legal: Eficiencia y Precisión" points={ignacioPoints} icon={<Target size={32}/>} />
+                <Card title="Para Captación de Clientes: Crecimiento y Automatización" points={simonePoints} icon={<Webhook size={32}/>} />
             </div>
         </SlideWrapper>
     );

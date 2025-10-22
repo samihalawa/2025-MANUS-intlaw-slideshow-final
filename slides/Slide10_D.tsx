@@ -5,33 +5,41 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInterval } from '../hooks/useInterval';
 
 const resultsData = [
-    { lead: 'Global Estate Corp (CEO: Ana García)', status: 'sending' },
+    { lead: 'Global Estate Corp (CEO: Ana García)', status: 'pending' },
     { lead: 'Luxury Properties SL (Dir. Legal: Carlos Soler)', status: 'pending' },
     { lead: 'Finca Urbana SA (CEO: Elena Ruiz)', status: 'pending' },
 ];
 
 const CampaignWorkflow = () => {
     const [start, setStart] = useState(false);
-    const [results, setResults] = useState(resultsData.map(r => ({ ...r, status: 'pending' })));
+    const [results, setResults] = useState(resultsData);
+
+    useEffect(() => {
+        const runSequence = () => {
+            setStart(true);
+            setResults(resultsData.map(r => ({ ...r, status: 'pending' })));
+        };
+
+        const sequenceTimeout = setTimeout(runSequence, 500); // Initial start
+        const loopInterval = setInterval(runSequence, 9000); // Loop the entire sequence
+
+        return () => {
+            clearTimeout(sequenceTimeout);
+            clearInterval(loopInterval);
+        };
+    }, []);
 
     useInterval(() => {
         if (!start) return;
         
         const nextPendingIndex = results.findIndex(r => r.status === 'pending');
         if (nextPendingIndex !== -1) {
-            // Start sending
             setResults(prev => prev.map((r, i) => i === nextPendingIndex ? { ...r, status: 'sending' } : r));
-            
-            // Finish sending after a delay
             setTimeout(() => {
                  setResults(prev => prev.map((r, i) => i === nextPendingIndex ? { ...r, status: 'sent' } : r));
             }, 1000);
         } else {
-            // If all are sent, reset after a delay
-            setTimeout(() => {
-                setResults(resultsData.map(r => ({...r, status: 'pending'})));
-                setStart(false);
-            }, 3000)
+             setTimeout(() => setStart(false), 2000);
         }
     }, start ? 1500 : null);
 
@@ -52,14 +60,11 @@ const CampaignWorkflow = () => {
                     defaultValue="Empresas de Real Estate en Madrid que hayan realizado transacciones > 1M€ en los últimos 6 meses."
                     readOnly
                 />
-                <motion.button 
-                    onClick={() => setStart(true)}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 px-6 rounded-lg text-xl flex items-center justify-center gap-3 transition-colors disabled:bg-slate-400"
-                    disabled={start}
+                <div 
+                    className="bg-cyan-500 text-white font-bold py-4 px-6 rounded-lg text-xl flex items-center justify-center gap-3 transition-colors"
                 >
                     <Play /> Iniciar
-                </motion.button>
+                </div>
             </div>
         </div>
 
@@ -88,10 +93,11 @@ const CampaignWorkflow = () => {
         <div>
             <h3 className="text-2xl font-bold text-slate-800 mb-4">Resultados de Campaña Activa:</h3>
             <div className="bg-slate-50/80 rounded-lg border border-slate-200 p-4 space-y-3 min-h-[200px]">
+                <AnimatePresence>
                  {results.map((result, i) => (
-                     <AnimatePresence key={i}>
-                     {result.status !== 'pending' &&
+                     result.status !== 'pending' &&
                         <motion.div
+                            key={result.lead + i}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0 }}
@@ -103,9 +109,8 @@ const CampaignWorkflow = () => {
                                 {result.status === 'sending' && <motion.div initial={{opacity:0, scale:0.8}} animate={{opacity:1, scale:1}} exit={{opacity:0, scale:0.8}} key="sending" className="text-lg font-semibold bg-blue-500/10 text-blue-600 px-3 py-1 rounded-full flex items-center gap-2"><Loader size={16} className="animate-spin"/> Enviando...</motion.div>}
                             </AnimatePresence>
                         </motion.div>
-                     }
-                     </AnimatePresence>
                  ))}
+                 </AnimatePresence>
             </div>
         </div>
     </div>
@@ -116,7 +121,7 @@ const CampaignWorkflow = () => {
 export const Slide10_D: React.FC = () => {
     return (
         <SlideWrapper className="p-12 flex flex-col items-center justify-center">
-            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 2: Campañas de Captación Automatizadas ("Objetivo Bomba")</h2>
+            <h2 className="text-7xl font-bold tracking-tighter text-slate-900 text-center mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Módulo 2: Campañas de Captación IA</h2>
             <p className="text-3xl text-slate-600 mb-8 text-center">De una idea a una campaña de prospección en un clic.</p>
             <CampaignWorkflow />
         </SlideWrapper>

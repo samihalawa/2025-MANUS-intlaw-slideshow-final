@@ -22,9 +22,23 @@ export const Slide01: React.FC = () => {
         <p className="mt-8 text-5xl text-slate-700 font-light tracking-wide">
           La Práctica Legal, Reinventada.
         </p>
-        <div className="mt-16 inline-block bg-slate-100/50 border border-slate-200 rounded-lg px-12 py-5">
+        <motion.div 
+          className="mt-16 inline-block bg-slate-100/50 border border-slate-200 rounded-lg px-12 py-5"
+          animate={{
+            boxShadow: [
+              "0 0 0 0px rgba(56, 189, 248, 0.3)",
+              "0 0 0 20px rgba(56, 189, 248, 0)",
+              "0 0 0 0px rgba(56, 189, 248, 0)"
+            ]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
           <p className="text-lg font-semibold tracking-widest uppercase text-cyan-500">Propuesta de Colaboración</p>
-        </div>
+        </motion.div>
         <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 text-xs text-slate-500">
           AGENTS AI Limited · 2025
         </div>

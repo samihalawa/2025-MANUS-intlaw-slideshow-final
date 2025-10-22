@@ -14,7 +14,8 @@ const guarantees = [
     'Garantía de reembolso total si se detecta alguna alucinación.',
 ];
 
-const AnimatedStat = ({ value, suffix = '' }) => {
+// FIX: Added types for component props to prevent potential runtime errors and improve type safety.
+const AnimatedStat = ({ value, suffix = '' }: { value: number; suffix?: string; }) => {
     const count = useMotionValue(0);
     const rounded = useTransform(count, latest => Math.round(latest));
 

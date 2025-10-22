@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { FileText, Download, Sparkles, Link, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -47,8 +47,7 @@ const CrmModal = ({ onSelect, onClose }: { onSelect: () => void; onClose: () => 
                     <input type="text" placeholder="Buscar por nombre o empresa..." className="w-full pl-10 p-3 bg-slate-100 rounded-md text-lg"/>
                 </div>
                 <div 
-                    className="p-4 rounded-md hover:bg-cyan-500/10 cursor-pointer border border-transparent hover:border-cyan-500/50"
-                    onClick={onSelect}
+                    className="p-4 rounded-md hover:bg-cyan-500/10 cursor-pointer border border-transparent hover:border-cyan-500/50 bg-cyan-500/5 border-cyan-500/30"
                 >
                     <p className="font-bold text-2xl text-slate-800">TechCorp S.L.</p>
                     <p className="text-slate-500 text-lg">Lead Activo - Prioridad ALTA</p>
@@ -67,6 +66,18 @@ export const Slide13_B: React.FC = () => {
         setIsModalOpen(false);
     };
 
+    useEffect(() => {
+        const sequence = () => {
+            setFormData({ compradora: '', vendedora: '' });
+            setIsModalOpen(false);
+            setTimeout(() => setIsModalOpen(true), 2000);
+            setTimeout(() => handleSelect(), 3500);
+        };
+        sequence();
+        const intervalId = setInterval(sequence, 6000);
+        return () => clearInterval(intervalId);
+    }, []);
+
     return (
         <SlideWrapper className="p-8 flex flex-col relative">
             <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Generación de Documentos Conectada</h2>
@@ -80,11 +91,10 @@ export const Slide13_B: React.FC = () => {
                         <FormInput label="Compradora" value={formData.compradora} />
                         <FormInput label="Vendedora" value={formData.vendedora} />
                     </div>
-                     <button 
-                        onClick={() => setIsModalOpen(true)}
-                        className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-lg transition-colors text-lg flex items-center justify-center gap-3 mb-3">
+                     <div 
+                        className="w-full bg-slate-100 text-slate-800 font-bold py-3 rounded-lg text-lg flex items-center justify-center gap-3 mb-3">
                         <Link /> Importar desde CRM
-                    </button>
+                    </div>
                     <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-4 rounded-lg hover:opacity-90 transition-opacity text-xl flex items-center justify-center gap-3">
                         <Sparkles /> Generar Documento
                     </button>

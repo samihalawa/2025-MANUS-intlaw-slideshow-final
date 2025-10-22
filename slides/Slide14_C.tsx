@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { Euro, FileText, Check, Clock, CheckSquare } from 'lucide-react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
+import { motion, useMotionValue, useTransform, animate, useInView } from 'framer-motion';
 
 interface AnimatedNumberProps {
     value: number;
@@ -10,16 +10,20 @@ interface AnimatedNumberProps {
 }
 
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: AnimatedNumberProps) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
     const count = useMotionValue(0);
     const rounded = useTransform(count, latest => Math.round(latest).toLocaleString('es-ES'));
 
     useEffect(() => {
-        const controls = animate(count, value, { duration: 1.5, ease: 'easeOut', repeat: Infinity, repeatDelay: 4 });
-        return controls.stop;
-    }, [value]);
+        if (isInView) {
+            const controls = animate(count, value, { duration: 1.5, ease: 'easeOut' });
+            return controls.stop;
+        }
+    }, [isInView, value]);
 
     return (
-        <span className="flex items-center justify-center">
+        <span ref={ref} className="flex items-center justify-center">
             {prefix}
             <motion.span>{rounded}</motion.span>
             {suffix}
@@ -74,7 +78,8 @@ export const Slide14_C: React.FC = () => {
             <motion.div 
                 className="bg-slate-50/70 rounded-2xl p-8 border border-slate-200"
                 initial="hidden"
-                animate="visible"
+                whileInView="visible"
+                viewport={{ once: true }}
                 transition={{ staggerChildren: 0.1 }}
             >
                 {/* Header */}
@@ -82,7 +87,6 @@ export const Slide14_C: React.FC = () => {
                     <h2 className="text-4xl font-bold text-slate-900">Caso 4588: Compañía XYZ S.L.</h2>
                     <div className="flex gap-6 text-xl text-slate-600 mt-2">
                         <span><strong className="font-semibold">Tipo:</strong> Contrato Mercantil</span>
-                        <span><strong className="font-semibold">Socio:</strong> Ignacio Jové</span>
                         <span className="flex items-center gap-2"><strong className="font-semibold">Estado:</strong> 
                             <span className="flex items-center gap-2 text-green-600 font-bold">
                                 <motion.div 

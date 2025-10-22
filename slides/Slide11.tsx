@@ -59,7 +59,7 @@ export const Slide11: React.FC = () => {
             <h2 className="text-6xl font-bold tracking-tighter text-slate-900 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Análisis con Citas: 0% Alucinaciones</h2>
             <p className="text-slate-600 text-center mb-6 text-2xl">La IA cita sus fuentes en tiempo real.</p>
 
-            <div className="flex-grow bg-slate-50 rounded-xl border border-slate-200 flex gap-4 p-4">
+            <div className="flex-grow bg-slate-50 rounded-xl border border-slate-200 flex gap-4 p-4 min-h-[600px]">
                 {/* Left Panel - Documents */}
                 <div className="w-1/3 p-4 flex flex-col">
                     <h3 className="font-bold text-slate-900 text-2xl mb-4 flex items-center gap-3"><Folder/>Expediente Activo</h3>

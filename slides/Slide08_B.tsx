@@ -1,7 +1,7 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { Bot, FileText, Briefcase, Target } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const WhatsAppMockup = () => (
     <div className="w-[360px] h-[640px] bg-white rounded-[40px] shadow-2xl border-8 border-slate-800 overflow-hidden mx-auto">
@@ -16,29 +16,39 @@ const WhatsAppMockup = () => (
             </div>
             {/* Chat Area */}
             <div className="flex-grow p-4 bg-[#E5DDD5] space-y-3">
-                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 0.5}}} className="flex justify-start">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Entendido su caso de contrato. Para darle una cotización, por favor, envíeme los documentos relevantes.</div>
+                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 0.5}}} className="flex justify-end">
+                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] text-base shadow">Hola, necesito ayuda con un contrato de compraventa bastante complejo.</div>
                 </motion.div>
-                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 1.5}}} className="flex justify-end">
-                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] text-base shadow flex items-center gap-2"><FileText size={20} className="text-slate-600"/> Contrato_V1.pdf</div>
+                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 1.5}}} className="flex justify-start">
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Entendido. Para analizarlo y asignarle un especialista, ¿podría enviarme el borrador del contrato?</div>
                 </motion.div>
-                <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 2.5}}} className="flex justify-start">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Recibido. Analizando...</div>
+                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 2.8}}} className="flex justify-end">
+                    <div className="bg-[#DCF8C6] p-2 rounded-lg max-w-[80%] text-base shadow flex flex-col items-end">
+                        <div className="flex items-center gap-2 p-2 bg-slate-100/50 rounded-md border border-slate-200 w-full">
+                            <FileText size={32} className="text-slate-600 flex-shrink-0"/> 
+                            <span className="font-semibold">Contrato_V1.pdf</span>
+                        </div>
+                        <span className="mt-1">Aquí está todo.</span>
+                    </div>
                 </motion.div>
                 <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 4.0}}} className="flex justify-start">
-                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Análisis preliminar completado. Caso ID-4588 creado en nuestro sistema.</div>
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Recibido y analizando...</div>
+                </motion.div>
+                <motion.div initial={{opacity:0, y:10}} animate={{opacity:1, y:0, transition: {delay: 5.5}}} className="flex justify-start">
+                    <div className="bg-white p-2 rounded-lg max-w-[80%] text-base shadow">Análisis preliminar completado. Caso ID-4588 creado. Un socio le contactará en breve. Gracias.</div>
                 </motion.div>
             </div>
         </div>
     </div>
 );
 
-const dashboardVariants = {
+// FIX: Explicitly type `dashboardVariants` and `itemVariants` with `Variants` from framer-motion to resolve type errors.
+const dashboardVariants: Variants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.4, delay: 4.5 } }
+    visible: { opacity: 1, transition: { staggerChildren: 0.4, delay: 6.0 } }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { type: 'spring' } }
 };

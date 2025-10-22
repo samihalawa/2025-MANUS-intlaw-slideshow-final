@@ -1,117 +1,103 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
-// Import all slides from the 'slides' directory
+// --- Import all slides from the 'slides' directory ---
+// Section 1: Introduction
 import { Slide01 } from './slides/Slide01';
 import { Slide02 } from './slides/Slide02';
+
+// Section 2: Problem & Vision
 import { Slide03_Analysis } from './slides/Slide03_Analysis';
 import { Slide04 } from './slides/Slide04';
+
+// Section 3: Módulo 1 - Automated Client Intake & Qualification
 import { Slide07_B } from './slides/Slide07_B';
-import { Slide08_B } from './slides/Slide08_B'; // NEW
-import { Slide10_D } from './slides/Slide10_D'; // NEW
+import { Slide08_B } from './slides/Slide08_B';
+import { Slide09_B } from './slides/Slide09_B';
+
+// Section 4: Módulo 2 - Proactive Lead Generation
+import { Slide10_A } from './slides/Slide10_A';
+import { Slide10_B } from './slides/Slide10_B';
+import { Slide10_D } from './slides/Slide10_D';
+import { Slide10_E_Idealista } from './slides/Slide10_E_Idealista';
+
+// Section 5: Módulo 3 - AI Document Agent
+import { Slide10 } from './slides/Slide10';
 import { Slide11_B } from './slides/Slide11_B';
+import { Slide10_C } from './slides/Slide10_C';
+
+// Section 6: Módulo 4 - Connected Document Generation
+import { Slide12 } from './slides/Slide12';
 import { Slide13_B } from './slides/Slide13_B';
-import { Slide14_C } from './slides/Slide14_C'; // NEW
+
+// Section 7: Módulo 5 - Unified Platform
+import { Slide14_C } from './slides/Slide14_C';
+
+// Section 8: Benefits & ROI
+import { Slide14 } from './slides/Slide14';
 import { Slide14_Dashboard } from './slides/Slide14_Dashboard';
+
+// Section 9: Investment & Closing
 import { Slide15 } from './slides/Slide15';
+import { Slide15_Addons } from './slides/Slide15_Addons';
+import { Slide15_SpecialOffer } from './slides/Slide15_SpecialOffer';
+import { Slide15_Assurance } from './slides/Slide15_Assurance';
 import { Slide16 } from './slides/Slide16';
 import { Slide17 } from './slides/Slide17';
 
 // --- MAIN PRESENTATION COMPONENT ---
 
-const SLIDE_WIDTH = 1280;
-const SLIDE_HEIGHT = 720;
-
-// Array of slide components from the 'slides' folder
+// Array of slide components from the 'slides' folder, organized for a logical flow
 const slides = [
+  // Section 1: Introduction
   Slide01,            // 1. Título
   Slide02,            // 2. Agenda
-  Slide03_Analysis,   // 3. Análisis de Necesidades
+  
+  // Section 2: Problem & Vision
+  Slide03_Analysis,   // 3. Análisis de Necesidades (Personalizado)
   Slide04,            // 4. Visión y Dashboard de Impacto
-  Slide07_B,          // 5. Módulo 1: Automatización Web
-  Slide08_B,          // 6. Módulo 1 (Avanzado): Captación Multicanal y Cualificación IA
-  Slide10_D,          // 7. Módulo 2: Campañas de Captación Automatizadas ("Objetivo Bomba")
-  Slide11_B,          // 8. Módulo 3: Agente de Documentos con Citas (0% Alucinaciones)
-  Slide13_B,          // 9. Módulo 4: Generación de Documentos Conectada
-  Slide14_C,          // 10. Plataforma Unificada: Vista del Caso 360°
-  Slide14_Dashboard,  // 11. Dashboard de ROI
-  Slide15,            // 12. Modelo de Inversión
-  Slide16,            // 13. Próximos Pasos
-  Slide17             // 14. Cierre y Agradecimiento
+
+  // Section 3: Módulo 1 - Automated Client Intake & Qualification
+  Slide07_B,          // 5. Automatización Web (Chatbot)
+  Slide08_B,          // 6. Captación Multicanal y Cualificación IA (WhatsApp -> Lead)
+  Slide09_B,          // 7. Dashboard de Oportunidades (Lead in Dashboard)
+
+  // Section 4: Módulo 2 - Proactive Lead Generation
+  Slide10_A,          // 8. Introducción a la Captación Proactiva IA
+  Slide10_B,          // 9. Radar de Oportunidades Proactivas
+  Slide10_D,          // 10. Flujo de Campaña de Captación IA
+  Slide10_E_Idealista,// 11. Caso de Uso: Prospección en Real Estate
+  
+  // Section 5: Módulo 3 - AI Document Agent
+  Slide10,            // 12. Introducción al Agente de Documentos (Garantía 0% Alucinaciones)
+  Slide11_B,          // 13. Demostración: Agente con Citas
+  Slide10_C,          // 14. Demostración: Inteligencia Documental (Mapa de Entidades)
+
+  // Section 6: Módulo 4 - Connected Document Generation
+  Slide12,            // 15. Introducción a la Generación de Documentos (Copilot)
+  Slide13_B,          // 16. Demostración: Generación Conectada a CRM
+  
+  // Section 7: Módulo 5 - Unified Platform
+  Slide14_C,          // 17. Plataforma Unificada: Vista del Caso 360°
+
+  // Section 8: Benefits & ROI
+  Slide14,            // 18. Resumen de Beneficios Clave
+  Slide14_Dashboard,  // 19. Dashboard de ROI y Proyección P&L
+  
+  // Section 9: Investment & Closing
+  Slide15,            // 20. Modelo de Inversión
+  Slide15_Addons,     // 21. Módulos Adicionales
+  Slide15_SpecialOffer, // 22. Oferta Especial por Tiempo Limitado
+  Slide15_Assurance,  // 23. Garantías y Compromiso de Riesgo Cero
+  Slide16,            // 24. Próximos Pasos
+  Slide17             // 25. Cierre y Agradecimiento
 ];
-
-
-// FIX: The original inline prop type for ScaledSlide was causing a TypeScript error
-// with the `key` prop in a list. Defining props with a separate interface resolves this.
-interface ScaledSlideProps {
-  children: React.ReactNode;
-}
-
-/**
- * A component that wraps a slide, scaling it to fit the container's width
- * while maintaining a 16:9 aspect ratio.
- */
-// FIX: Changed to React.FC to correctly handle the 'key' prop in lists.
-const ScaledSlide: React.FC<ScaledSlideProps> = ({ children }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const updateScale = () => {
-      if (containerRef.current) {
-        const { width } = containerRef.current.getBoundingClientRect();
-        setScale(width / SLIDE_WIDTH);
-      }
-    };
-
-    // Use ResizeObserver for robust resizing detection
-    const resizeObserver = new ResizeObserver(updateScale);
-    const currentRef = containerRef.current;
-    if (currentRef) {
-      resizeObserver.observe(currentRef);
-    }
-
-    // Initial scale calculation
-    updateScale();
-
-    return () => {
-      if (currentRef) {
-        resizeObserver.unobserve(currentRef);
-      }
-    };
-  }, []);
-
-  return (
-    <div
-      ref={containerRef}
-      className="w-full"
-      style={{
-        // The container's height is determined by the scaled height of the slide content
-        height: SLIDE_HEIGHT * scale,
-      }}
-    >
-      <div
-        style={{
-          width: SLIDE_WIDTH,
-          height: SLIDE_HEIGHT,
-          transform: `scale(${scale})`,
-          transformOrigin: 'top left',
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-};
-
 
 export default function App() {
   return (
-    <div className="w-full bg-slate-900 font-sans text-base flex flex-col items-center py-12 px-8">
-      <main className="w-full max-w-6xl space-y-8">
+    <div className="w-full bg-white font-sans text-base flex flex-col items-center py-12 px-8">
+      <main className="w-full max-w-7xl space-y-24">
         {slides.map((SlideComponent, index) => (
-          <ScaledSlide key={index}>
-            <SlideComponent />
-          </ScaledSlide>
+          <SlideComponent key={index} />
         ))}
       </main>
     </div>

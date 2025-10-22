@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react';
 
 export function useInterval(callback: () => void, delay: number | null) {
-  const savedCallback = useRef<() => void>();
+  // FIX: Initialize useRef with the callback argument. This resolves the error
+  // about useRef expecting one argument and ensures the ref is always populated with a function.
+  const savedCallback = useRef(callback);
 
   useEffect(() => {
     savedCallback.current = callback;

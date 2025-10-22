@@ -149,7 +149,7 @@ export const Slide07: React.FC = () => {
                     <div className="ml-4 bg-white rounded-full flex-grow h-8 flex items-center px-4 text-sm text-slate-500 border border-slate-200">https://intlaw.eu</div>
                 </div>
 
-                <div className="relative h-[450px] overflow-hidden bg-slate-200 flex items-center justify-center">
+                <div className="relative min-h-[450px] overflow-hidden bg-slate-200 flex items-center justify-center">
                     <p className="text-4xl text-slate-400 font-bold">Contenido del Sitio Web</p>
                     <LeadNotification />
                     <ChatWidgetConversation />

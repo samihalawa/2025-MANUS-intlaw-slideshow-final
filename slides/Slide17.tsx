@@ -27,7 +27,7 @@ export const Slide17: React.FC = () => {
         </motion.div>
 
         <div className="mt-16 border-t-2 border-cyan-500/50 pt-10 inline-block">
-            <p className="text-2xl font-semibold text-slate-800">Ignacio Jové</p>
+            <p className="text-2xl font-semibold text-slate-800">Sami Khouri</p>
             <p className="text-xl text-slate-600 mb-4">Project Lead</p>
             <p className="text-6xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-600">INTLAW</span>

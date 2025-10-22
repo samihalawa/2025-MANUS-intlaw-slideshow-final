@@ -8,7 +8,7 @@ interface SlideWrapperProps {
 export const SlideWrapper: React.FC<SlideWrapperProps> = ({ children, className }) => {
   return (
     <section 
-      className={`bg-white rounded-2xl shadow-2xl shadow-black/30 overflow-hidden relative transition-all duration-300 w-full h-full ring-0 hover:ring-4 ring-cyan-500/50 ${className}`}
+      className={`overflow-hidden relative transition-all duration-300 w-full ${className}`}
     >
       {children}
     </section>

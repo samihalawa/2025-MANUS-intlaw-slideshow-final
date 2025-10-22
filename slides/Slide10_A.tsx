@@ -1,9 +1,10 @@
 import React from 'react';
 import { SlideWrapper } from '../components/SlideWrapper';
 import { Search, Filter, Send, Target } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
-const stepVariants = {
+// FIX: Explicitly type `stepVariants` with `Variants` from framer-motion to resolve the type error.
+const stepVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i:number) => ({
         opacity: 1,
@@ -26,7 +27,7 @@ const steps = [
 export const Slide10_A: React.FC = () => {
     return (
         <SlideWrapper className="p-16">
-            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>"Objetivo Bomba" Realizado</h2>
+            <h2 className="text-8xl font-bold tracking-tighter text-slate-900 mb-2 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>Captación Proactiva IA</h2>
             <p className="text-3xl text-slate-600 mb-12 text-center">Un módulo para la captación proactiva de clientes por nicho.</p>
             <div className="grid grid-cols-4 gap-8">
                 {steps.map((step, i) => (
